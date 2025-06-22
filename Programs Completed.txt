@@ -41,4 +41,10 @@ Arrays-
 10) buy & sell stock problem-
 11) Trapping Rainwater Problem -
 
+Sorting Algorithms - 
+1) Bubble Sort ALgo -
+2) Selection Sort Implementation -
+3) Insertion Sort Algorithm & Inbuilt Sorting technique - 
+4) Counting Sort
+
 
