@@ -16,24 +16,18 @@ int main()
     cout << "size of array - " << endl;
     cin >> n;
 
-    vector<int> arr(n);
-    cout << "Give elements of array  - " << endl;
+    int arr[n];
+    cout<<"Elements are - "<<endl;
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin>>arr[i];
     }
-
-    // Maximum subarray sum -
-    int ans = INT_MIN;
-
-    for (int i = 0; i < n; i++)
+    cout<<"So, the inseretd array is - "<<endl;
+    for (int i = 0; i <= n; i++)
     {
-        int sum = 0;
-        for (int j = i; j < n; j++)
-        {
-            sum += arr[j];
-            ans = max(ans, sum);
-        }
+        cout<<arr[i]<<" ";
     }
-    cout << ans << endl;
+    cout<<endl;
+    
+    
 }
