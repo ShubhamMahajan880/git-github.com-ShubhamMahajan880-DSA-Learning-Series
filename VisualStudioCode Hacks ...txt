@@ -1,0 +1,109 @@
+Ctrl + Shift
+1.	Ctrl + Shift + \  = Jump to matching bracket
+2.	Ctrl + Shift + ` = Create new terminal Integrated terminal
+3.	Ctrl + Shift + Home = Top/First page of file
+4.	Ctrl + Shift + End= Bottom/last page of file
+5.	Ctrl + Shift + Tab OR Ctrl + Shift + PgUp / PgDn OR Ctrl + Tab OR Alt + Left/Right  Arrow = Navigate editor group history – Jitni files khuli he unke bich me switch
+6.	Ctrl + Shift + Enter = Insert Line Above
+7.	Ctrl + Shift + S = Save file in directory
+8.	Ctrl + Shift + T = Reopen the closed tab
+9.	Ctrl + Shift + D = Show Debug
+10.	Ctrl + Shift + E = Show Explorer Files
+11.	Ctrl + Shift + F = Show Search Display
+12.	Ctrl + Shift + F = Uses for ek hi word baar baar h to use select krne k liye
+13.	Ctrl + Shift + G+G = Open Git Controls
+14.	Ctrl + Shift + K = Delete the Line
+15.	Ctrl + Shift + L = kisi word ko select kr k vo word jitni baar h utne cursors create krna
+16.	Ctrl + Shift + M = Show Problems panel
+17.	Ctrl + Shift + N = Open New Window
+18.	Ctrl + Shift + O = Go to Symbol. When we have multiple sections or funcitons
+19.	Ctrl + Shift + P OR F1= Show Command Pallate
+20.	Ctrl + Shift + R =Reload All Extensions & Directory
+21.	Ctrl + Shift + U = Show Output panel
+22.	Ctrl + Shift + W = Close All Windows/Tabs at a time
+23.	Ctrl + Shift + X = Show Extensions
+
+Ctrl +
+1.	ctrl+/ <! --    --> = is a method for comment, for particular line. 
+2.	ctrl+` (back tree) = is uses for open the terminal in visual code studio
+3.	Ctrl+, = User Settings
+4.	Ctrl +. = Generate Documentation
+5.	Ctrl+\ = Split editor. Split that selected editor tab in a separate tab
+6.	Ctrl+↑ / ↓ = Scroll line up/down
+7.	Ctrl+] / [ = Indent/outdent line
+8.	Ctrl+ + - = Zoom in/out
+9.	CTRL + ENTER is shortcut for enter in next line
+10.	Ctrl + Home = Go to beginning of file 
+11.	Ctrl + End = Go to end of file
+12.	Ctrl + Shift + [ = Fold (collapse) region, comment ke under jitna he sb fold inside comment
+13.	Ctrl + Shift +] = Unfold (uncollapse) region, comment ke under jo content folded tha use unfolded
+14.	Ctrl + B = Open/Close Side Bar
+15.	Ctrl + D = Jo word he vo jaha jaha he use ek ek kr select krna
+16.	Ctrl + F = Find
+17.	Ctrl + G = Go to at this line 
+18.	Ctrl + H = Replace
+19.	Ctrl + I = Quick Suggestions, Ask from Copilot
+20.	Ctrl + J = Close and Clear the Terminal 
+21.	Ctrl + K = for clearing terminal by not closing the output window
+22.	Ctrl+ K S = Save All Files in one go
+23.	Ctrl + N = New File
+24.	Ctrl + O = Open File 
+25.	Ctrl + P = Quick Open, Go to File
+26.	Ctrl + S = Save File
+27.	Ctrl + T = Cursor in Search bar
+28.	Ctrl + U = Undo last cursor operation, last selected cursor pr jaana us word ke
+29.	Ctrl + W = Close Editor
+30.	Ctrl + Scroll Up Down = Page Scroll Up and Down
+
+Shift
+1.	Shift + Home = Go at begin of the line
+2.	Shift + End = Go at end of the line
+3.	Shift + Pg up = Scroll Page up
+4.	Shift + Pg Down = Scroll Page Down
+5.	Shift + Delete = Delete current row
+6.	Shift + Fun + Ctrl+ up & down arrow => to change the file tab or reordering of opened tabs
+7.	SHIFT+ ALT + AERROW KEY: - For copy pasting the same line in VS code use
+8.	Shift + Alt + A = Start Multiline Comment OR Block Comment
+9.	Shift + Alt + I = Put cursor at the end of each line which are selected
+
+Alt
+1.	Alt + M = Close the Terminal
+2.	ALT+ Up Arrow/ Down Arrow = for changing line up & down
+3.	ALT+ Z = for converting lorem vertical line to a single paragraph section. 
+4.	ALT + Mouse Click: - Multi cursor concept using 
+
+My Created Shortcuts
+
+1.	Alt + X = to view the Minimap
+2.	Ctrl + Shift + R = Reload all extensions and windows
+3.	Alt + ' = Run Code
+4.	Alt + / = Copy Output from Terminal
+5.	Alt + k = Opne Keyboard SHorcuts
+
+Other Useful
+LoremN  - command is uses for get the paragraph of N words
+F12 = Go to Definition
+F11 – Full Screen or Short Screen as per window size required
+
+
+
+
+
+
+
+VS code Universal Documentation – 
+https://code.visualstudio.com/
+
+TO getting github repo in vs code - 
+use 1s after the respective github repository
+https://github.com/ShubhamMahajan880/Back-to-Data-Structures..-
+https://github1s.com/ShubhamMahajan880/Back-to-Data-Structures..-
+
+
+
+
+
+
+
+
+

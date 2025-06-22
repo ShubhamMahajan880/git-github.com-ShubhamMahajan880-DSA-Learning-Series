@@ -1,0 +1,44 @@
+Into to programming - 
+1) Basic Into to programming and Fundamentals - Conditional & Looping Statement, Break & Continue, Functions, Pointers
+2)  digit sum -
+3) Reverse Number -
+4) Prime no. -
+5) Nested Loops  & Patterns - 
+5.2) Star Pattern
+5.3) Inverted Star Pattern
+5.4) half Pyramid  Pattern
+5.5) Character Pyramid Pattern
+5.6) Hollow Rectangle Pattern
+5.7) Inverted & Rotated Half Pyramid
+5.8) Floyd's Triangle
+5.9) Diamond Pattern
+5.10) Butterfly Pattern
+6) Number System - 
+6.1) Binary to Decimal Conversion -
+6.2) Decimal to Binary -
+
+
+
+Arrays- 
+1)Initiation Methods of an array and Output & input of an array -
+2) Largest Value/Max Element in the array & 2.1) Min Element  -
+3)  Dereferences of Pointer concept in Array -
+4) Linear Search in array -
+5) Reverse an array - 
+5.1) using extra space
+5.2 - W/o using Extra Space1 - 2 POINTERS APPROACH
+6) Binary Search - It always for the Sorted Array
+7) Array Pointer - 
+7.1. Pointer Arithmetic Approaches -
+7.2 - Addition & Subtraction of Constants -
+7.3- Addition & Subtraction of Pointers 
+7.4 - Comparison Operators 
+8) Subarrays -
+9) Max Subarray Sum -
+9.1 - Clearly Brute Force Approach -
+9.2 - Slightly Optimized approach - for decreasing the time complexity
+9.3 - Using Most Optimized Approach - Kadane's Algorithms. For very less TIme Complexity
+10) buy & sell stock problem-
+11) Trapping Rainwater Problem -
+
+
