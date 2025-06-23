@@ -1,7 +1,8 @@
 1. -1 in cpp indicates that no element exist. because every time indexing starts with 0, so can never be -1 for any element
 2. when mentined no need to use EXTRA SPACE - then always use 2 POINTER APPROACH
 3. The arrays which are created additionaly to store the current array values are known as Auxiliary Arrays
-
+4. In 2D matrix it's mandatory to mention any no of colm value to pass in user defined function. OR use the ** pointer
+void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], int n,int m)
 
 
 

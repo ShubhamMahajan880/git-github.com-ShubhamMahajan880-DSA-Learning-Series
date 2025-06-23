@@ -47,4 +47,15 @@ Sorting Algorithms -
 3) Insertion Sort Algorithm & Inbuilt Sorting technique - 
 4) Counting Sort
 
+Matrix in CPP – 
+1) 2D Array Basic Introduction & Input, Output
+2) Spiral matrix -
+3) Diagonal Sum of Matrix -
+4) Search for targeted eleemnt in Sorted Matrix -
+4.1) - Brute Force Approch - most simple method. T.C - O(n*m)
+4.2) - USing Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
+4.3) - Staircase Search technique - O(n+m)
+
+
+
 
