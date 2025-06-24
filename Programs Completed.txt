@@ -18,7 +18,6 @@
 6.2) Decimal to Binary -
 
 
-
 [2] - Arrays- 
 1)Initiation Methods of an array and Output & input of an array -
 2) Largest Value/Max Element in the array & 2.1) Min Element  -
@@ -41,11 +40,13 @@
 10) buy & sell stock problem-
 11) Trapping Rainwater Problem -
 
+
 [3] - Sorting Algorithms - 
 1) Bubble Sort Algo -
 2) Selection Sort Implementation -
 3) Insertion Sort Algorithm & Inbuilt Sorting technique - 
 4) Counting Sort
+
 
 [4] - Matrix in CPP – 
 1) 2D Array Basic Introduction & Input, Output
@@ -56,6 +57,7 @@
 4.2) - Using Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
 4.3) - Staircase Search technique - O(n+m)
 
+
 [5] - Character Array & Strings in CPP – 
 1) Intro to Char Array – 
 2) Covert to Upper Letter -
@@ -64,6 +66,11 @@
 5) Char Array(String) Functions -
 6)String Intro & Basic I/p, o/p operations - 6.1) String Member Functions-
 7) Check the two strings are Anagram or not -
+
+[6] - STL - Vector
+1) Pair_Sum - FInd if any pair in Sorted Array has target sum
+1.1) Brute Forece Approach - using Nested Loops. TC - O(n^2)
+1.3) Uisng Linear Approach - 2 Pointer Approach. TC - O(n)
 
 
 

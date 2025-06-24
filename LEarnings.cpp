@@ -12,9 +12,14 @@ using namespace std;
 
 int main()
 {
-    string t1 = "cat";
-    string t2 = "dog";
-    cout << (t1 != t2) << endl;//1
-    cout << (t1 > t2) << endl;//0
-    cout << (t1 < t2) << endl;//1
+    vector<vector<int>> Matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    for (int i = 0; i < Matrix.size(); i++)
+    {
+        for (int j = 0; j < Matrix[i].size(); j++)
+        {
+            cout << Matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
