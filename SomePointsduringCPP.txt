@@ -3,7 +3,7 @@
 3. The arrays which are created additionaly to store the current array values are known as Auxiliary Arrays
 4. In 2D matrix it's mandatory to mention any no of colm value to pass in user defined function. OR use the ** pointer
 void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], int n,int m)
-
+5 - Diff b/w char arr & string is that - charac. array is simple array of characters while the string is an onject o string class. Strings are dynamic in size while char array are fixed size.
 
 
 

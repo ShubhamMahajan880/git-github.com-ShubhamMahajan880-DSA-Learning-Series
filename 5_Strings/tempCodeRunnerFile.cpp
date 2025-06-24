@@ -1,3 +1,1 @@
-    What's in your mind -
-    Naman
-    Not valid Palindrome
+I got placed with the package of 51 LPA

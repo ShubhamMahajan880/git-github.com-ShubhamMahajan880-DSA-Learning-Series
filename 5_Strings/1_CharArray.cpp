@@ -9,7 +9,7 @@
 // #include<iomanip>
 // #include<cmath>
 using namespace std;
-// 1) Intro to Strings -
+// 1) Intro to Char Array -
 
 // int main()
 // {
@@ -140,7 +140,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 3) Reverse a Char Array -
+//3) Reverse a Char Array -
 // void ReverseCharArray(char word[], int n)
 // {
 //     int st = 0, end = n - 1;
@@ -169,7 +169,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 4) Valid Palindrome in char array -
+//4) Valid Palindrome in char array -
 
 // bool PalindromeWord(char word[], int n)
 // {
@@ -215,7 +215,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 5) String Functions -
+//5) Char Array(String) Functions -
 
 // int main()
 // {

@@ -1,4 +1,4 @@
-Into to programming - 
+[1] - Into to programming - 
 1) Basic Into to programming and Fundamentals - Conditional & Looping Statement, Break & Continue, Functions, Pointers
 2)  digit sum -
 3) Reverse Number -
@@ -19,7 +19,7 @@ Into to programming -
 
 
 
-Arrays- 
+[2] - Arrays- 
 1)Initiation Methods of an array and Output & input of an array -
 2) Largest Value/Max Element in the array & 2.1) Min Element  -
 3)  Dereferences of Pointer concept in Array -
@@ -41,13 +41,13 @@ Arrays-
 10) buy & sell stock problem-
 11) Trapping Rainwater Problem -
 
-Sorting Algorithms - 
+[3] - Sorting Algorithms - 
 1) Bubble Sort ALgo -
 2) Selection Sort Implementation -
 3) Insertion Sort Algorithm & Inbuilt Sorting technique - 
 4) Counting Sort
 
-Matrix in CPP – 
+[4] - Matrix in CPP – 
 1) 2D Array Basic Introduction & Input, Output
 2) Spiral matrix -
 3) Diagonal Sum of Matrix -
@@ -55,6 +55,15 @@ Matrix in CPP –
 4.1) - Brute Force Approch - most simple method. T.C - O(n*m)
 4.2) - USing Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
 4.3) - Staircase Search technique - O(n+m)
+
+[5] - Character Array & Strings in CPP – 
+1) Intro to Char Array – 
+2) Covert to Upper Letter -
+3) Reverse a Char Array -
+4) Valid Palindrome in char array -
+5) Char Array(String) Functions -
+6)String Intro & Basic I/p, o/p operations - 6.1) String Memeber Functions-
+7) Check the two strings are Anagram or not -
 
 
 
