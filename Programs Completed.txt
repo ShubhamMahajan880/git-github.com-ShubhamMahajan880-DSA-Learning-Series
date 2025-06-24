@@ -37,12 +37,12 @@
 9) Max Subarray Sum -
 9.1 - Clearly Brute Force Approach -
 9.2 - Slightly Optimized approach - for decreasing the time complexity
-9.3 - Using Most Optimized Approach - Kadane's Algorithms. For very less TIme Complexity
+9.3 - Using Most Optimized Approach - Kadane's Algorithms. For very less Time Complexity
 10) buy & sell stock problem-
 11) Trapping Rainwater Problem -
 
 [3] - Sorting Algorithms - 
-1) Bubble Sort ALgo -
+1) Bubble Sort Algo -
 2) Selection Sort Implementation -
 3) Insertion Sort Algorithm & Inbuilt Sorting technique - 
 4) Counting Sort
@@ -51,9 +51,9 @@
 1) 2D Array Basic Introduction & Input, Output
 2) Spiral matrix -
 3) Diagonal Sum of Matrix -
-4) Search for targeted eleemnt in Sorted Matrix -
-4.1) - Brute Force Approch - most simple method. T.C - O(n*m)
-4.2) - USing Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
+4) Search for targeted element in Sorted Matrix -
+4.1) - Brute Force Approach - most simple method. T.C - O(n*m)
+4.2) - Using Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
 4.3) - Staircase Search technique - O(n+m)
 
 [5] - Character Array & Strings in CPP – 
@@ -62,7 +62,7 @@
 3) Reverse a Char Array -
 4) Valid Palindrome in char array -
 5) Char Array(String) Functions -
-6)String Intro & Basic I/p, o/p operations - 6.1) String Memeber Functions-
+6)String Intro & Basic I/p, o/p operations - 6.1) String Member Functions-
 7) Check the two strings are Anagram or not -
 
 
