@@ -311,26 +311,26 @@ using namespace std;
 //     int target;
 //     cout << "So, what's the targeted element - " << endl;
 //     cin >> target;
-//     targetElementinMatrix(mat,n,m,target);
-// /* 
-// no. of rows & colms are - 
-// 3 3 
-// Now, enter the array elements - 
-// 1 2 3 4 5 6 7 8 9
-// So, the entered 2D Array si - 
-// 1 2 3 
-// 4 5 6 
-// 7 8 9 
-// So, what's the targeted element - 
-// 6
-// Yes it's present and the address is: row no-  1 & column no-  2 having targeted value-  6
+//     targetElementinMatrix(mat, n, m, target);
+//     /*
+//     no. of rows & colms are -
+//     3 3
+//     Now, enter the array elements -
+//     1 2 3 4 5 6 7 8 9
+//     So, the entered 2D Array si -
+//     1 2 3
+//     4 5 6
+//     7 8 9
+//     So, what's the targeted element -
+//     6
+//     Yes it's present and the address is: row no-  1 & column no-  2 having targeted value-  6
 
-//  */    
+//      */
 // }
-// ____________ ____________ 
+// ____________ ____________
 
 // 4.2) - USing Binary Search - 2nd Optimum - Row Wise - O(n*logn), Colm Wise - O(m*logn)
-// rOW major approach for seareching targeted element in the sorted matrix - 
+// rOW major approach for seareching targeted element in the sorted matrix -
 
 // bool binarySearchInMatrix(int mat[100][100], int n, int m, int target)
 // {
@@ -340,7 +340,7 @@ using namespace std;
 //     while (start <= end)
 //     {
 //         int mid = start + (end - start) / 2;
-        
+
 //         int row = mid / m;
 //         int col = mid % m;
 
@@ -393,23 +393,23 @@ using namespace std;
 //     cin >> target;
 
 //     binarySearchInMatrix(mat, n, m, target);
-// /* 
-// No. of rows & columns are - 
+// /*
+// No. of rows & columns are -
 // 3 3
-// Now, enter the array elements - 
+// Now, enter the array elements -
 // 1 2 3 4 5 6 7 8 9
-// So, the entered 2D Array is - 
-// 1 2 3 
-// 4 5 6 
-// 7 8 9 
-// So, what's the targeted element - 
+// So, the entered 2D Array is -
+// 1 2 3
+// 4 5 6
+// 7 8 9
+// So, what's the targeted element -
 // 8
 // Yes, it's present at row 2 & column 1 having targeted value - 8
 
-//  */    
+//  */
 // }
 
-// ____________ ____________ 
+// ____________ ____________
 
 // 4.3) - Staircase Search technique - O(n+m)
 // Case 1 - when considering the Top Right Most
@@ -581,7 +581,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//5)Important pointer concept for matrix -
+// 5)Important pointer concept for matrix -
 
 // void func(int mat[][4], int n, int m)
 // {
@@ -594,7 +594,7 @@ using namespace std;
 //     cout << "1st row value is - " << *(mat + 1) << endl;//1st row value is - 0x61fef0
 //     cout << "2nd row value is - " << *(mat + 2) << endl;//2nd row value is - 0x61ff00
 //     cout << endl;
-    
+
 //     cout << *(*(mat + 2) + 2) << endl;//11
 // }
 
