@@ -72,6 +72,16 @@
 1.1) Brute Forece Approach - using Nested Loops. TC - O(n^2)
 1.3) Uisng Linear Approach - 2 Pointer Approach. TC - O(n)
 
+[7] Bit Manipulations – 
+1)Bitwise Operators  -
+2) Check if even or odd -
+3) Get ith Bit of a num - 
+4) Set ith Bit - (sets the value to 1) - 
+5)Clr ith Bit - (sets the value to 0)
+6) No. is power of 2 -
+7) Count of Set Bits -
+8) Fast Exponentiation -
+
 
 
 
