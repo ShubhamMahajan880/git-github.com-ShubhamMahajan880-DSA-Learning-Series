@@ -187,39 +187,228 @@ using namespace std;
 // {
 //     Car1 c1("Altroz","Black");
 // }
+// -------------------
 
 // Types of Cosntrcutrs -
 
-class Car2
-{
-    string name;
-    string color;
+// class Car2
+// {
+//     string name;
+//     string color;
 
-public:
-    Car2() // Non- Parameterized Constrcutor
-    {
-        cout << "Constructore w/o parameters " << endl;
-    }
-    Car2(string name, string color) // Parameteizewd constructor
-    {
-        cout << "Constructor with Parameters - " << endl;
-        this->name = name;
-        this->color = color;
-    }
+// public:
+//     Car2() // Non- Parameterized Constrcutor
+//     {
+//         cout << "Constructore w/o parameters " << endl;
+//     }
+//     Car2(string name, string color) // Parameteizewd constructor
+//     {
+//         cout << "Constructor with Parameters - " << endl;
+//         this->name = name;
+//         this->color = color;
+//     }
 
-    // Getter
-    string getName()
-    {
-        return name;
-    }
-};
-int main() 
-{   Car2 c0;//anyh object created for the class. this is non araterized constrcuot
-    Car2 c1("Altroz", "Black");
-    Car2 c2("Mahindra SUV AMT","Dark Blue");
-/* 
-Constructore w/o parameters 
-Constructor with Parameters - 
-Constructor with Parameters - 
- */    
-}
+//     // Getter
+//     string getName()
+//     {
+//         return name;
+//     }
+// };
+// int main()
+// {   Car2 c0;//anyh object created for the class. this is non araterized constrcuot
+//     Car2 c1("Altroz", "Black");
+//     Car2 c2("Mahindra SUV AMT","Dark Blue");
+// /*
+// Constructore w/o parameters
+// Constructor with Parameters -
+// Constructor with Parameters -
+//  */
+// }
+// -------------------
+/*
+Practice Qs
+➡️ Create a User class with properties:
+id (private), username (public) & password (private).
+
+Its id should be initialized in a parameterized constructor.
+
+It should have a Getter & Setter for password.
+ */
+// class User
+// {
+// private:
+//     int id;
+//     string password;
+
+// public:
+//     string username;
+
+//     User(int id)
+//     {
+//         this->id = id; // this mean jo bhi current id h isme created parameter waali id ki value aa kr store ho jaaygi
+//     }
+
+//     // Getter
+//     string getPassword()
+//     {
+//         return password;
+//     }
+
+//     // Setter
+//     void setPassword(string password)
+//     {
+//         this->password = password;
+//     }
+// };
+// int main()
+// {
+//     User user1(101);
+//     user1.username = "MicrosftHyderabad";
+//     user1.setPassword("Shubh@51LPA");
+
+//     cout << "username : " << user1.username << endl;      // username : MicrosftHyderabad
+//     cout << "password : " << user1.getPassword() << endl; // password : Shubh@51LPA
+
+// }
+// -------------------
+
+// Copy Constructor Conceppt -
+// class Car
+// {
+// public:
+//     string name;
+//     string color;
+
+//     Car(string name, string color) // Parameteizewd constructor
+//     {
+//         this->name = name;
+//         this->color = color;
+//     }
+
+//     Car(Car &original) // creating a copy constructor from the given original constrcuto at the same time
+//     {
+//         cout << "Copying original to new...." << endl;
+//         name = original.name;
+//         color = original.color;
+//     }
+// };
+// int main()
+// {
+//     Car c1("Maninda SUV 700", "Dark Blue");
+
+//     Car c2(c1);
+//     cout << c2.name << endl;  // Maninda SUV 700
+//     cout << c2.color << endl; // Dark Blue
+//     // 📒 - by using the c1 we could access through c2. at where we passed c1/ So w/o creating a seperate cosntruuctor using c1 we could acess.
+
+//     // Own custom copy constrcutor -
+//     Car c3(c1);//Copying original to new....
+//     cout << c3.name << endl;//Maninda SUV 700
+//     cout << c3.color << endl;//Dark Blue
+
+// }
+// -------------------
+// Shallo & Deep Copy -
+/*
+📒 -copy constr. concept me saare statric var to  copy ho jaate h as it is from original memory
+but dynamic constr. not copy while they orignaly copy from the heap memo and even on chaniging  in copies constrcutor the changes reflected in original constrctr adn heap emo. too
+*/
+
+// class Car
+// {
+// public:
+//     string name;
+//     string color;
+//     int *mileage;
+
+//     Car(string name, string color) // Parameteizewd constructor
+//     {
+//         this->name = name;
+//         this->color = color;// These 2 are static allocation with proper copy from main meo
+//         mileage = new int;// Dynamic Allocation - copy from heap memo on the behalf of addres & directly change in main and hap memo
+//         *mileage = 12;
+//     }
+
+//     Car(Car &original) // creating a copy constructor from the given original constrcuto at the same time
+//     {
+//         cout << "Copying original to new...." << endl;
+//         name = original.name;
+//         color = original.color;
+//         mileage = original.mileage;
+//     }
+// };
+// int main()
+// {
+//     Car c1("Maninda SUV 700", "Dark Blue");
+
+//    // Own custom copy constrcutor -
+//     Car c3(c1);//Copying original to new....
+//     cout << c3.name << endl;//Maninda SUV 700
+//     cout << c3.color << endl;//Dark Blue
+//     cout<<*c3.mileage<<endl;//12
+//     *c3.mileage = 10;
+//     cout<<*c1.mileage<<endl;///10 - so we did the xhange in c3 but also goit the change in c1 as in pointer or address also changges in main addres
+// }
+// -------------------
+// what if i do changes in Original construcotr not the custom created constructor-
+// class Car
+// {
+// public:
+//     string name;
+//     string color;
+//     int *mileage;
+
+//     Car(string name, string color) // Parameteizewd constructor
+//     {
+//         this->name = name;
+//         this->color = color; // These 2 are static allocation with proper copy from main meo
+//         mileage = new int;   // Dynamic Allocation - copy from heap memo on the behalf of addres & directly change in main and hap memo
+//         *mileage = 12;
+//     }
+// };
+// int main()
+// {
+//     Car c1("Maninda SUV 700", "Dark Blue");
+//     // On changin in the main original ocnstr.
+//     Car c2(c1);
+//     cout << c2.name << endl;     // Maninda SUV 700
+//     cout << c2.color << endl;    // Dark Blue
+//     cout << *c2.mileage << endl; // 12
+//     *c2.mileage = 10;
+//     cout << *c1.mileage << endl; /// 10 - so we did the xhange in c2 which is in original constrr but also goit the change in c1 as in pointer or address also changges in main addres
+// }
+// -------------------
+// Destructor  - It deletes the created constrcutors automaticqlly, bbut for custom constructores need to creatre destructor manually
+// class Car
+// {
+// public:
+//     string name;
+//     string color;
+//     int *mileage;
+
+//     Car(string name, string color) // Parameteizewd constructor
+//     {
+//         this->name = name;
+//         this->color = color; // These 2 are static allocation with proper copy from main meo
+//         mileage = new int;   // Dynamic Allocation - copy from heap memo on the behalf of addres & directly change in main and hap memo
+//         *mileage = 12;
+//     }
+//     ~Car()
+//     {
+//         cout << "Deletting Object - " << endl;
+//     }
+// };
+// int main()
+// {
+//     Car c1("Maninda SUV 700", "Dark Blue");
+//     cout << c1.name << endl;     
+//     cout << c1.color << endl;    
+//     cout << *c1.mileage << endl; 
+//     /*
+//     Dark Blue
+//     12
+//     Deletting Object -
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
