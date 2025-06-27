@@ -82,6 +82,35 @@
 7) Count of Set Bits -
 8) Fast Exponentiation -
 
+[8] OOP’s in CPP – 
+1) Classes & Object basic Intro -
+1.1) Access Modifiers
+1.2) Getters & Setters -
+2) Encapsulations -
+2.1) This Constrcutor
+2.2) Types of Cosntrcutrs -
+2.3) Copy Constructor Conceppt -
+2.4) Shallo & Deep Copy -
+3) Destructor - 
+4) Inheritance -
+4.1) Mode of Inharitance - 
+4.2) types of Inheritance -
+4.2.1) Single Inheritance -
+4.2.2) Multi-Level Inheritance -
+4.2.3) Multiple Inheritance -
+4.2.4) Hierarchical Inheritance -
+4.2.5) Hybrid Inheroitance -
+5) Polymorphism -
+5.1) Compiletime Polymorphism - 
+5.1.1) Function Overloading  -
+5.1.2) Function Overloading  -
+5.2)Polymorphism -
+5.2.1)Function Overriding  -
+5.2.2)Virtual Functions -
+6) Abstraction -
+7) Static Keyword -
+8) Friend Class & Friend Function - 
+
 
 
 

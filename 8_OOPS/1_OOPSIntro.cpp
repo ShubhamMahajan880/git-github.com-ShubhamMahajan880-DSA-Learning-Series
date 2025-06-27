@@ -9,7 +9,7 @@
 // #include<iomanip>
 // #include<cmath>
 using namespace std;
-// Calsses & Object basic Intro -
+// 1) Classes & Object basic Intro -
 
 // class User
 // {
@@ -43,11 +43,11 @@ using namespace std;
 // }
 // -------------------
 
-// // AccessModifiers -
-// class Student
-// {
-//     // Properties
-//     string name;
+// 1.1) // AccessModifiers -
+//  class Student
+//  {
+//      // Properties
+//      string name;
 
 // private:
 //     string password;
@@ -86,11 +86,11 @@ using namespace std;
  */
 // -------------------
 
-// Getters & Setters -
-// class Student
-// {
-//     string name;
-//     float cgpa;
+// 1.2) Getters & Setters -
+//  class Student
+//  {
+//      string name;
+//      float cgpa;
 
 // public:
 //     void getPercentage()
@@ -127,9 +127,10 @@ using namespace std;
 //     cout<<s1.getName()<<endl;//Shubham
 //     cout<<s1.getCgpa()<<endl;//7.55
 // }
-// -------------------
-// Encapsulations - EK single unit me data & memeber Functions ko implement krna. Matlab data member(property)  & memeber function(methods)
-// Abstraction - Constructor automatically create ho jaata h object creatin ke tym pr
+// ____________ ____________ ____________ ____________ ____________
+
+// 2) Encapsulations - EK single unit me data & memeber Functions ko implement krna. Matlab data member(property)  & memeber function(methods)
+//  Abstraction - Constructor automatically create ho jaata h object creatin ke tym pr
 
 // class Car
 // {
@@ -167,13 +168,13 @@ using namespace std;
 //     Car c1("Altroz", "Black");
 //     cout << "Car name : " << c1.getName() << endl; // Car name : Altroz
 // }
-// -------------------
+// ____________ ____________ ____________ ____________ ____________
 
-// This Constrcutor -this is a special pointer in c++ that points to the current object
-// class Car1
-// {
-//     string name;
-//     string color;
+// 2.1)This Constrcutor -this is a special pointer in c++ that points to the current object
+//  class Car1
+//  {
+//      string name;
+//      string color;
 
 // public:
 //     Car1(string name, string color)
@@ -189,7 +190,7 @@ using namespace std;
 // }
 // -------------------
 
-// Types of Cosntrcutrs -
+// 2.2)Types of Cosntrcutrs -
 
 // class Car2
 // {
@@ -272,12 +273,12 @@ It should have a Getter & Setter for password.
 // }
 // -------------------
 
-// Copy Constructor Conceppt -
-// class Car
-// {
-// public:
-//     string name;
-//     string color;
+// 2.3)Copy Constructor Conceppt -
+//  class Car
+//  {
+//  public:
+//      string name;
+//      string color;
 
 //     Car(string name, string color) // Parameteizewd constructor
 //     {
@@ -308,7 +309,7 @@ It should have a Getter & Setter for password.
 
 // }
 // -------------------
-// Shallo & Deep Copy -
+// 2.4)Shallo & Deep Copy -
 /*
 📒 -copy constr. concept me saare statric var to  copy ho jaate h as it is from original memory
 but dynamic constr. not copy while they orignaly copy from the heap memo and even on chaniging  in copies constrcutor the changes reflected in original constrctr adn heap emo. too
@@ -377,14 +378,15 @@ but dynamic constr. not copy while they orignaly copy from the heap memo and eve
 //     *c2.mileage = 10;
 //     cout << *c1.mileage << endl; /// 10 - so we did the xhange in c2 which is in original constrr but also goit the change in c1 as in pointer or address also changges in main addres
 // }
-// -------------------
-// Destructor  - It deletes the created constrcutors automaticqlly, bbut for custom constructores need to creatre destructor manually
-// class Car
-// {
-// public:
-//     string name;
-//     string color;
-//     int *mileage;
+// ____________ ____________ ____________ ____________ ____________
+
+// 3) Destructor  - It deletes the created constrcutors automaticqlly, bbut for custom constructores need to creatre destructor manually
+//  class Car
+//  {
+//  public:
+//      string name;
+//      string color;
+//      int *mileage;
 
 //     Car(string name, string color) // Parameteizewd constructor
 //     {
@@ -401,9 +403,9 @@ but dynamic constr. not copy while they orignaly copy from the heap memo and eve
 // int main()
 // {
 //     Car c1("Maninda SUV 700", "Dark Blue");
-//     cout << c1.name << endl;     
-//     cout << c1.color << endl;    
-//     cout << *c1.mileage << endl; 
+//     cout << c1.name << endl;
+//     cout << c1.color << endl;
+//     cout << *c1.mileage << endl;
 //     /*
 //     Dark Blue
 //     12
