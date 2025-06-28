@@ -10,16 +10,17 @@
 // #include<cmath>
 using namespace std;
 
+int Sum(int n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n + Sum(n - 1);
+}
 int main()
 {
-    vector<vector<int>> Matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-
-    for (int i = 0; i < Matrix.size(); i++)
-    {
-        for (int j = 0; j < Matrix[i].size(); j++)
-        {
-            cout << Matrix[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout<<Sum(5)<<endl;//15
+    cout<<Sum(6)<<endl;//21
+    cout<<Sum(10)<<endl;//55
 }
