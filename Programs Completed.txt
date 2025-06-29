@@ -113,5 +113,22 @@
 8) Friend Class & Friend Function - 
 
 
+[9] Recursion – 
+1)Recursion Basic Understanding-
+2)Recursion QUns - 
+2.1) Print the numbers in descending  Order
+2.2) Stack Overflow -
+2.3)Sum of N-Natural Nmbers -
+2.4) Print Nth Fibonacci Number -
+2.5) Check if Array is Sorted or Not -
+2.6) First OCcurence -
+2.6.1) Last OCcurence -
+2.7) X to the power N  -
+3) Tiling problem
+4) Remove Duplicates from the String -
+5) Friends Pairing Problem -
+6) Binary String Problm -
+
+
 
 

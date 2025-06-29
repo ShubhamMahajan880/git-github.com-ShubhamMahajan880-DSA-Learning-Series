@@ -9,7 +9,8 @@
 // #include<iomanip>
 // #include<cmath>
 using namespace std;
-// 1) When a funciton repeatidly call itslf is called Recursion
+// 1)Recursion -  When a funciton repeatidly call itslf is called Recursion
+
 // int factorial(int n)
 // {
 //     if (n == 0 || n == 1)//Base Case
@@ -33,7 +34,9 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Print the numbers in descending  Order
+// 2) Recursion QUns -
+// 2.1) Print the numbe1rs in descending  Order
+
 // void PrintNumber(int n)
 // {
 //     if (n == 0)
@@ -53,27 +56,8 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Print the numbers in descending  Order
-// void PrintNumber(int n)
-// {
-//     if (n == 0)
-//     {
-//         return;
-//     }
-//     PrintNumber(n - 1);
-//     cout << n <<" ";
-// }
+// 2.2) Stack Overflow -
 
-// int main()
-// {
-//     PrintNumber(10);
-// /*
-// 1 2 3 4 5 6 7 8 9 10
-//  */
-// }
-// ____________ ____________
-
-// Stack Overflow -
 // void func()
 // {
 //     cout << "Function called ....working" << endl;
@@ -89,7 +73,8 @@ using namespace std;
 //  */
 // ____________ ____________
 
-//  Sum of N-Natural Nmbers -
+// 2.3)Sum of N-Natural Nmbers -
+
 // int Sum(int n)
 // {
 //     if (n == 1)
@@ -105,7 +90,8 @@ using namespace std;
 //     cout<<Sum(10)<<endl;//55
 // }
 // ____________ ____________
-// Print Nth Fibonacci Number -
+
+// 2.4) Print Nth Fibonacci Number -
 
 // int fibonaccci(int n)
 // {
@@ -131,7 +117,8 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Check if Array is Sorted or Not -
+// 2.5) Check if Array is Sorted or Not -
+
 // bool isSortedArray(int arr[], int n, int i)
 // {
 //     if (i == n - 1)
@@ -155,7 +142,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// First OCcurence -
+// 2.6) First OCcurence -
 
 // int firstOccurance(vector<int> arr, int i, int target)// phle apne liye check kr rhe h pphr abad waale index ke liye
 // {
@@ -179,7 +166,8 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Last OCcurence -
+// 2.6.1) Last OCcurence -
+
 // int lastOccurance(vector<int> arr, int target, int i)
 // {
 //     if (i == arr.size())
@@ -207,29 +195,30 @@ using namespace std;
 // }
 // ____________ ____________
 
-// X to the power N  -
+// 2.7) X to the power N  -
 
-int pow(int x, int n)
-{
-    if (n == 0)
-    {
-        return 1;
-    }
+// int pow(int x, int n)
+// {
+//     if (n == 0)
+//     {
+//         return 1;
+//     }
 
-    int halfPow = pow(x, n / 2);
-    int halfPowSquare = halfPow * halfPow;
+//     int halfPow = pow(x, n / 2);
+//     int halfPowSquare = halfPow * halfPow;
 
-    if (n % 2 != 0)
-    {
-        return x * halfPowSquare;
-    }
-    return halfPowSquare;
-}
-int main()
-{
-    cout << pow(2, 5) << endl;//32
-    cout << pow(2, 10) << endl;//1024
-    cout << pow(3, 4) << endl;//81
-    cout << pow(5, 5) << endl;//3125
-// T.C - Well optimized approach with TC O(log n)
-}
+//     if (n % 2 != 0)
+//     {
+//         return x * halfPowSquare;
+//     }
+//     return halfPowSquare;
+// }
+// int main()
+// {
+//     cout << pow(2, 5) << endl;//32
+//     cout << pow(2, 10) << endl;//1024
+//     cout << pow(3, 4) << endl;//81
+//     cout << pow(5, 5) << endl;//3125
+// // T.C - Well optimized approach with TC O(log n)
+// }
+// ____________ ____________
