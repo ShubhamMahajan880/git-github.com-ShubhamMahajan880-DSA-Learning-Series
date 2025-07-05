@@ -381,36 +381,36 @@ but dynamic constr. not copy while they orignaly copy from the heap memo and eve
 // ____________ ____________ ____________ ____________ ____________
 
 // 3) Destructor  - It deletes the created constrcutors automaticqlly, bbut for custom constructores need to creatre destructor manually
-//  class Car
-//  {
-//  public:
-//      string name;
-//      string color;
-//      int *mileage;
+ class Car
+ {
+ public:
+     string name;
+     string color;
+     int *mileage;
 
-//     Car(string name, string color) // Parameteizewd constructor
-//     {
-//         this->name = name;
-//         this->color = color; // These 2 are static allocation with proper copy from main meo
-//         mileage = new int;   // Dynamic Allocation - copy from heap memo on the behalf of addres & directly change in main and hap memo
-//         *mileage = 12;
-//     }
-//     ~Car()
-//     {
-//         cout << "Deletting Object - " << endl;
-//     }
-// };
-// int main()
-// {
-//     Car c1("Maninda SUV 700", "Dark Blue");
-//     cout << c1.name << endl;
-//     cout << c1.color << endl;
-//     cout << *c1.mileage << endl;
-//     /*
-//     Dark Blue
-//     12
-//     Deletting Object -
+    Car(string name, string color) // Parameteizewd constructor
+    {
+        this->name = name;
+        this->color = color; // These 2 are static allocation with proper copy from main meo
+        mileage = new int;   // Dynamic Allocation - copy from heap memo on the behalf of addres & directly change in main and hap memo
+        *mileage = 12;
+    }
+    ~Car()
+    {
+        cout << "Deletting Object - " << endl;
+    }
+};
+int main()
+{
+    Car c1("Maninda SUV 700", "Dark Blue");
+    cout << c1.name << endl;
+    cout << c1.color << endl;
+    cout << *c1.mileage << endl;
+    /*
+    Dark Blue
+    12
+    Deletting Object -
 
-//      */
-// }
+     */
+}
 // ____________ ____________ ____________ ____________ ____________
