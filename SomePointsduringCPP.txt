@@ -6,4 +6,5 @@ void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], i
 5 - Diff b/w char arr & string is that - charac. array is simple array of characters while the string is an onject o string class. Strings are dynamic in size while char array are fixed size.	
 6 - in OOp's agr class ke under koi acess modifier define nhi kiya gya h to by default PRIVATE hota he
 7 - How to identify for recursion that we have to use it or not - as exponential time complexity is responisle for recursion, so use recursion.
+8 - Sudoku has always a fixed size its always 9*9
 

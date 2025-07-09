@@ -150,3 +150,13 @@
 // -------------------
 
 
+[12] Backtracking  - 
+1) Backtracking In Arrays -
+2) Find Subsets/Substrings -
+3) Find Permutations -
+4) N_Quee problem -
+5) GridWays Problem - 
+6) SudokuSOlver - 
+// -------------------
+
+
