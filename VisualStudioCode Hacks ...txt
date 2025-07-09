@@ -74,10 +74,10 @@ Alt
 
 My Created Shortcuts
 
-1.	Alt + X = to view the Minimap
+1.	Alt  + X = to view the Minimap
 2.	Ctrl + Shift + R = Reload all extensions and windows
-3.	Alt + / = Copy Output from Terminal
-4.	Alt + ' = Run Code
+3.	Alt  + ' = Copy Output from Terminal
+4.	Ctrl + ' = Run Code
 5.	Alt + k = Opne Keyboard SHorcuts
 
 Other Useful
