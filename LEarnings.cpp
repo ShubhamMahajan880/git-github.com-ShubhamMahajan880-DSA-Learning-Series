@@ -9,68 +9,96 @@
 // #include<iomanip>
 // #include<cmath>
 using namespace std;
+
+// Floyd's Cycle FInding Algorithm - Detect a Cycle/Loop in LL
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+
+    Node(int val)
+    {
+        data = val;
+        next = NULL;
+    }
+};
+
+class List
+{
+public:
+    Node *head;
+    Node *tail;
+
+    List()
+    {
+        head = NULL;
+        tail = NULL;
+    }
+
+    void push_front(int val)
+    {
+        Node *newNode = new Node(val);
+        // Node* newNode(val);
+
+        if (tail == NULL)
+        {
+            head = tail = newNode;
+        }
+        else
+        {
+            newNode->next = head;
+            head = newNode;
+        }
+    }
+
+    void printList()
+    {
+        Node *temp = head;
+
+        while (temp != NULL)
+        {
+            cout << temp->data << "-->";
+            temp = temp->next;
+        }
+        cout << "NULL" << endl;
+    }
+
+    bool isCycle(Node *head)
+    {
+        Node *slow = head;
+        Node *fast = head;
+
+        while (fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;       // taking +1
+            fast = fast->next->next; // taking +2  Slow fast conditions are checking later first incrementing, aas initially both are at the same place
+
+            if (slow == fast)
+            {
+                cout << "Yes, Cycle Exist" << endl;
+                return true;
+            }
+        }
+        cout << "No, cycle founf in the LL" << endl;
+        return false;
+    }
+};
+
 int main()
 {
-
-    int n;
-    cout << "vakue of n - " << endl;
-    cin >> n;
-
-    //     // 1st Butterfly
-    //     // Printing Star
-    //     for (int i = 1; i <= n; i++)
-    //     {
-    //         for (int j = 1; j <= i; j++)
-    //         {
-    //             cout << "* ";
-    //         }
-
-    //         // Printing SPace
-    //         for (int j = 1; j <= 2 * (n - i); j++)
-    //         {
-    //             cout << "  ";
-    //         }
-
-    //         // Prinmting Start for last
-    //         for (int k = 1; k <= i; k++)
-    //         {
-    //             cout << "* ";
-    //         }
-    //         cout << endl;
-    //     }
-    //     // 2nd Half Butterfly
-    //     for (int i = n; i >= 1; i--)
-    //     {
-    //         for (int j = 1; j <= i; j++)
-    //         {
-    //             cout << "* ";
-    //         }
-
-    //         // Printing SPace
-    //         for (int j = 1; j <= 2 * (n - i); j++)
-    //         {
-    //             cout << "  ";
-    //         }
-
-    //         // Prinmting Start for last
-    //         for (int k = 1; k <= i; k++)
-    //         {
-    //             cout << "* ";
-    //         }
-    //         cout << endl;
-    //     }
-    int arr[n];
-    cout << "mention the array elements her - " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    cout << "So, the inserted array elements are - " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    List ll;
+    ll.push_front(5);
+    ll.push_front(4);
+    ll.push_front(3);
+    ll.push_front(2);
+    ll.push_front(1);
+    ll.printList(); // 1-->2-->3-->4-->5-->NULL , it's a Linear LL tilll now,
+    ll.tail->next = ll.head;
+    ll.isCycle(ll.head); // Yes, Cycle Exist
 }
-    
+
+// -------------------
+
+// Remove a cycle from LL -

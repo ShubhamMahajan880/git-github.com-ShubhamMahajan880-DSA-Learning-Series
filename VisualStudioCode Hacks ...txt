@@ -101,8 +101,16 @@ https://github1s.com/ShubhamMahajan880/Back-to-Data-Structures..-
 
 
 
+vs Codes changes settings by me - 
 
+To making if syntax at top - 
+Press Ctrl + Shift + P
 
+Type: Preferences: Open Settings (JSON)
+
+Hit Enter
+"editor.snippetSuggestions": "top",
+Save it.
 
 
 
