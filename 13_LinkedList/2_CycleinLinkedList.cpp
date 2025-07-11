@@ -10,7 +10,7 @@
 // #include<cmath>
 using namespace std;
 
-// Floyd's Cycle FInding Algorithm - Detect a Cycle/Loop in LL
+//5) Floyd's Cycle FInding Algorithm - Detect a Cycle/Loop in LL
 
 // class Node
 // {
@@ -110,7 +110,7 @@ using namespace std;
 
 // -------------------
 
-// Remove a cycle from LL -
+//5.1) Remove a cycle from LL -
 
 class Node
 {
@@ -246,10 +246,18 @@ int main()
     ll.isCycle(ll.head);
     ll.removeCycle(ll.head);
     ll.printList();
-/* 
-1-->2-->3-->4-->5-->NULL
-Yes, Cycle Exist
-Cycle Existing here..
-1-->2-->3-->4-->5-->NULL
- */    
+    /*
+    1-->2-->3-->4-->5-->NULL
+    Yes, Cycle Exist
+    Cycle Existing here..
+    1-->2-->3-->4-->5-->NULL
+     */
+
+    /*
+    📒 - Mathematical approach behind this Slow & Fst Pointer concepts -
+    initially distance travelled by slow and fast pointer is equal and the only difference that fast travels 2 times more distance than slow poinyer
+    So, after a point when they meet a same point, we set fast to Head which travells x distace extra &
+    till that fast travels the loop distance again and dinally meet with slow with the distance diff. of x-y
+    */
 }
+// ____________ ____________ ____________ ____________ ____________

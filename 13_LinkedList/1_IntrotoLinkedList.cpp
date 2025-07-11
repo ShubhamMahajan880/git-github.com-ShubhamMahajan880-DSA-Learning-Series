@@ -10,7 +10,7 @@
 // #include<cmath>
 using namespace std;
 
-// Linked List -
+// 1) Linked List Introduction & Creation -
 /*
 📒 The majhor diff. b/w LL & array is of memory location. In an array there is always a Contigious memory locaition
 and the next address can be predict easily while in LL no fix for address.
@@ -131,9 +131,9 @@ In aray any  value can be acceswed through the index value or momery address, bu
 // 1-->2-->100-->3-->4-->5-->NULL
 //      */
 // }
-// -------------------
+// ____________ ____________
 
-// Deletion in LL -
+// 1.2) Deletion in LL -
 /*
 -  For the deletion, as Node created dynamically using new keyword, so need to delete it explicitely by using destructor
 - Pehle List se Head delete hone jayga, phr head pr jo memory he node ki vaha delete krne jaayga, agar uaka next bhi nuull nhi h to vaha jaayga
@@ -225,7 +225,7 @@ In aray any  value can be acceswed through the index value or momery address, bu
 //      */
 // }
 // -------------------
-
+// Pop_back & Pop_front in LL -
 // Pop front - deleting the first head node only
 /*
 As heead in nide dynamically allocatd so will deletd also dynamically differrntly
@@ -333,7 +333,7 @@ As heead in nide dynamically allocatd so will deletd also dynamically differrntl
 // }
 // ____________ ____________
 
-// Iterative Search in LL -
+// 2) Iterative Search in LL -
 
 // class Node
 // {
@@ -435,7 +435,7 @@ As heead in nide dynamically allocatd so will deletd also dynamically differrntl
 // }
 // ____________ ____________
 
-// Recursive Search in LL -
+// 2.2) Recursive Search in LL -
 
 // class Node
 // {
@@ -535,9 +535,9 @@ As heead in nide dynamically allocatd so will deletd also dynamically differrntl
 // 2
 //  */
 // }
-// ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
-// Reverse a LinkedList -
+// 3) Reverse a LinkedList -
 
 // class Node
 // {
@@ -620,10 +620,12 @@ As heead in nide dynamically allocatd so will deletd also dynamically differrntl
 //     ll.Reverse();
 //     ll.printList();//5-->4-->3-->2-->1-->NULL
 // }
-// ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
-// Find & Remove Nth Node from LL -
-
+// 4) Find & Remove Nth Node from LL -
+/*
+📒 - For remove cyclee iscycle is also importaant becuase first check for the cycle that cycle actually exist in the LL or not.
+ */
 class Node
 {
 public:
@@ -687,7 +689,7 @@ public:
         return sz;
     }
 
-    void removeNth(int n)//TC - O(n) , Sc - O(1)
+    void removeNth(int n) // TC - O(n) , Sc - O(1)
     {
         int size = getSize();
         Node *prev = head;
@@ -716,9 +718,9 @@ int main()
     ll.removeNth(3);
     ll.printList();
 
-     
-/* 
-Going to Delete: 3
-1-->2-->4-->5-->NULL
- */    
+    /*
+    Going to Delete: 3
+    1-->2-->4-->5-->NULL
+    */
 }
+// ____________ ____________ ____________ ____________ ____________

@@ -159,4 +159,18 @@
 6) SudokuSOlver - 
 // -------------------
 
+[13] Linked List – 
+1) Linked List Introduction & Creation -
+1.2) Deletion in LL -
+2) Iterative Search in LL -
+2.2) Recursive Search in LL -
+3) Reverse a LinkedList -
+4) Find & Remove Nth Node from LL -
+5) Floyd's Cycle FInding Algorithm - Detect a Cycle/Loop in LL
+5.1) Remove a cycle from LL -
+6) LL using STL in CPP -
+7) Merge Sort Implemetation on Linked List -
+8) Zig-Zag LL - Alternate Nodes in LL - 
+9) DoublyLinkedList Concept - 
+// -------------------
 
