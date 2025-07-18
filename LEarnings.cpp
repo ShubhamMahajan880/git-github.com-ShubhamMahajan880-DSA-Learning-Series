@@ -12,20 +12,53 @@
 // #include<iterator>
 using namespace std;
 
-int stringOperation(string s)
+int stringAnagram(string s1, string s2)
 {
-    cout << "Entered String is - " << endl;
-    cout << s << endl;
-    
-    
+    cout << "According to you String 1 is - " << endl;
+    for (auto i : s1)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    cout << "and String 2 is - " << endl;
+    for (auto j : s2)
+    {
+        cout << j << " ";
+    }
+    cout << endl;
+
+    sort(s1.begin(), s1.end());
+    cout << "Sorted String 1 is - " << endl;
+    for (auto i : s1)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    sort(s2.begin(), s2.end());
+    cout << "Another String after sorting is - " << endl;
+    for (auto j : s2)
+    {
+        cout << j << " ";
+    }
+    cout << endl;
+
+    if (s1 == s2)
+    {
+        cout << "Clearly, both the strings are Anagram of each other - " << endl;
+        return 0;
+    }
+    cout << "String Are not Anagrams" << endl;
 }
 
 int main()
 {
-    string s;
-    cout << "What's in your mind dude - " << endl;
-    getline(cin, s);
+    string s1, s2;
+    cout << "Enter S1 " << endl;
+    getline(cin, s1);
 
-    stringOperation(s);
-    return 0;
+    cout << "Give me S2" << endl;
+    getline(cin, s2);
+    stringAnagram(s1, s2);
 }
