@@ -14,7 +14,7 @@ using namespace std;
 
 void printArray(int arr[], int n)
 {
-    cout << "So, entered array so - " << endl;
+    cout << "Entered Array we have is- " << endl;
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
@@ -22,110 +22,53 @@ void printArray(int arr[], int n)
     cout << endl;
 }
 
-void minElement(int arr[], int n)
+int majorityElement(int arr[], int n)
 {
-    int MinElement = INT_MAX;
+
+    sort(arr, arr + n);
+    cout << "Array after sorting is - " << endl;
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] < MinElement)
-        {
-            MinElement = arr[i];
-        }
+        cout << arr[i] << " ";
     }
-    cout << "Hence the Min Elements is- " << MinElement << endl;
-}
+    cout << endl;
 
-void maxElement(int arr[], int n)
-{
-    int MaxElement = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] > MaxElement)
-        {
-            MaxElement = arr[i];
-        }
-    }
-    cout << "&the mex element is - " << MaxElement << endl;
-}
-
-int firstIndex(int arr[], int n, int x)
-{
-
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] == x)
-        {
-            cout << "So, the element foundd at - " << i << endl;
-            return 0;
-        }
-    }
-}
-
-void lastIndex(int arr[], int n, int x)
-{
-    int index = -1;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] == x)
-        {
-            index = i;
-        }
-    }
-    cout << "So, the element from the last foundd at - " << index << endl;
-}
-
-void countFrequency(int arr[], int n, int x)
-{
+    int expectedMajorityElement = arr[n / 2];
     int count = 0;
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] == x)
+
+        if (arr[i] == expectedMajorityElement)
         {
-            count += 1;
+            count++;
         }
     }
-    cout << "Frequency of eleemnt is - " << count << " times" << endl;
-}
-
-void ArrayOpeartions(int arr[], int n)
-{
-    sort(arr, arr + n);
-    for (int i = 0; i < n; i++)
+    if (count > n / 2)
     {
-        cout << arr[i] << " ";
+        cout << "is the majority element - " << expectedMajorityElement << endl;
     }
-    cout << endl;
-    reverse(arr, arr + n);
-    for (int i = 0; i < n; i++)
+    else
     {
-        cout << arr[i] << " ";
+        cout << "Not exist" << endl;
     }
-    cout << endl;
+    
+    
 }
 
 int main()
 {
     int n;
-    cout << "Array Size is " << endl;
+    cout << "Array Size - " << endl;
     cin >> n;
 
     int arr[n];
-    cout << "Array Elements are - " << endl;
+    cout << "Array elememts are - " << endl;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int x;
-    cout << "mention the element you want to search for - " << endl;
-    cin >> x;
-
     printArray(arr, n);
-    minElement(arr, n);
-    maxElement(arr, n);
-    firstIndex(arr, n, x);
-    lastIndex(arr, n, x);
-    countFrequency(arr, n, x);
-    ArrayOpeartions(arr,n);
+    majorityElement(arr, n);
     return 0;
 }
