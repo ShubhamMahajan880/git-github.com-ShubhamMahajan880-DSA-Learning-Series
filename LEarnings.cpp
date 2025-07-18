@@ -8,31 +8,33 @@
 // #include<set>
 // #include<iomanip>
 // #include<cmath>
+// #include<list>
+// #include<iterator>
 using namespace std;
 
-// Floyd's Cycle FInding Algorithm - Detect a Cycle/Loop in LL
-
-void printList(list<int> ll)
+bool isprime(int n)
 {
-    list<int>::iterator itr;
-    for (auto val : ll)
+    if (n == 1)
     {
-        cout << val << "-->";
+        cout << "Neiother prime nor composite number" << endl;
     }
-    cout << "NULL" << endl;
+
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cout << "is not a prime number" << endl;
+            return 0;
+        }
+    }
+    cout << "is a prime number" << endl;
 }
-
-
 
 int main()
 {
-    list<int> ll;
+    int n;
+    cout << "n's value - " << endl;
+    cin >> n;
 
-    ll.push_front(5);
-    ll.push_front(4);
-    ll.push_front(3);
-    ll.push_front(2);
-    ll.push_front(1);
-
-    printList(ll);
+    isprime(n);
 }
