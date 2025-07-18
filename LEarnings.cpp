@@ -12,29 +12,43 @@
 // #include<iterator>
 using namespace std;
 
-bool isprime(int n)
+void printArray(int arr[], int n)
 {
-    if (n == 1)
+    cout << "So, entered array so - " << endl;
+    for (int i = 0; i < n; i++)
     {
-        cout << "Neiother prime nor composite number" << endl;
+        cout << arr[i] << " ";
     }
+    cout << endl;
+}
 
-    for (int i = 2; i * i <= n; i++)
+void ArrayOperation(int arr[], int n)
+{
+    int sum = 0, mul = 1, avg = 0;
+    for (int i = 0; i < n; i++)
     {
-        if (n % i == 0)
-        {
-            cout << "is not a prime number" << endl;
-            return 0;
-        }
+        sum += arr[i];
+        mul *= arr[i];
     }
-    cout << "is a prime number" << endl;
+    avg = (sum / n);
+    cout << "Array Addition is - " << sum << endl;
+    cout << "Array Multiplication si - " << mul << endl;
+    cout << "Similarly, array avg is - " << avg << endl;
 }
 
 int main()
 {
     int n;
-    cout << "n's value - " << endl;
+    cout << "Array Size is " << endl;
     cin >> n;
 
-    isprime(n);
+    int arr[n];
+    cout << "Array Elements are - " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    printArray(arr, n);
+    ArrayOperation(arr, n);
+    return 0;
 }
