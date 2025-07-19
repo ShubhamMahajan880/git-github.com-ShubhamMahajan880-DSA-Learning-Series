@@ -25,21 +25,26 @@ void printMatrix(int matrix[][10], int n, int m)
     }
 }
 
-void BoundaryElementSUm(int matrix[][10], int n, int m)
+void TransposedMatrix(int matrix[][10], int n, int m)
 {
-    int sum = 0;
     for (int i = 0; i < n; i++)
     {
-
         for (int j = 0; j < m; j++)
         {
-            if (i == 0 || i == n - 1 || j == 0 || j == m - 1)
+            // Transposed matroces -
+            for (int j = i; j < m; j++)
             {
-                sum += matrix[i][j];
+                swap(matrix[i][j], matrix[j][i]);
             }
         }
     }
-    cout << "hence the sum of Boundary Elemets is - " << sum << endl;
+    cout << "So, the Transpoised Matrix we have is - " << endl;
+    printMatrix(matrix, n, m);
+}
+
+void MatrixRotation(int matrix[][10], int n, int m)
+{
+    
 }
 
 int main()
@@ -57,7 +62,8 @@ int main()
         }
     }
     printMatrix(matrix, n, m);
-    BoundaryElementSUm(matrix, n, m);
+    TransposedMatrix(matrix, n, m);
+    MatrixRotation(matrix, n, m);
 
     return 0;
 }
