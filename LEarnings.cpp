@@ -26,6 +26,37 @@ void printMatrix(int matrix[][10], int n, int m)
     cout << "- - -  - - - - -  - - - - -  - - " << endl;
 }
 
+void TransposedMatrix(int matrix[][10], int n, int m)
+{
+    if (n != m)
+    {
+        int TraspoMatrix[n][m];
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                TraspoMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        cout << "So, the Transpose Matrix we have is:" << endl;
+        printMatrix(matrix, n, m);
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < i; j++) // fix: avoid redundant swaps
+            {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+
+        cout << "So, the Transpose Matrix we have is:" << endl;
+        printMatrix(matrix, n, m);
+    }
+}
+
 void MatrixRotation(int matrix[][10], int n, int m)
 {
 
@@ -46,60 +77,68 @@ void MatrixRotation(int matrix[][10], int n, int m)
     printMatrix(matrix, n, m);
 }
 
-void TransposedMatrix(int matrix[][10], int n, int m)
-{
-    // Transposed Matrices Fiirst -
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            for (int j = i; j < m; j++)
-            {
-                swap(matrix[i][j], matrix[j][i]);
-            }
-        }
-    }
-    cout << "So, the Transpose Matrix we have is- " << endl;
-    printMatrix(matrix, n, m);
-}
+
 
 void CWRotation(int matrix[][10], int n, int m)
 {
-    // Transposed Matrices Fiirst -
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            for (int j = i; j < m; j++)
-            {
-                swap(matrix[i][j], matrix[j][i]);
-            }
-        }
-    }
-    cout << "So, the Transpose Matrix we have is- " << endl;
-    printMatrix(matrix, n, m);
+    // Step 1: Transpose
+    TransposedMatrix(matrix, n, m);
 
     // Now for CW 90. rotation - using Reverse
     for (int i = 0; i < n; i++)
     {
         reverse(matrix[i], matrix[i] + n);
     }
-    cout << "Hence the 90 CW Rotation of arraty is - " << endl;
+    cout << "Using Reverse Method -  the 90 CW Rotation of arraty is - " << endl;
     printMatrix(matrix, n, m);
 }
 
-void CW2Rotation(TransposedMatrix(), int n, int m)
+void CW2Rotation(int matrix[][10], int n, int m)
 {
+    // Step 1: Transpose
+    TransposedMatrix(matrix, n, m);
 
-    // Now for CW 90. rotation - using Swap
+    // Step 2: Swap columns (rotate 90 CW)
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < m/2; j++)
+        for (int j = 0; j < m / 2; j++)
         {
-            swap(matrix[i][j], matrix[i][n - j - 1]);
+            swap(matrix[i][j], matrix[i][m - j - 1]);
         }
     }
-    cout << "Hence the 90 CW Rotation of arraty is - " << endl;
+
+    cout << "Hence using Swap Columns methid  - 90 CW Rotation of array is:" << endl;
+    printMatrix(matrix, n, m);
+}
+
+void ACWRotation(int matrix[][10], int n, int m)
+{
+    // Step -1 - Taking Tranpose First
+    TransposedMatrix(matrix, n, m);
+
+    // Step -2 - Using Reverse Column
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            reverse(matrix[j], matrix[j] + m);
+        }
+    }
+    cout << "Using Reverse Method -  the 90 ACW Rotation of arraty is - " << endl;
+    printMatrix(matrix, n, m);
+}
+
+void ACW2Rotation(int matrix[][10], int n, int m)
+{
+    // Step -1 - Taking Transpose First
+    TransposedMatrix(matrix, n, m);
+
+    // Step - 2 - Using Swapping Rowsa Method -
+    for (int i = 0; i < n; i++)
+    {
+        reverse(matrix[i], matrix[i] + n);
+    }
+    cout << "Hence, using SWapping Rows Method -  the 90 ACW Rotation of arraty is - " << endl;
     printMatrix(matrix, n, m);
 }
 
@@ -119,8 +158,24 @@ int main()
     }
     cout << "Entered Matrix is - " << endl;
     printMatrix(matrix, n, m);
+
+    cout << "Transposed Matrix - " << endl;
     TransposedMatrix(matrix, n, m);
+
+    cout << "180 Degree Rotation - " << endl;
     MatrixRotation(matrix, n, m);
+
+    cout << "Method : 1 - ClockWise(RIGHT) 90 Degree Rotation " << endl;
+    CWRotation(matrix, n, m);
+
+    cout << "Method : 2 - ClockWise(RIGHT) 90 Degree Rotation " << endl;
+    CW2Rotation(matrix, n, m);
+
+    cout << "Method : 1 - AntiClockWise(LEFT) 90 Degree Rotation " << endl;
+    ACWRotation(matrix, n, m);
+
+        
+    ACW2Rotation(matrix, n, m);
 
     return 0;
 }

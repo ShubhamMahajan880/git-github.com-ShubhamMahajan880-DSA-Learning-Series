@@ -1,1 +1,1 @@
-"j"
+TransposedMatrix(matrix, n, m);
