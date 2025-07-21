@@ -12,112 +12,42 @@
 // #include<iterator>
 using namespace std;
 
+void KadansAlgo(int arr[], int n)
+{
+    int ans = INT_MIN;
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+
+    {
+
+        sum += arr[i];
+        ans = max(ans, sum);
+
+        if (sum < 0)
+        {
+            sum = 0;
+        }
+    }
+    cout << "So, the element sum can be printed as " << ans << endl;
+}
+
 int main()
 {
-    set<int> st;
-    st.insert(10);
-    st.insert(12);
-    st.insert(14);
-    st.insert(16);
-    st.insert(16);
-    st.insert(14);
+    int n;
+    cout << "Array SIze - " << endl;
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Elements are - " << endl;
 
-    for (auto i : st)
+    for (int i = 0; i < n; i++)
     {
-        cout << i << " ";
+        cin >> i;
     }
-    cout << endl;
-
-    cout << st.size();
-    cout << endl;
-    st.erase(12);
-    for (auto i : st)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << "- - - - -- - - ";
-    cout << endl;
-    int arr[10] = {1, 5, 6, 8, 1, 9, 10, 12, 47, 10};
-    for (int i = 0; i < 10; i++)
+    cout << "Entered Array is - " << endl;
+    for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
-    cout << endl;
 
-    set<int> st1;
-    for (int i = 0; i < 10; i++)
-    {
-        st1.insert(arr[i]);
-    }
-
-    for (auto i : st1)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    multiset<int> st2;
-    for (int i = 0; i < 10; i++)
-    {
-        st2.insert(arr[i]);
-    }
-    cout << endl;
-    for (auto i : st2)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << "___________________________________________________________" << endl;
-    map<int, string> mp;
-    mp[80] = "UBER";
-    mp[60] = "Atallasian";
-    mp[50] = "Microsoft";
-
-    for (auto i : mp)
-    {
-        cout << i.first << " ";
-    }
-    cout << endl;
-
-    for (auto i : mp)
-    {
-        cout << i.second << " ";
-    }
-    cout << endl;
-
-    for (auto i : mp)
-    {
-        cout << i.first << " " << i.second << " ";
-    }
-    cout << endl;
-
-    cout << mp[60] << endl;
-    cout << mp.size() << endl;
-
-    mp.insert(make_pair(75, "Google"));
-    for (auto i : mp)
-    {
-        cout << i.first << " " << i.second << " ";
-    }
-    cout << endl;
-
-    map<char, int> mp2;
-    string s = "Microsoft Hyderabad";
-    for (int i = 0; i < s.size(); i++)
-    {
-        cout << s[i] << " ";
-    }
-    cout << endl;
-
-    for (int i = 0; i < s.size(); i++)
-    {
-        mp2[s[i]]++;
-    }
-
-    for (auto j : mp2)
-    {
-        cout << j.first << " " << j.second <<endl;
-    }
     cout << endl;
 }
