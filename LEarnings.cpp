@@ -67,5 +67,57 @@ int main()
     {
         cout << i << " ";
     }
-cout << endl;           
+    cout << endl;
+    cout << "___________________________________________________________" << endl;
+    map<int, string> mp;
+    mp[80] = "UBER";
+    mp[60] = "Atallasian";
+    mp[50] = "Microsoft";
+
+    for (auto i : mp)
+    {
+        cout << i.first << " ";
+    }
+    cout << endl;
+
+    for (auto i : mp)
+    {
+        cout << i.second << " ";
+    }
+    cout << endl;
+
+    for (auto i : mp)
+    {
+        cout << i.first << " " << i.second << " ";
+    }
+    cout << endl;
+
+    cout << mp[60] << endl;
+    cout << mp.size() << endl;
+
+    mp.insert(make_pair(75, "Google"));
+    for (auto i : mp)
+    {
+        cout << i.first << " " << i.second << " ";
+    }
+    cout << endl;
+
+    map<char, int> mp2;
+    string s = "Microsoft Hyderabad";
+    for (int i = 0; i < s.size(); i++)
+    {
+        cout << s[i] << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < s.size(); i++)
+    {
+        mp2[s[i]]++;
+    }
+
+    for (auto j : mp2)
+    {
+        cout << j.first << " " << j.second <<endl;
+    }
+    cout << endl;
 }
