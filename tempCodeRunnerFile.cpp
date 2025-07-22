@@ -1,1 +1,1 @@
-TransposedMatrix(matrix, n, m);
+'bad'

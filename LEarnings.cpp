@@ -12,47 +12,32 @@
 // #include<iterator>
 using namespace std;
 
-void printArray(int arr[], int n)
-{
-
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
-void insertionSort(int arr[], int n)
-{
-    for (int i = 1; i < n; i++)
-    {
-        int element = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] < element)
-        {
-            swap(arr[j], arr[j + 1]);
-            j--;
-        }
-        arr[j + 1] = element;
-    }
-    cout << "Sorted array we have is - " << endl;
-    printArray(arr, n);
-}
-
 int main()
 {
-    int n;
-    cout << "Array Size - " << endl;
-    cin >> n;
-
-    int arr[n];
-    cout << "Array elememts are - " << endl;
-    for (int i = 0; i < n; i++)
+    vector<int> vec1(4, 1);
+    for (auto i : vec1)
     {
-        cin >> arr[i];
+        cout << i << " ";
     }
-    cout << "Entered Array we have is- " << endl;
-    printArray(arr, n);
-    insertionSort(arr, n);
-    return 0;
+    cout << endl;
+    cout << vec1.size() << endl;
+    cout << vec1.capacity() << endl;
+
+    vec1.push_back(5);
+    for (auto i : vec1)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << vec1.size() << endl;
+    cout << vec1.capacity() << endl;
+
+    vec1.pop_back();
+    for (auto o : vec1)
+    {
+        cout << o << " ";
+    }
+    cout << endl;
+    cout << vec1.size() << endl;
+    cout << vec1.capacity() << endl;
 }
