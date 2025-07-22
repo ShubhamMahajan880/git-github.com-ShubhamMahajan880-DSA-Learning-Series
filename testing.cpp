@@ -12,45 +12,19 @@
 // #include<iterator>
 using namespace std;
 
-void printArray(vector<int> &arr)
-{
-    for (auto i : arr)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-}
-
-void SelectionSort(vector<int> &arr, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        int minElement = INT_MAX;
-        int minIdx = -1;
-        for (int j = i; j < n; j++)
-        {
-            if (arr[j] < minElement)
-            {
-                minElement = arr[j];
-                minIdx = j;
-            }
-        }
-        swap(arr[i], arr[minIdx]);
-    }
-    cout << "After SOrting array we have is - " << endl;
-    printArray(arr);
-}
 int main()
 {
-    int n;
-    cout << "Array SIze - " << endl;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++)
+    int arr[6] = {10, 5, 89, 23, 45, 781};
+    sort(arr, arr + 6);
+    for (int i = 0; i < 6; i++)
     {
-        cin >> i;
+        cout << arr[i] << " ";
     }
-    cout << "Entered Array is - " << endl;
-    printArray(arr);
-    SelectionSort(arr,n);
+    cout << endl;
+    sort(arr, arr + 6, greater<int>());
+    for (int i = 0; i < 6; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }

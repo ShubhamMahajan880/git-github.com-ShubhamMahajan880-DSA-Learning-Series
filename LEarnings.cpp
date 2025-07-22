@@ -14,7 +14,7 @@ using namespace std;
 
 void printArray(int arr[], int n)
 {
-    cout << "Entered Array we have is- " << endl;
+
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
@@ -22,22 +22,23 @@ void printArray(int arr[], int n)
     cout << endl;
 }
 
-void reverseArray(int arr[], int n)
+void insertionSort(int arr[], int n)
 {
-    // Using 2 Pointer Approaaches  -
-    int start = 0;
-    int end = n - 1;
-    while (start < end)
+    for (int i = 1; i < n; i++)
     {
-        swap(arr[start], arr[end]);
-
-        start++;
-        end--;
+        int element = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] < element)
+        {
+            swap(arr[j], arr[j + 1]);
+            j--;
+        }
+        arr[j + 1] = element;
     }
-
-    cout << "Printing the Reversed Array - " << endl;
+    cout << "Sorted array we have is - " << endl;
     printArray(arr, n);
 }
+
 int main()
 {
     int n;
@@ -50,8 +51,8 @@ int main()
     {
         cin >> arr[i];
     }
-
+    cout << "Entered Array we have is- " << endl;
     printArray(arr, n);
-    reverseArray(arr, n);
+    insertionSort(arr, n);
     return 0;
 }
