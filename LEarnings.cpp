@@ -12,32 +12,34 @@
 // #include<iterator>
 using namespace std;
 
+void printMatrix(vector<vector<int>> &Matrix, int n, int m)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << Matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+}
 int main()
 {
-    vector<int> vec1(4, 1);
-    for (auto i : vec1)
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-    cout << vec1.size() << endl;
-    cout << vec1.capacity() << endl;
+    int n, m;
+    cout << "Entering Row & colm - " << endl;
+    cin >> n >> m;
+    vector<vector<int>> Matrix(n, vector<int>(m));
 
-    vec1.push_back(5);
-    for (auto i : vec1)
+    cout << "Input Elements - " << endl;
+    for (int i = 0; i < n; i++)
     {
-        cout << i << " ";
+        for (int j = 0; j < m; j++)
+        {
+            cin >> Matrix[i][j];
+        }
     }
-    cout << endl;
-    cout << vec1.size() << endl;
-    cout << vec1.capacity() << endl;
 
-    vec1.pop_back();
-    for (auto o : vec1)
-    {
-        cout << o << " ";
-    }
-    cout << endl;
-    cout << vec1.size() << endl;
-    cout << vec1.capacity() << endl;
+    cout << "ENtered 2D Vector is -" << endl;
+    printMatrix(Matrix, n, m);
 }
