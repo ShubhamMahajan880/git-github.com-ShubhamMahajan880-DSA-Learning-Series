@@ -28,7 +28,7 @@ int main()
 {
     int n, m;
     cout << "Entering Row & colm - " << endl;
-    cin >> n >> m;
+    cin >> n >> m;  
     vector<vector<int>> Matrix(n, vector<int>(m));
 
     cout << "Input Elements - " << endl;

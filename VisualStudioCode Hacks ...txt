@@ -114,4 +114,9 @@ Save it.
 
 
 
+Reset Entire VS Code Settings -
+%userprofile%\AppData\Roaming\Code\User
+
+To get all extensions - 
+code --list-extensions
 
