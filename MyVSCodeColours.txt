@@ -1,0 +1,28 @@
+Green
+
+"statusBar.background": "#8BC34A",
+"statusBar.noFolderBackground": "#8BC34A",
+"statusBar.debuggingBackground": "#8BC34A"
+
+
+"statusBar.background": "#8DBF4D",
+"statusBar.noFolderBackground": "#8DBF4D",
+"statusBar.debuggingBackground": "#8DBF4D"
+
+
+
+Yellow - 
+"statusBar.background": "#FF9800",
+"statusBar.noFolderBackground": "#FF9800",
+"statusBar.debuggingBackground": "#FF9800"
+
+
+Blue - 
+"statusBar.background": "#6A0DAD",
+"statusBar.noFolderBackground": "#6A0DAD",
+"statusBar.debuggingBackground": "#6A0DAD"
+
+Purple - 
+"statusBar.background": "#6A0DAD",
+"statusBar.noFolderBackground": "#6A0DAD",
+"statusBar.debuggingBackground": "#6A0DAD"
