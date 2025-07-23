@@ -12,35 +12,18 @@
 // #include<iterator>
 using namespace std;
 
-void printMatrix(vector<vector<int>> &Matrix, int n, int m)
+int tilingProblem(int n)
 {
-    for (int i = 0; i < n; i++)
+    if (n == 0 || n == 1)
     {
-        for (int j = 0; j < m; j++)
-        {
-            cout << Matrix[i][j] << " ";
-        }
-        cout << endl;
+        return 1;
     }
-    
+    return tilingProblem(n - 1) + tilingProblem(n - 2);
 }
 int main()
 {
-    int n, m;
-    cout << "Entering Row & colm - " << endl;
-    cin >> n >> m;  
-    vector<vector<int>> Matrix(n, vector<int>(m));
-
-    cout << "Input Elements - " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> Matrix[i][j];
-        }
-    }
-    
-
-    cout << "ENtered 2D Vector is -" << endl;
-    printMatrix(Matrix, n, m);
+    cout << tilingProblem(2)<<endl;
+    cout << tilingProblem(3)<<endl;
+    cout << tilingProblem(4)<<endl;
+    cout << tilingProblem(5)<<endl;
 }
