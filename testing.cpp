@@ -12,19 +12,63 @@
 // #include<iterator>
 using namespace std;
 
+int staircaseSearch(int matrix[10][10], int n, int m, int target)
+{
+    int i = n - 1;
+    int j = 0;
+    while (i >= 0 && j < m)
+    {
+        if (matrix[i][j] == target)
+        {
+            cout << "target is successfully found at - (" << i << "," << j << ")" << endl;
+            return 0;
+        }
+        else if (matrix[i][j] > target)
+        {
+            i--;
+        }
+        else
+        {
+            j++;
+        }
+    }
+    cout << "target isn't available in the SOrted matrices " << endl;
+    return -1;
+}
+
+void printMatrix(int matrix[10][10], int n, int m)
+{
+    cout << "So, inserted matrix we have is - " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    int arr[6] = {10, 5, 89, 23, 45, 781};
-    sort(arr, arr + 6);
-    for (int i = 0; i < 6; i++)
+    int n, m;
+    cout << "Row & Colm values- " << endl;
+    cin >> n >> m;
+
+    int matrix[10][10];
+    cout << "Enter the matrix elements - " << endl;
+    for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " ";
+        for (int j = 0; j < m; j++)
+        {
+            cin >> matrix[i][j];
+        }
     }
-    cout << endl;
-    sort(arr, arr + 6, greater<int>());
-    for (int i = 0; i < 6; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    printMatrix(matrix, n, m);
+
+    int target;
+    cout << "what is your target in matrix - " << endl;
+    cin >> target;
+    staircaseSearch(matrix, n, m, target);
+    return 0;
 }
