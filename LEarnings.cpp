@@ -12,67 +12,55 @@
 // #include<iterator>
 using namespace std;
 
-void printArray(int arr[], int n)
+class College
 {
-    for (int i = 0; i < n; i++)
+    string studentname;
+    int rollno;
+    long double mobileno;
+
+public:
+    // Setter
+    void setName(string Name)
     {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-
-int quickPartitin(int arr[], int si, int ei)
-{
-    int i = si - 1;
-    int pivotElement = arr[ei];
-
-    for (int j = si; j < ei; j++)
-    {
-        if (arr[j] <= arr[ei])
-        {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-    i++;
-    swap(arr[i], arr[ei]);
-
-    pivotElement = i;
-    cout << "next pivotindexing will be " << i << endl;
-    return i;
-}
-
-void QuickSort(int arr[], int si, int ei)
-{
-    if (si >= ei)
-    {
-        return;
+        studentname = Name;
     }
 
-    int pivotIndex = quickPartitin(arr, si, ei);
-    QuickSort(arr, si, pivotIndex - 1);
-    QuickSort(arr, pivotIndex + 1, ei);
-}
+    void setRollno(int Rollno)
+    {
+        rollno = Rollno;
+    }
+
+    void setMobileNo(long double MobileNo)
+    {
+        mobileno = MobileNo;
+    }
+    // Getters
+    string getName()
+    {
+        return studentname;
+    }
+
+    int getRollno()
+    {
+        return rollno;
+    }
+
+    long double getMobileNo()
+    {
+        return mobileno;
+    }
+};
 
 int main()
 {
-    int n;
-    cout << "Array size - " << endl;
-    cin >> n;
+    College c1;
+    // Setting values throug Setters-
+    c1.setName("ShubhamMahajan");
+    c1.setMobileNo(966999880);
+    c1.setRollno(4088);
 
-    int arr[n];
-    cout << "Ecter array elements - " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    cout << "So, entered array is  - " << endl;
-    printArray(arr, n);
-
-    QuickSort(arr, 0, n - 1);
-
-    cout << "The Sorted Array After Quick Sort We Have is - " << endl;
-    printArray(arr, n);
-    return 0;
+    // Getting values through Getters
+    cout << c1.getName() << endl;
+    cout << c1.getMobileNo() << endl;
+    cout << c1.getRollno() << endl;
 }

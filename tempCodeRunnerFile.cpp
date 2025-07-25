@@ -1,1 +1,2 @@
-);
+string staringside;
+    string gearsystem;
