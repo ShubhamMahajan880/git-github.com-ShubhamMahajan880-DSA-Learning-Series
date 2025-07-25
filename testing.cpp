@@ -14,66 +14,46 @@ using namespace std;
 
 class College
 {
+
+public:
     string name;
     string department;
     int rollno;
     long double contactno;
+    string *clgtype;
 
-public:
-    // Setters to acess the pvt class  -
-    void setName(string name)
+    College(string name, string department)
     {
         this->name = name;
-    }
-
-    void setDepartment(string department)
-    {
         this->department = department;
+        clgtype = new string;
+        *clgtype = "Priovate";
     }
 
-    void setrollno(int rollno)
+    // Creating Custom Copy COnstructor -
+    College(College &original)
     {
-        this->rollno = rollno;
+        cout << "Copying Original to the New COnstructor" << endl;
+        name = original.name;
+        department = original.department;
+        // clgtype = original.clgtype; // Shallow Copy change in the referencees only
+        clgtype = new string;
+        *clgtype = *original.clgtype; // Deep Copy
     }
 
-    void setContactNo(long double contacto)
+    ~College()
     {
-        this->contactno = contactno;
-    }
-
-    // Now using Getetrs for accessing setters
-
-    string getdepartment()
-    {
-        return this->department;
-    }
-
-    int getrollno()
-    {
-        return this->rollno;
-    }
-
-    long double getcontactno()
-    {
-        return this->contactno;
-    }
-
-    string getname()
-    {
-        return this->name;
+        cout << "Deletung through Destructor by defaulyt" << endl;
     }
 };
 
 int main()
 {
-    College C1;
-    C1.setContactNo(9669999880);
-    C1.setDepartment("BTECH CSE AI");
-    C1.setName("Shubh MHajaAN");
-    C1.setrollno(4088);
+    College C1("Shubham Mahajan", "CSE AI");
 
-    cout << C1.getname() << endl;
-    cout << C1.getdepartment() << endl;
-    cout << C1.getcontactno() << endl;
-    cout << C1.getrollno() << endl;
+    cout << C1.name << endl;
+    cout << C1.department << endl;
+    cout << *C1.clgtype << endl;
+
+    return 0;
 }
