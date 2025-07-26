@@ -67,7 +67,7 @@ Shift
 9.	Shift + Alt + I = Put cursor at the end of each line which are selected
 
 Alt
-1.	Alt + M = Close the Terminal
+1.	Alt + M = kill the Terminal
 2.	ALT+ Up Arrow/ Down Arrow = for changing line up & down
 3.	ALT+ Z = for converting lorem vertical line to a single paragraph section. 
 4.	ALT + Mouse Click: - Multi cursor concept using 
