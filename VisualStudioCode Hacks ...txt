@@ -1,27 +1,29 @@
 Ctrl + Shift
-1.	Ctrl + Shift + \  = Jump to matching bracket
+1.	Ctrl + Shift + \ = Jump to matching bracket
 2.	Ctrl + Shift + ` = Create new terminal Integrated terminal
 3.	Ctrl + Shift + Home = Top/First page of file
-4.	Ctrl + Shift + End= Bottom/last page of file
-5.	Ctrl + Shift + Tab OR Ctrl + Shift + PgUp / PgDn OR Ctrl + Tab OR Alt + Left/Right  Arrow = Navigate editor group history – Jitni files khuli he unke bich me switch
+4.	Ctrl + Shift + End = Bottom/last page of file
+5.	Ctrl + Shift + Tab OR Ctrl + Shift + PgUp / PgDn OR Ctrl + Tab OR Alt + Left/Right Arrow = Navigate editor group history – Jitni files khuli he unke bich me switch
 6.	Ctrl + Shift + Enter = Insert Line Above
-7.	Ctrl + Shift + S = Save file in directory
-8.	Ctrl + Shift + T = Reopen the closed tab
-9.	Ctrl + Shift + D = Show Debug
-10.	Ctrl + Shift + E = Show Explorer Files
-11.	Ctrl + Shift + F = Show Search Display
-12.	Ctrl + Shift + F = Uses for ek hi word baar baar h to use select krne k liye
-13.	Ctrl + Shift + G+G = Open Git Controls
-14.	Ctrl + Shift + K = Delete the Line
-15.	Ctrl + Shift + L = kisi word ko select kr k vo word jitni baar h utne cursors create krna
-16.	Ctrl + Shift + M = Show Problems panel
-17.	Ctrl + Shift + N = Open New Window
-18.	Ctrl + Shift + O = Go to Symbol. When we have multiple sections or funcitons
-19.	Ctrl + Shift + P OR F1= Show Command Pallate
-20.	Ctrl + Shift + R =Reload All Extensions & Directory
-21.	Ctrl + Shift + U = Show Output panel
-22.	Ctrl + Shift + W = Close All Windows/Tabs at a time
-23.	Ctrl + Shift + X = Show Extensions
+7.	Ctrl + Shift + C = Copy from Terminal
+8.	Ctrl + Shift + D = Show Debug
+9.	Ctrl + Shift + E = Show Explorer Files
+10.	Ctrl + Shift + F = Show Search Display
+11.	Ctrl + Shift + F = Uses for ek hi word baar baar h to use select krne k liye
+12.	Ctrl + Shift + G+G = Open Git Controls
+13.	Ctrl + Shift + K = Delete the Line
+14.	Ctrl + Shift + L = Kisi word ko select kr k vo word jitni baar h utne cursors create krna
+15.	Ctrl + Shift + M = Show Problems panel
+16.	Ctrl + Shift + N = Open New Window
+17.	Ctrl + Shift + O = Go to Symbol. When we have multiple sections or functions
+18.	Ctrl + Shift + P OR F1 = Show Command Palette
+19.	Ctrl + Shift + R = Reload All Extensions & Directory
+20.	Ctrl + Shift + S = Save file in directory
+21.	Ctrl + Shift + T = Reopen the closed tab
+22.	Ctrl + Shift + U = Show Output panel
+23.	Ctrl + Shift + V = Paste in Integrated Terminal
+24.	Ctrl + Shift + W = Close All Windows/Tabs at a time
+25.	Ctrl + Shift + X = Show Extensions
 
 Ctrl +
 1.	ctrl+/ <! --    --> = is a method for comment, for particular line. 
@@ -71,6 +73,7 @@ Alt
 2.	ALT+ Up Arrow/ Down Arrow = for changing line up & down
 3.	ALT+ Z = for converting lorem vertical line to a single paragraph section. 
 4.	ALT + Mouse Click: - Multi cursor concept using 
+
 
 My Created Shortcuts
 
@@ -132,3 +135,5 @@ For extensions -
 @outdated – Show all extensions that have updates available.
 
 @recommended – Extensions recommended based on your usage.
+
+

@@ -1,1 +1,2 @@
-cout << "Element in LL you are looking for dosen;lt exist" << endl;
+ll.reverse_list();
+    // ll.print_List();
