@@ -1,2 +1,1 @@
-string staringside;
-    string gearsystem;
+cout << "Element in LL you are looking for dosen;lt exist" << endl;
