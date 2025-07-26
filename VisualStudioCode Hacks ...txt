@@ -17,7 +17,7 @@ Ctrl + Shift
 16.	Ctrl + Shift + N = Open New Window
 17.	Ctrl + Shift + O = Go to Symbol. When we have multiple sections or functions
 18.	Ctrl + Shift + P OR F1 = Show Command Palette
-19.	Ctrl + Shift + R = Reload All Extensions & Directory
+19.	Ctrl + Shift + R = Reload All Extensions & Directory OR Developer: Restart Extension Host
 20.	Ctrl + Shift + S = Save file in directory
 21.	Ctrl + Shift + T = Reopen the closed tab
 22.	Ctrl + Shift + U = Show Output panel
@@ -82,6 +82,8 @@ My Created Shortcuts
 3.	Alt  + ' = Copy Output from Terminal
 4.	Ctrl + ' = Run Code
 5.	Alt + k = Opne Keyboard SHorcuts
+6. 	Alt + m = Text Pastry - 1 to x - 
+7.      ctrl+alt+l = Push to GitHub
 
 Other Useful
 LoremN  - command is uses for get the paragraph of N words

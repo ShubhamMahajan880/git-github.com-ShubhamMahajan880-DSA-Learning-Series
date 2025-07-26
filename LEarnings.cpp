@@ -51,7 +51,6 @@ public:
             head = newnode;
         }
     }
-
     void print_List()
     {
         Node *temp = head;
@@ -85,14 +84,13 @@ public:
 int main()
 {
     List ll;
-    ll.push_front(15);
-    ll.push_front(12);
-    ll.push_front(11);
-    ll.push_front(10);
-    ll.push_front(8);
-    ll.push_front(5);
     ll.push_front(1);
-    ll.push_front(0);
+    ll.push_front(3);
+    ll.push_front(4);
+    ll.push_front(5);
+    ll.push_front(6);
+    ll.push_front(7);
+    ll.push_front(8);
 
     ll.print_List();
     cout << endl;
