@@ -120,3 +120,15 @@ Reset Entire VS Code Settings -
 To get all extensions - 
 code --list-extensions
 
+
+For extensions - 
+@disabled
+@enabled – Show all enabled extensions.
+
+@builtin – Show all built-in extensions (pre-installed with VS Code).
+
+@installed – Show all extensions you've installed.
+
+@outdated – Show all extensions that have updates available.
+
+@recommended – Extensions recommended based on your usage.
