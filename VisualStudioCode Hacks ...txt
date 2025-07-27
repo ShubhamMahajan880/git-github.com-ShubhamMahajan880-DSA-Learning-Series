@@ -82,8 +82,8 @@ My Created Shortcuts
 3.	Alt  + ' = Copy Output from Terminal
 4.	Ctrl + ' = Run Code
 5.	Alt + k = Opne Keyboard SHorcuts
-6. 	Alt + m = Text Pastry - 1 to x - 
-7.      ctrl+alt+l = Push to GitHub
+6. 	Alt + l = Text Pastry - 1 to x - 
+
 
 Other Useful
 LoremN  - command is uses for get the paragraph of N words

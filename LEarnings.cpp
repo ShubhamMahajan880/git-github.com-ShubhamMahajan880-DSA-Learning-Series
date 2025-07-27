@@ -79,22 +79,74 @@ public:
 
         head = prev;
     }
+
+    int getSize()
+    {
+        Node *temp = head;
+
+        int size = 0;
+
+        while (temp != NULL)
+        {
+            temp = temp->next;
+            size++;
+        }
+        return size;
+        cout << "The size of LL is - " << size << endl;
+    }
+
+    int removeNode(int n)
+    {
+
+        Node *prev = head;
+        int sz = getSize();
+        for (int i = 0; i < (sz - n); i++)
+        {
+            prev = prev->next;
+        }
+        Node *DeleteNode = prev->next;
+        cout << "Deleting the Node with data -  " << DeleteNode->data << endl;
+        prev->next = prev->next->next;
+    }
+
+    bool isCycle(Node *head)
+    {
+        Node *slow = head;
+        Node *fast = head;
+
+        while (fast != NULL && fast->next != NULL)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if (slow == fast)
+            {
+                cout << "yes, Cycle Exist" << endl;
+                return true;
+            }
+        }
+        cout << "No Cycle Found - " << endl;
+        return false;
+    }
 };
 
 int main()
 {
     List ll;
-    ll.push_front(1);
-    ll.push_front(3);
     ll.push_front(4);
-    ll.push_front(5);
-    ll.push_front(6);
-    ll.push_front(7);
-    ll.push_front(8);
+    ll.push_front(3);
+    ll.push_front(2);
+    ll.push_front(1);
 
     ll.print_List();
     cout << endl;
 
-    ll.reverse_list();
-    ll.print_List();
+    // ll.reverse_list();
+    // ll.print_List();
+
+    // ll.removeNode(4);
+    // ll.print_List();
+    ll.tail->next = ll.head;
+    ll.isCycle(ll.head);
+    return 0;
 }
