@@ -388,25 +388,82 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Stack in STL -
-int main()
-{
-    stack<int> s;
-    s.push(4);
-    s.push(2);
-    s.push(1);
-    s.push(0);
+// // Stack in STL -
+// int main()
+// {
+//     stack<int> s;
+//     s.push(4);
+//     s.push(2);
+//     s.push(1);
+//     s.push(0);
 
-    cout << "So, using STL our stack is given as - " << endl;
-    while (!s.empty())
-    {
-        cout << s.top() << " ";
-        s.pop();
-    }
-    cout << endl;
-    /*
-    So, using STL our stack is given as -
-    0 1 2 4
+//     cout << "So, using STL our stack is given as - " << endl;
+//     while (!s.empty())
+//     {
+//         cout << s.top() << " ";
+//         s.pop();
+//     }
+//     cout << endl;
+//     /*
+//     So, using STL our stack is given as -
+//     0 1 2 4
 
-     */
-}
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+// Push at Bottom of the Stack -
+
+// void pushAtBottom(stack<int> &st, int val)
+// {
+//     if (st.empty())
+//     {
+//         st.push(val);
+//         return;
+//     }
+
+//     int temp = st.top();
+//     st.pop();
+
+//     pushAtBottom(st, val);
+
+//     st.push(temp);
+// }
+
+// void printStack(stack<int> st)
+// {
+//     // Pass by value to avoid modifying the original stack
+//     while (!st.empty())
+//     {
+//         cout << st.top() << " ";
+//         st.pop();
+//     }
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     stack<int> st;
+//     st.push(1);
+//     st.push(2);
+//     st.push(3);
+
+//     cout << "So, the current stack is - " << endl;
+//     printStack(st); // Just print, don't pop
+
+//     int valueToInsert = 4;
+
+//     pushAtBottom(st, valueToInsert);
+
+//     cout << "After pushing at bottom stack we have is - " << endl;
+//     printStack(st);
+
+//     return 0;
+//     /*
+//     So, the current stack is -
+//     3 2 1
+//     After pushing at bottom stack we have is -
+//     3 2 1 4
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
