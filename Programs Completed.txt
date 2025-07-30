@@ -174,3 +174,21 @@
 9) DoublyLinkedList Concept - 
 // -------------------
 
+[14] Stack - 
+1) Stack Implementation using Vector -
+1.1) Stack implemtation for any type of Datatype
+2) Stack impmentation usig LL -
+Case 1 - using STL LL -
+Case 2 - By creating LL manually -
+3) Stack in STL -
+4) Push at Bottom of the Stack -
+5) Reverse a string using stack -
+6) Reverse a  stack using recursion -
+7) Stock Spain Problem -
+8) Next Greater Element  -
+9) Valid Paranthesis Problem -
+10) Duplicate  Paranthesis Problem -
+11) Max Area in the Histogram  -
+// -------------------
+
+
