@@ -15,7 +15,7 @@
 // #include <deque>
 using namespace std;
 
-// 1) Queue Implementation using LL: -
+//1) Queue Implementation using LL: -
 /*
 While implementing the queue using LL - in Queue insertion perfroms from Rear End wich means PushBack inLL
                                     Similarly, in queue deletion perfrom from Front wich means PopFront in LL
@@ -118,7 +118,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Queue using stack -
+//2) STL Queue Functionality -
 // int main()
 // {
 //     queue<int> q;
@@ -141,7 +141,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Queue using 2 stacks -
+//3) Queue using 2 stacks -
 
 // class Queue
 // {
@@ -204,7 +204,8 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Stack using 2 Queues -
+//3.1) Stack using 2 Queues -
+
 // class Stack
 // {
 //     queue<int> q1;
@@ -261,7 +262,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// First Non-Repeating Letter -
+//4) First Non-Repeating Letter -
 // void firstNonRepeating(string s) // TC - O(n), SC - O(n)
 // {
 //     queue<char> Q;
@@ -307,7 +308,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Interleave of 2 Queues -
+//5) Interleave of 2 Queues -
 
 // void interleave(queue<int> &org) // usign STL it generally pases by value but here i am passing by reference fir making the changes in the actual/original queue
 // {
@@ -350,7 +351,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Reverse a Queue -
+//6) Reverse a Queue -
 
 // void reverse(queue<int> &q)
 // {
@@ -393,7 +394,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Deque[Double Ended Queue] concept in Queue -
+//7) Deque[Double Ended Queue] concept in Queue -
 
 // int main()
 // {
@@ -419,7 +420,8 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 //     cout << deq.back() << endl;  // 3
 // }
 // ____________ ____________
-// Queue using Deque -
+
+//7.1)  Queue using Deque -
 
 // class Queue
 // {
@@ -470,7 +472,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Stack using Deque -
+//7.2) Stack using Deque -
 
 // class Stack
 // {
@@ -516,7 +518,7 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Circular Queue Implementations using Array -
+//8) Circular Queue Implementations using Array -
 
 // class CircularQueue
 // {

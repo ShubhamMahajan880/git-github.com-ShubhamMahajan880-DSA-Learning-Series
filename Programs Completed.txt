@@ -191,4 +191,17 @@ Case 2 - By creating LL manually -
 11) Max Area in the Histogram  -
 // -------------------
 
+[15] Queue  - 
+1) Queue Implementation using LL: -
+2) STL Queue Functionality -
+3) Queue using 2 stacks -
+3.1) Stack using 2 Queues -
+4) First Non-Repeating Letter -
+5) Interleave of 2 Queues -
+6) Reverse a Queue -
+7) Deque[Double Ended Queue] concept in Queue -
+7.1)  Queue using Deque -
+7.2) Stack using Deque -
+8) Circular Queue Implementations using Array -
+// -------------------
 
