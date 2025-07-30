@@ -12,6 +12,7 @@
 // #include<iterator>
 // #include<stack>
 // #include <queue>
+// #include <deque>
 using namespace std;
 
 // 1) Queue Implementation using LL: -
@@ -306,5 +307,299 @@ While implementing the queue using LL - in Queue insertion perfroms from Rear En
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//Interleave of 2 Queues -
+// Interleave of 2 Queues -
 
+// void interleave(queue<int> &org) // usign STL it generally pases by value but here i am passing by reference fir making the changes in the actual/original queue
+// {
+//     int n = org.size();
+//     queue<int> first;
+
+//     for (int i = 0; i < n / 2; i++)
+//     {
+//         first.push(org.front());
+//         org.pop();
+//     }
+//     while (!first.empty())
+//     {
+//         org.push(first.front());
+//         first.pop();
+
+//         org.push(org.front());
+//         org.pop();
+//     }
+// }
+// int main()
+// {
+//     queue<int> org;
+//     for (int i = 1; i <= 10; i++)
+//     {
+//         org.push(i);
+//     }
+//     interleave(org);
+
+//     for (int i = 1; i <= 10; i++)
+//     {
+//         cout << org.front() << " ";
+//         org.pop();
+//     }
+//     cout << endl;
+//     /*
+//     1 6 2 7 3 8 4 9 5 10
+//     TC - O(n) & SC - O(n)
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// Reverse a Queue -
+
+// void reverse(queue<int> &q)
+// {
+//     stack<int> s;
+
+//     while (!q.empty())
+//     {
+//         s.push(q.front());
+//         q.pop();
+//     }
+
+//     while (!s.empty())
+//     {
+//         q.push(s.top());
+//         s.pop();
+//     }
+// }
+// int main()
+// {
+//     queue<int> q;
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         q.push(i);
+//     }
+//     reverse(q);
+
+//     // Printing reversed queue elements -
+//     cout << "So, queue reversal is - " << endl;
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         cout << q.front() << " ";
+//         q.pop();
+//     }
+//     cout << endl;
+//     /*
+//     So, queue reversal is -
+//     5 4 3 2 1
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// Deque[Double Ended Queue] concept in Queue -
+
+// int main()
+// {
+//     deque<int> deq;
+
+//     deq.push_front(2);
+//     deq.push_front(1);
+
+//     deq.push_back(3);
+//     deq.push_back(4);
+
+//     cout << "Deque contents: ";
+//     for (auto i : deq)
+//     {
+//         cout << i << " ";
+//     }
+//     cout << endl;
+//     // Deque contents: 1 2 3 4
+
+//     deq.pop_front();
+//     deq.pop_back();
+//     cout << deq.front() << endl; // 2
+//     cout << deq.back() << endl;  // 3
+// }
+// ____________ ____________
+// Queue using Deque -
+
+// class Queue
+// {
+//     deque<int> deq;
+
+// public:
+//     void push(int data)
+//     {
+//         deq.push_back(data);
+//     }
+
+//     void pop()
+//     {
+//         deq.pop_front();
+//     }
+
+//     int front()
+//     {
+//         return deq.front();
+//     }
+
+//     bool empty()
+//     {
+//         return deq.empty();
+//     }
+// };
+// int main()
+// {
+//     Queue q;
+
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         q.push(i);
+//     }
+
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         cout << q.front() << endl;
+//         q.pop();
+//     }
+//     /*
+//     1
+//     2
+//     3
+//     4
+//     5
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// Stack using Deque -
+
+// class Stack
+// {
+//     deque<int> deq;
+
+// public:
+//     void push(int data)
+//     {
+//         deq.push_front(data);
+//     }
+//     void pop()
+//     {
+//         deq.pop_front();
+//     }
+//     int top()
+//     {
+//         return deq.front();
+//     }
+// };
+// int main()
+// {
+//     Stack s;
+
+//     // taking elements for stack -
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         s.push(i);
+//     }
+
+//     for (int i = 1; i <= 5; i++)
+//     {
+//         cout << s.top() << endl;
+//         s.pop();
+//     }
+//     /*
+//     5
+//     4
+//     3
+//     2
+//     1
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// Circular Queue Implementations using Array -
+
+// class CircularQueue
+// {
+//     int *arr;
+//     int currSize, n;
+//     int f, r;
+
+// public:
+//     CircularQueue(int size)
+//     {
+//         n = size;
+//         arr = new int[n];
+//         currSize = 0;
+//         f = 0;
+//         r = -1;
+//     }
+
+//     void push(int data)
+//     {
+//         if (currSize == n)
+//         {
+//             cout << "CQ is FULL" << endl;
+//             return;
+//         }
+//         r = (r + 1) % n;
+//         arr[r] = data;
+//         currSize++;
+//     }
+
+//     void pop()
+//     {
+//         if (empty())
+//         {
+//             cout << "CQ is Already Empty " << endl;
+//             return;
+//         }
+//         f = (f + 1) % n;
+//         currSize--;
+//     }
+
+//     int front()
+//     {
+//         if (empty())
+//         {
+//             cout << "CQ is Already Empty " << endl;
+//             return 0;
+//         }
+//         return arr[f];
+//     }
+
+//     bool empty()
+//     {
+//         return currSize == 0;
+//     }
+
+//     void printArray()
+//     {
+//         for (int i = 0; i < n; i++)
+//         {
+//             cout << arr[i] << " ";
+//         }
+//         cout << endl;
+//     }
+// };
+
+// int main()
+// {
+//     CircularQueue cq(3);
+
+//     cq.push(1);
+//     cq.push(2);
+//     cq.push(3);
+//     cq.pop();
+//     cq.push(4);
+
+//     cq.printArray(); // 4 2 3
+//     cout << endl;
+
+//     while (!cq.empty())
+//     {
+//         cout << cq.front() << " ";
+//         cq.pop();
+//     }
+//     cout << endl;// 2 3 4 
+// }
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
