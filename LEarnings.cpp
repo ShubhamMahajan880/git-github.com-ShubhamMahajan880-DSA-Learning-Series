@@ -12,12 +12,31 @@
 // #include<iterator>
 using namespace std;
 
-void stackArray(int arr[] ,int n)
-{
-    
-}
 int main()
-{   
-    int n = 5;
-    int arr [5] = {1,2,3,4,5};
-}   
+{
+    stack<int> s;
+
+    s.push(3);
+    s.push(2);
+    s.push(1);
+    cout << "The stack is - " << endl;
+    while (!s.empty())
+    {
+        cout << s.top();
+        s.pop();
+    }
+    cout << endl;
+
+    queue<int> q;
+
+    q.push(3);
+    q.push(2);
+    q.push(1);
+
+    while (!q.empty())
+    {
+        cout << q.front();
+        q.pop();
+    }
+    cout << endl;
+}
