@@ -13,10 +13,10 @@
 // #include<stack>
 using namespace std;
 
-//1) Stack Implementation using Vector -
-//  class Stack
-//  {
-//      vector<int> vec;
+// 1) Stack Implementation using Vector -
+//   class Stack
+//   {
+//       vector<int> vec;
 
 // public:
 //     void push(int val) // O(1)
@@ -256,8 +256,8 @@ So, Stack is -
 
 // ____________ ____________ ____________ ____________ ____________
 
-//2) Stack impmentation usig LL -
-// Case 1 - using STL LL -
+// 2) Stack impmentation usig LL -
+//  Case 1 - using STL LL -
 
 // template <class T>
 // class Stack
@@ -388,14 +388,14 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//3) Stack in STL -
-// int main()
-// {
-//     stack<int> s;
-//     s.push(4);
-//     s.push(2);
-//     s.push(1);
-//     s.push(0);
+// 3) Stack in STL -
+//  int main()
+//  {
+//      stack<int> s;
+//      s.push(4);
+//      s.push(2);
+//      s.push(1);
+//      s.push(0);
 
 //     cout << "So, using STL our stack is given as - " << endl;
 //     while (!s.empty())
@@ -412,7 +412,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//4) Push at Bottom of the Stack -
+// 4) Push at Bottom of the Stack -
 
 // void pushAtBottom(stack<int> &st, int val)
 // {
@@ -469,15 +469,15 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//5) Reverse a string using stack -
-// string reverseString(string str)
-// {
-//     string ans;
-//     stack<char> s;
-//     for (int i = 0; i < str.size(); i++)
-//     {
-//         s.push(str[i]);
-//     }
+// 5) Reverse a string using stack -
+//  string reverseString(string str)
+//  {
+//      string ans;
+//      stack<char> s;
+//      for (int i = 0; i < str.size(); i++)
+//      {
+//          s.push(str[i]);
+//      }
 
 //     while (!s.empty())
 //     {
@@ -510,7 +510,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//6) Reverse a  stack using recursion -
+// 6) Reverse a  stack using recursion -
 
 // void pushAtBottom(stack<int> &s, int val) // - original stack me ki change na aaye isliye stack ko Reference& ke saath [ass krna jruri he]
 // {
@@ -573,7 +573,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//7) Stock Spain Problem -
+// 7) Stock Spain Problem -
 
 // void storckSpanProblem(vector<int> stock, vector<int> span)
 // {
@@ -619,7 +619,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//8) Next Greater Element  -
+// 8) Next Greater Element  -
 
 // void nextGreaterElement(vector<int> arr, vector<int> ans)
 // {
@@ -664,7 +664,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//9) Valid Paranthesis Problem -
+// 9) Valid Paranthesis Problem -
 
 // bool isValidParanthesis(string str)
 // {
@@ -681,17 +681,6 @@ So, Stack is -
 //         {
 //             if (st.empty()) // if nothing available insode stack
 //             {
-//                 /*
-//                 Enter the Paranthesis string for val 1  -
-//                 ({}}(){})
-//                 Enter the Paranthesis string for val 2  -
-//                 [{()}]
-//                 0
-//                 1
-
-//                 TC - O(n) - only time taken by string characters n
-//                 SC - O(n) - only space taken for n siz stack
-//                  */
 //                 return false;
 //             }
 
@@ -743,7 +732,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//10) Duplicate  Paranthesis Problem -
+// 10) Duplicate  Paranthesis Problem -
 
 // bool isDuplicate(string str)
 // {
@@ -797,7 +786,7 @@ So, Stack is -
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//11) Max Area in the Histogram  -
+// 11) Max Area in the Histogram  -
 
 // void pritnArray(vector<int> height)
 // {

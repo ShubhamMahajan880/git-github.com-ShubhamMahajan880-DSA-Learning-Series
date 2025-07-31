@@ -12,56 +12,58 @@
 // #include<iterator>
 using namespace std;
 
-class Stack
+// 9) Valid Paranthesis Problem -
+
+bool isValidParanthesis(string str)
 {
-    vector<int> vec;
+    stack<char> st;
 
-public:
-    void push(int val) // O(1)
+    for (int i = 0; i < str.size(); i++)
     {
-
-        vec.push_back(val);
-    }
-    bool isEmpty()
-    {
-        return vec.size() == 0;
-    }
-
-    void pop()
-    {
-        if (isEmpty())
+        char ch = str[i];
+        if (ch == '(' || ch == '{' || ch == '[') // opening condition
         {
-            cout << "Stack is Empty, nothing to pop out here " << endl;
-            return;
+            st.push(ch);
         }
-
-        vec.pop_back();
-    }
-
-    int top()
-    {
-        if (isEmpty())
+        else // closing condiiton
         {
-            cout << "Nothing inside of Stack, how can be get the top " << endl;
-            return -1;
+            if (st.empty()) // if nothing available insode stack
+            {
+                return false;
+            }
+
+            // matching paranethiss conditiopn
+            char top = st.top();
+            if ((top == '(' && ch == ')') || (top == '{' && ch == '}') || (top == '[' && ch == ']'))
+            {
+                st.pop();
+            }
+            else
+            {
+                return false;
+            }
         }
-        int lastIndex = vec.size() - 1;
-        return vec[lastIndex];
     }
-};
+
+    if (st.empty()) // opening closing se match hone ke baad agr stack empty he to true otherwise false
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main()
 {
-    Stack s;
-    s.push(4);
-    s.push(3);
-    s.push(2);
-    s.push(1);
+    string s1, s2;
+    cout << "Enter the Paranthesis string for val 1  - " << endl;
+    getline(cin, s1);
 
-    cout << "So, Stack is - " << endl;
+    cout << "Enter the Paranthesis string for val 2  - " << endl;
+    getline(cin, s2);
 
-    while (!s.isEmpty())
-    {
-        cout << s.top() << " ";
-        s.pop();
-    }
+    cout << isValidParanthesis(s1) << endl;
+    cout << isValidParanthesis(s2) << endl;
 }
