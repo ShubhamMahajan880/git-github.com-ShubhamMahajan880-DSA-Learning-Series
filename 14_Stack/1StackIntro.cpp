@@ -16,10 +16,10 @@ using namespace std;
 //1) Stack Implementation using Vector -
 //  class Stack
 //  {
-//      vector<T> vec;
+//      vector<int> vec;
 
 // public:
-//     void push(T val) // O(1)
+//     void push(int val) // O(1)
 //     {
 
 //         vec.push_back(val);
@@ -40,18 +40,18 @@ using namespace std;
 //         vec.pop_back();
 //     }
 
-//     T top()
+//     int top()
 //     {
 //         if (isEmpty())
 //         {
 //             cout << "Nothing inside of Stack, how can be get the top " << endl;
 //             return -1;
 //         }
-//         T lastIndex = vec.size() - 1;
+//         int lastIndex = vec.size() - 1;
 //         return vec[lastIndex];
 //     }
 // };
-// T main()
+// int main()
 // {
 //     Stack s;
 //     s.push(4);
