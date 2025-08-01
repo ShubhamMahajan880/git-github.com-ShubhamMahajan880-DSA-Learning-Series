@@ -3,50 +3,59 @@
 #include <stack>
 #include <queue>
 #include <list>
+#include <deque>
 using namespace std;
 
-// Queeu Reversal -
+// Stack using deque -
 
-void printQueue(queue<int> q)
+class Stack
 {
-    while (!q.empty())
-    {
-        cout << q.front() << " ";
-        q.pop();
-    }
-}
+    deque<int> deq;
 
-void reverseQueue(queue<int> &q)
-{
-    stack<int> s;
-    while (!q.empty())
+public:
+    void push(int data)
     {
-        s.push(q.front());
-        q.pop();
+        deq.push_back(data);
     }
 
-    cout << "So, reverse using stack is - " << endl;
-    while (!s.empty())
+    bool isempty()
+    {
+        return deq.empty();
+    }
+    void pop()
+    {
+        if (isempty())
+        {
+            return;
+        }
+        deq.pop_back();
+    }
+
+    int top()
+    {
+        if (isempty())
+        {
+            cout << "nthing inside stack, how can be on top" << endl;
+            return 0;
+        }
+        return deq.back();
+    }
+};
+
+int main()
+{
+    Stack s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.push(5);
+    s.push(6);
+
+    while (!s.isempty())
     {
         cout << s.top() << " ";
         s.pop();
     }
     cout << endl;
-}
-int main()
-{
-    queue<int> q;
-
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
-    q.push(5);
-    q.push(6);
-
-    cout << "Queue is - " << endl;
-    printQueue(q);
-
-    cout << "and the revese queue is - " << endl;
-    reverseQueue(q);
 }
