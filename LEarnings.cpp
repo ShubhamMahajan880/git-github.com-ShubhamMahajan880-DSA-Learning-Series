@@ -6,56 +6,90 @@
 #include <deque>
 using namespace std;
 
-// Stack using deque -
-
-class Stack
+// Circular Queue -
+class circularQueue
 {
-    deque<int> deq;
+    int *arr;
+    int currSize, n;
+    int f, r;
 
 public:
-    void push(int data)
+    circularQueue(int size)
     {
-        deq.push_back(data);
+        n = size;
+        f = 0;
+        r = -1;
+        currSize = 0;
+        arr = new int[n];
     }
 
+    void push(int data)
+    {
+        if (currSize == n)
+        {
+            cout << "CQ is already full - " << endl;
+            return;
+        }
+        r = (r + 1) % n;
+        arr[r] = data;
+        currSize++;
+    }
     bool isempty()
     {
-        return deq.empty();
+        return currSize == 0;
     }
     void pop()
     {
         if (isempty())
         {
-            return;
+            cout << "There is Nothng to pop as CQ is empty" << endl;
         }
-        deq.pop_back();
+        f = (f + 1) % n;
+        currSize--;
     }
 
-    int top()
+    int front()
     {
         if (isempty())
         {
-            cout << "nthing inside stack, how can be on top" << endl;
+            cout << "There is nothing to print as queue is empty - " << endl;
             return 0;
         }
-        return deq.back();
+        return arr[f];
+    }
+
+    void printArray()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
 };
 
 int main()
 {
-    Stack s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
-    s.push(5);
-    s.push(6);
+    circularQueue cq(5);
+    cq.push(1);
+    cq.push(2);
+    cq.push(3);
+    cq.push(4);
+    cq.push(5);
+    cq.push(6);
 
-    while (!s.isempty())
+    cq.printArray();
+    cout << endl;
+
+    cq.push(6);
+    
+    cout << endl;
+
+    while (!cq.isempty())
     {
-        cout << s.top() << " ";
-        s.pop();
+        cout << cq.front() << " ";
+        cq.pop();
     }
     cout << endl;
+    
 }
