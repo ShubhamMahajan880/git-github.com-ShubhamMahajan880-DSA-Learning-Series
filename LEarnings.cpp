@@ -10,60 +10,60 @@
 // #include<cmath>
 // #include<list>
 // #include<iterator>
+// #include<stack>
+// #include <queue>
+// #include <deque>
 using namespace std;
 
-// 9) Valid Paranthesis Problem -
-
-bool isValidParanthesis(string str)
+void pushAtBottom(stack<int> &s, int val)
 {
-    stack<char> st;
-
-    for (int i = 0; i < str.size(); i++)
+    if (s.empty())
     {
-        char ch = str[i];
-        if (ch == '(' || ch == '{' || ch == '[') // opening condition
-        {
-            st.push(ch);
-        }
-        else // closing condiiton
-        {
-            if (st.empty()) // if nothing available insode stack
-            {
-                return false;
-            }
+        s.push(val);
+        return;
+    }
+    int temp = s.top();
+    s.pop();
+    pushAtBottom(s, val);
+    s.push(temp);
+}
 
-            // matching paranethiss conditiopn
-            char top = st.top();
-            if ((top == '(' && ch == ')') || (top == '{' && ch == '}') || (top == '[' && ch == ']'))
-            {
-                st.pop();
-            }
-            else
-            {
-                return false;
-            }
-        }
+void reverse(stack<int> &s)
+{
+    if (s.empty())
+    {
+        return;
     }
+    int temp = s.top();
+    s.pop();
+    reverse(s);
+    pushAtBottom(s, temp);
+}
 
-    if (st.empty()) // opening closing se match hone ke baad agr stack empty he to true otherwise false
+void printStack(stack<int> s)
+{
+    while (!s.empty())
     {
-        return true;
+        cout << s.top() << " ";
+        s.pop();
     }
-    else
-    {
-        return false;
-    }
+    cout << endl;
 }
 
 int main()
 {
-    string s1, s2;
-    cout << "Enter the Paranthesis string for val 1  - " << endl;
-    getline(cin, s1);
+    stack<int> s;
+    s.push(4);
+    s.push(3);
+    s.push(2);
+    s.push(1);
 
-    cout << "Enter the Paranthesis string for val 2  - " << endl;
-    getline(cin, s2);
+    cout << "ENtered stack is - " << endl;
 
-    cout << isValidParanthesis(s1) << endl;
-    cout << isValidParanthesis(s2) << endl;
+    printStack(s);
+    reverse(s);
+
+    cout << "The reversed stack is - " << endl;
+    printStack(s);
+    return 0;
 }

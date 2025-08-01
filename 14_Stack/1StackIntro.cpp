@@ -262,7 +262,7 @@ So, Stack is -
 // template <class T>
 // class Stack
 // {
-//     Stack<T> ll;
+//     list<T> ll;
 
 // public:
 //     void push(T val)
@@ -270,40 +270,53 @@ So, Stack is -
 //         ll.push_front(val);
 //     }
 
+//     bool isempty()
+//     {
+
+//         return ll.empty();
+//     }
+
 //     void pop()
 //     {
+//         if (isempty())
+//         {
+//             cout << "Stack is empty nothing to pop here - " << endl;
+//             return;
+//         }
 //         ll.pop_front();
 //     }
 
 //     T top()
 //     {
-//         return ll.front(); // which is head of LL
-//     }
-
-//     bool isEmpty()
-//     {
-//         return ll.size() == 0;
+//         if (isempty())
+//         {
+//             throw runtime_error("EMpty LL what to print");
+//         }
+//         return ll.front();
 //     }
 // };
 
 // int main()
 // {
 //     Stack<int> s;
-
-//     s.push(4);
-//     s.push(3);
-//     s.push(2);
 //     s.push(1);
+//     s.push(2);
+//     s.push(3);
+//     s.push(4);
+//     s.push(5);
 
-//     while (!s.isEmpty())
+//     cout << "Our stack using LL is - " << endl;
+//     while (!s.isempty())
 //     {
 //         cout << s.top() << " ";
 //         s.pop();
 //     }
 //     cout << endl;
-// /*
-// 1 2 3 4
-//  */
+//     /*
+//     Our stack using LL is -
+//     5 4 3 2 1
+
+//      */
 // }
 // -------------------
 
