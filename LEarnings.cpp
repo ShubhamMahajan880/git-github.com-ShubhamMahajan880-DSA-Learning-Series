@@ -6,90 +6,34 @@
 #include <deque>
 using namespace std;
 
-// Circular Queue -
-class circularQueue
-{
-    int *arr;
-    int currSize, n;
-    int f, r;
-
-public:
-    circularQueue(int size)
-    {
-        n = size;
-        f = 0;
-        r = -1;
-        currSize = 0;
-        arr = new int[n];
-    }
-
-    void push(int data)
-    {
-        if (currSize == n)
-        {
-            cout << "CQ is already full - " << endl;
-            return;
-        }
-        r = (r + 1) % n;
-        arr[r] = data;
-        currSize++;
-    }
-    bool isempty()
-    {
-        return currSize == 0;
-    }
-    void pop()
-    {
-        if (isempty())
-        {
-            cout << "There is Nothng to pop as CQ is empty" << endl;
-        }
-        f = (f + 1) % n;
-        currSize--;
-    }
-
-    int front()
-    {
-        if (isempty())
-        {
-            cout << "There is nothing to print as queue is empty - " << endl;
-            return 0;
-        }
-        return arr[f];
-    }
-
-    void printArray()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-    }
-};
-
 int main()
 {
-    circularQueue cq(5);
-    cq.push(1);
-    cq.push(2);
-    cq.push(3);
-    cq.push(4);
-    cq.push(5);
-    cq.push(6);
+    vector<int> price = {100, 80, 60, 70, 60, 75, 85};
 
-    cq.printArray();
-    cout << endl;
+    vector<int> ans(price.size(), 0);
+    stack<int> s;
 
-    cq.push(6);
-    
-    cout << endl;
-
-    while (!cq.isempty())
+    for (int i = 0; i < price.size(); i++)
     {
-        cout << cq.front() << " ";
-        cq.pop();
+        while (s.size() > 0 && price[s.top()] <= price[i])
+        {
+            s.pop();
+        }
+        if (s.empty())
+        {
+            ans[i] = i + 1;
+        }
+        else
+        {
+            ans[i] = i - s.top();
+        }
+        s.push(i);
+    }
+
+    cout << "Stock Span is - " << endl;
+    for (auto i : ans)
+    {
+        cout << i << " ";
     }
     cout << endl;
-    
 }
