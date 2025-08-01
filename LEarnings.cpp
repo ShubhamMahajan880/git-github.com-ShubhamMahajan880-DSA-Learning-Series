@@ -1,69 +1,64 @@
-#include <bits/stdc++.h>
-// #include <iostream>
-// #include<algorithm>
-// #include<climits>
-// #include<string>
-// #include<cctype>
-// #include<vector>
-// #include<set>
-// #include<iomanip>
-// #include<cmath>
-// #include<list>
-// #include<iterator>
-// #include<stack>
-// #include <queue>
-// #include <deque>
+#include <iostream>
+#include <Queue>
+#include <string>
+#include <list>
+#include <stack>
+#include <queue>
+
 using namespace std;
 
-void pushAtBottom(stack<int> &s, int val)
-{
-    if (s.empty())
-    {
-        s.push(val);
-        return;
-    }
-    int temp = s.top();
-    s.pop();
-    pushAtBottom(s, val);
-    s.push(temp);
-}
+// Queue Implementatin  using LL -
 
-void reverse(stack<int> &s)
+class Queue
 {
-    if (s.empty())
-    {
-        return;
-    }
-    int temp = s.top();
-    s.pop();
-    reverse(s);
-    pushAtBottom(s, temp);
-}
+public:
+    list<int> ll;
 
-void printStack(stack<int> s)
-{
-    while (!s.empty())
+    void push(int val)
     {
-        cout << s.top() << " ";
-        s.pop();
+        ll.push_back(val);
     }
-    cout << endl;
-}
+
+    bool isempty()
+    {
+        return ll.empty();
+    }
+    void pop()
+    {
+        if (isempty())
+        {
+            return;
+        }
+
+        ll.pop_front();
+    }
+
+    int front()
+    {
+        return ll.front();
+    }
+};
 
 int main()
 {
-    stack<int> s;
-    s.push(4);
-    s.push(3);
-    s.push(2);
-    s.push(1);
+    Queue q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
 
-    cout << "ENtered stack is - " << endl;
+    cout << "Inserted Queue is - " << endl;
+    while (!q.isempty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
 
-    printStack(s);
-    reverse(s);
-
-    cout << "The reversed stack is - " << endl;
-    printStack(s);
-    return 0;
+    cout << "After applying all the queue iis - " << endl;
+    while (!q.isempty())
+    {
+        cout << q.front() << " ";
+    }
+    cout << endl;
 }

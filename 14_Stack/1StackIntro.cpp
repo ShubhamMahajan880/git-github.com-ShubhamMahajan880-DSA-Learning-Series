@@ -710,14 +710,8 @@ So, Stack is -
 //         }
 //     }
 
-//     if (st.empty()) // opening closing se match hone ke baad agr stack empty he to true otherwise false
-//     {
-//         return true;
-//     }
-//     else
-//     {
-//         return false;
-//     }
+//      return st.empty(); // opening closing se match hone ke baad agr stack empty he to true otherwise false
+
 // }
 
 // int main()
