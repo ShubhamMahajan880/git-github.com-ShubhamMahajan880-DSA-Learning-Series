@@ -9,4 +9,4 @@ void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], i
 8 - Sudoku has always a fixed size its always 9*9
 9 - While we pass any STL functionality in the function - then it always pass by value... if we want to make the change in the memory too -- we need to pass it by reference manually by using & in the fun.
 10 - // template <class T> - template class is a class in which we can define any kind of datat type for respective data structure or STL Function.
-
+11 - in STL it by default always uses pass by address only no change in the actual STL component inside main memory, so jab bhi stl component original ko hi chanhe krnna ho to pass by reference (&) use hoga. usign STL it generally pases by value but here i am passing by reference fir making the changes in the actual/original queue

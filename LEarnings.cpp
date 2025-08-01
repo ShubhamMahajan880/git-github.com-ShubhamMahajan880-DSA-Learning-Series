@@ -1,64 +1,52 @@
+#include <bits/stdc++.h>
 #include <iostream>
-#include <Queue>
-#include <string>
-#include <list>
 #include <stack>
 #include <queue>
-
+#include <list>
 using namespace std;
 
-// Queue Implementatin  using LL -
+// Queeu Reversal -
 
-class Queue
+void printQueue(queue<int> q)
 {
-public:
-    list<int> ll;
-
-    void push(int val)
-    {
-        ll.push_back(val);
-    }
-
-    bool isempty()
-    {
-        return ll.empty();
-    }
-    void pop()
-    {
-        if (isempty())
-        {
-            return;
-        }
-
-        ll.pop_front();
-    }
-
-    int front()
-    {
-        return ll.front();
-    }
-};
-
-int main()
-{
-    Queue q;
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
-
-    cout << "Inserted Queue is - " << endl;
-    while (!q.isempty())
+    while (!q.empty())
     {
         cout << q.front() << " ";
         q.pop();
     }
-    cout << endl;
+}
 
-    cout << "After applying all the queue iis - " << endl;
-    while (!q.isempty())
+void reverseQueue(queue<int> &q)
+{
+    stack<int> s;
+    while (!q.empty())
     {
-        cout << q.front() << " ";
+        s.push(q.front());
+        q.pop();
+    }
+
+    cout << "So, reverse using stack is - " << endl;
+    while (!s.empty())
+    {
+        cout << s.top() << " ";
+        s.pop();
     }
     cout << endl;
+}
+int main()
+{
+    queue<int> q;
+
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
+    q.push(6);
+
+    cout << "Queue is - " << endl;
+    printQueue(q);
+
+    cout << "and the revese queue is - " << endl;
+    reverseQueue(q);
 }
