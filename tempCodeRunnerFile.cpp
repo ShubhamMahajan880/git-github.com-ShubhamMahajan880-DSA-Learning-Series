@@ -1,36 +1,46 @@
 #include <bits/stdc++.h>
-#include <iostream>
-#include <stack>
-#include <queue>
-#include <list>
-#include <deque>
+// #include <iostream>
+// #include<algorithm>
+// #include<climits>
+// #include<string>
+// #include<cctype>
+// #include<vector>
+// #include<set>
+// #include<iomanip>
+// #include<cmath>
+// #include<list>
+// #include<iterator>
+// #include<stack>
+// #include <queue>
+// #include <deque>
 using namespace std;
-
 int main()
 {
-    vector<int> price = {100, 80, 60, 70, 60, 75, 85};
-
-    vector<int> ans(price.size(), 0);
+    vector<int> arr = {6, 8, 0, 1, 3};
+    vector<int> ans(arr.size(), 0);
     stack<int> s;
 
-    for (int i = 0; i < price.size(); i++)
+    for (int i = arr.size() - 1; i >= 0; i--)
     {
-        while (s.size() >= 0 && price[s.top()] <= price[i])
+        while (s.size() > 0 && arr[s.top()] <= arr[i])
         {
             s.pop();
         }
+
         if (s.empty())
         {
-            ans[i] = i + 1;
+            ans[i] = -1;
         }
         else
         {
-            ans[i] = i - s.top();
+
+            ans[i] = s.top();
         }
-        s.push(i);
+
+        s.push(arr[i]);
     }
 
-    cout << "Stock Span is - " << endl;
+    cout << "Next greateer element is - " << endl;
     for (auto i : ans)
     {
         cout << i << " ";

@@ -1,39 +1,75 @@
 #include <bits/stdc++.h>
-#include <iostream>
-#include <stack>
-#include <queue>
-#include <list>
-#include <deque>
 using namespace std;
 
-int main()
+void printArray(vector<int> heights)
 {
-    vector<int> price = {100, 80, 60, 70, 60, 75, 85};
+    cout << "Given heights of histograms are - " << endl;
+    for (int i = 0; i < heights.size(); i++)
+    {
+        cout << heights[i] << " ";
+    }
+    cout << endl;
+}
 
-    vector<int> ans(price.size(), 0);
+int largestRectangleArea(vector<int> &heights)
+{
+    int n = heights.size();
+    vector<int> Leftside(n), Rightside(n);
     stack<int> s;
 
-    for (int i = 0; i < price.size(); i++)
+    // Next Smaller to Left
+    for (int i = 0; i < n; i++)
     {
-        while (s.size() > 0 && price[s.top()] <= price[i])
+        while (!s.empty() && heights[s.top()] >= heights[i])
         {
             s.pop();
         }
+
         if (s.empty())
-        {
-            ans[i] = i + 1;
-        }
+            Leftside[i] = -1;
         else
-        {
-            ans[i] = i - s.top();
-        }
+            Leftside[i] = s.top();
+
         s.push(i);
     }
 
-    cout << "Stock Span is - " << endl;
-    for (auto i : ans)
+    // Clear stack for next computation
+    while (!s.empty())
+        s.pop();
+
+    // Next Smaller to Right
+    for (int i = n - 1; i >= 0; i--)
     {
-        cout << i << " ";
+        while (!s.empty() && heights[s.top()] >= heights[i])
+        {
+            s.pop();
+        }
+
+        if (s.empty())
+            Rightside[i] = n;
+        else
+            Rightside[i] = s.top();
+
+        s.push(i);
     }
-    cout << endl;
+
+    int maxarea = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int height = heights[i];
+        int width = Rightside[i] - Leftside[i] - 1;
+        int area = height * width;
+        maxarea = max(area, maxarea);
+    }
+
+    return maxarea;
+}
+
+int main()
+{
+    vector<int> heights = {2, 1, 5, 6, 2, 3};
+    printArray(heights);
+
+    int ans = largestRectangleArea(heights);
+    cout << "The Max Area in Histogram is: " << ans << endl;
 }

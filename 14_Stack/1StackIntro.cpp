@@ -588,6 +588,48 @@ So, Stack is -
 
 // 7) Stock Spain Problem -
 
+// method -1 : - Easy Syntax implementation -
+// int main()
+// {
+//     vector<int> price = {100, 80, 60, 70, 60, 85, 100}; //Give stock's Prices
+//     vector<int> ans(price.size(), 0); // considering ans vector to fill the correct span
+//     stack<int> st;
+
+//     for (int i = 0; i < price.size(); i++)
+//     {
+//         while (st.size() > 0 && price[st.top()] <= price[i])
+//         {
+//             st.pop();
+//         }
+//         if (st.empty())// if stack is emptry then ans will be given as i+1
+//         {
+//             ans[i] = i + 1;
+//         }
+//         else
+//         {
+//             ans[i] = i - st.top(); //if stack is not empty then ans will be  i- prevHigh(which is st.top())
+//         }
+//         st.push(i);
+//     }
+
+//     cout << "So, the new array with span is - " << endl;
+//     for (int i = 0; i < ans.size(); i++)
+//     {
+//         cout << ans[i] << " ";
+//     }
+//     cout << endl;
+
+//     cout << "So, the new array with span is - " << endl;
+//     for (auto i : ans)
+//     {
+//         cout << i << " ";
+//     }
+//     cout << endl;
+// }
+
+// -------------------
+// Method - 1.1 - Using funciton and seems professional code syntax - 
+
 // void storckSpanProblem(vector<int> stock, vector<int> span)
 // {
 //     stack<int> s;
@@ -633,6 +675,44 @@ So, Stack is -
 // ____________ ____________ ____________ ____________ ____________
 
 // 8) Next Greater Element  -
+
+// Method - 1 with easy syntax - 
+// int main()
+// {
+//     vector<int> arr = {6, 8, 0, 1, 3};
+//     vector<int> ans(arr.size(), 0);
+//     stack<int> s;
+
+//     for (int i = arr.size() - 1; i >= 0; i--)
+//     {
+//         while (s.size() > 0 && s.top() <= arr[i])
+//         {
+//             s.pop();
+//         }
+
+//         if (s.empty())
+//         {
+//             ans[i] = -1;
+//         }
+//         else
+//         {
+//             s.top();
+//             ans[i] = s.top();
+//         }
+
+//         s.push(arr[i]);
+//     }
+
+//     cout << "Next greateer element is - " << endl;
+//     for (auto i : ans)
+//     {
+//         cout << i << " ";
+//     }
+//     cout << endl;
+// }
+// -------------------
+
+// Same using Method -2 - using function
 
 // void nextGreaterElement(vector<int> arr, vector<int> ans)
 // {
