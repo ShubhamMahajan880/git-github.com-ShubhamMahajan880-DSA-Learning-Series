@@ -205,3 +205,12 @@ Case 2 - By creating LL manually -
 8) Circular Queue Implementations using Array -
 // -------------------
 
+[16] Greedy Algorithms 
+1) Activity Selection Problem  -
+2) Pair in C++ : STL container to store 2 objects - 
+3) Fractional Knapsack Problem -
+4) Minimum Absolute DIfferent Pairs -
+5) Maximum Chain Length of Pairs -
+6) Indian Coins Problem -
+7) Job Sequencing Problem -
+

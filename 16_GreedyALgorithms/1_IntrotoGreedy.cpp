@@ -58,7 +58,8 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// // 2) Pair in C++ : STL container to store 2 objects
+// 2) Pair in C++ : STL container to store 2 objects
+
 // /*  in start & end container of both are unsorted  then need to sort both , so using STL can be done both pairwise sorting
 //     As in vector we use int datatype, similarly by using vector with pair we can store differetn differertn datatypes
 
@@ -202,7 +203,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// // 3) Fractional Knapsack Problem -
+// 3) Fractional Knapsack Problem -
 
 // /*
 // 1.1 - Generally Jaha Quns me Maximum/minimum use ho rhe hote h and apart from Array, String(maxisum subarray, substring,subsequence,maxsu,minsum)
@@ -266,7 +267,8 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// // 4) Minimum Absolute DIfferent Pairs -
+// 4) Minimum Absolute DIfferent Pairs -
+
 // /* For Minimum Absolute DOIfference between two same data structures is simply sort both and get the difference pairwise respectively
 //  */
 
@@ -310,7 +312,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// // 5) Maximum Chain Length of Pairs -
+// 5) Maximum Chain Length of Pairs -
 
 // /* In tjhs we are here sorting pair wise and comparing using second should be less than for another's first
 //  */
