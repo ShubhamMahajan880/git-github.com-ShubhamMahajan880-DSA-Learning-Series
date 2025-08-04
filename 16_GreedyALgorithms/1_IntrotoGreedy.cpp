@@ -56,7 +56,7 @@ using namespace std;
 
 //      */
 // }
-// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
 // // 2) Pair in C++ : STL container to store 2 objects
 // /*  in start & end container of both are unsorted  then need to sort both , so using STL can be done both pairwise sorting
@@ -200,7 +200,7 @@ using namespace std;
 //     A2 : 0,9
 //      */
 // }
-// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
 // // 3) Fractional Knapsack Problem -
 
@@ -264,7 +264,7 @@ using namespace std;
 //     TC - O(n+nlogn+n) = O(nlogn)
 //      */
 // }
-// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
 // // 4) Minimum Absolute DIfferent Pairs -
 // /* For Minimum Absolute DOIfference between two same data structures is simply sort both and get the difference pairwise respectively
@@ -308,7 +308,7 @@ using namespace std;
 
 //     return 0;
 // }
-// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
 // // 5) Maximum Chain Length of Pairs -
 
@@ -356,38 +356,161 @@ using namespace std;
 // maximum Chain Length = 3
 //  */
 // }
-// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
 // 6) Indian Coins Problem -
 
-int getMinChange(vector<int> coins, int v)
-{
-    int ans = 0;
-    int n = coins.size();
+// int getMinChange(vector<int> coins, int v)
+// {
+//     int ans = 0;
+//     int n = coins.size();
 
-    for (int i = n - 1; i >= 0 && v > 0; i--)
-    {
-        if (v >= coins[i])
-        {
-            ans += v / coins[i];
-            v = v % coins[i];
-        }
-        // cout << "Coins we are counting - " << coins[i] << endl;
-    }
-    cout << "Min coins for change for value is- " << ans << endl;
-    return ans;
-}
-int main()
-{
-    vector<int> coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
-    int v = 590; // value
-    getMinChange(coins, v);
-    getMinChange(coins, 121);
-    getMinChange(coins, 1525);
-    /*
-    Min coins for change for value is- 4
-    Min coins for change for value is- 3
-    Min coins for change for value is- 5
+//     for (int i = n - 1; i >= 0 && v > 0; i--)
+//     {
+//         if (v >= coins[i])
+//         {
+//             ans += v / coins[i];
+//             v = v % coins[i];
+//         }
+//         // cout << "Coins we are counting - " << coins[i] << endl;
+//     }
+//     cout << "Min coins for change for value is- " << ans << endl;
+//     return ans;
+// }
+// int main()
+// {
+//     vector<int> coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000};
+//     int v = 590; // value
+//     getMinChange(coins, v);
+//     getMinChange(coins, 121);
+//     getMinChange(coins, 1525);
+//     /*
+//     Min coins for change for value is- 4
+//     Min coins for change for value is- 3
+//     Min coins for change for value is- 5
 
-     */
-}
+//     TC  -O(N) - When already given in the sorted manner, but when need to sort then the compexity will be O(nlogn)
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 7) Job Sequencing Problem -
+
+// bool compare(pair<int, int> p1, pair<int, int> p2)
+// {
+//     return p1.second > p2.second;
+// }
+
+// int maxProfit(vector<pair<int, int>> jobs)
+// {
+//     sort(jobs.begin(), jobs.end(), compare);
+//     // first -> deadline, second->profit
+
+//     int profit = jobs[0].second;
+//     int safeDeadline = 2;
+
+//     for (int i = 1; i < jobs.size(); i++)
+//     {
+//         if (jobs[i].first >= safeDeadline)
+//         {
+//             profit += jobs[i].second;
+//             safeDeadline++;
+//         }
+//     }
+//     cout << "max profit from jobs  - " << profit << endl;
+//     return profit;
+// }
+
+// int main()
+// {
+//     int n = 4;
+//     vector<pair<int, int>> jobs(n, make_pair(0, 0));
+//     jobs[0] = make_pair(4, 20);
+//     jobs[1] = make_pair(1, 10);
+//     jobs[2] = make_pair(1, 40);
+//     jobs[3] = make_pair(1, 30);
+
+//     maxProfit(jobs);
+//     return 0;
+//     /*
+//     max profit from jobs  - 60
+
+//      */
+// }
+
+// ____________ ____________
+
+// 7.1) Jonb Sequencing , print the multiple valies - which job , how much profit.
+/*
+In case when need to print the multipe values - current value, profit, indexing then it can be
+done by creating the class, constructor and taking the emplace_back functionality of vector.
+- push back also used overr emplace_back but then need to pass the object by string all the values explicitly
+
+- Compare function can also be implements withing single line at the possiiton using Lambda Function.
+Lambda function is created by declaring a library [].
+ */
+
+// class Job
+// {
+// public:
+//     int idx;
+//     int deadline;
+//     int profit;
+
+//     Job(int idx, int deadline, int profit)
+//     {
+//         this->idx = idx;
+//         this->deadline = deadline;
+//         this->profit = profit;
+//     }
+// };
+
+// int maxProfit(vector<pair<int, int>> pairs)
+// {
+//     int n = pairs.size();
+//     vector<Job> jobs;
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         jobs.emplace_back(i, pairs[i].first, pairs[i].second); // idx, profit, deadline
+//     }
+
+//     sort(jobs.begin(), jobs.end(), [](Job &a, Job &b)
+//          {
+//              return a.profit > b.profit; // // descending order on the bbasis of profit
+//          });
+
+//     cout << "Selecting Job - " << jobs[0].idx << endl;
+//     int profit = jobs[0].profit;
+//     int safeDeadline = 2;
+
+//     for (int i = 1; i < n; i++)
+//     {
+//         if (jobs[i].deadline >= safeDeadline)
+//         {
+//             cout << "Selecting Job " << jobs[i].idx << endl;
+//             profit += jobs[i].profit;
+//             safeDeadline;
+//         }
+//     }
+//     cout << "max profit  is - " << profit << endl;
+//     return profit;
+// }
+// int main()
+// {
+//     int n = 4;
+//     vector<pair<int, int>> jobs(n, make_pair(0, 0));
+//     jobs[0] = make_pair(4, 20);
+//     jobs[1] = make_pair(1, 10);
+//     jobs[2] = make_pair(1, 40);
+//     jobs[3] = make_pair(1, 30);
+
+//     maxProfit(jobs);
+//     /*
+//     Selecting Job - 2
+//     Selecting Job 0
+//     max profit  is - 60
+// The output shows the clr order of selection of jobs.     
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
