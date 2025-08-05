@@ -64,6 +64,73 @@ void PostOrderTraversal(Node *root)
     PostOrderTraversal(root->right);
     cout << root->data << " ";
 }
+
+void levelOrderTeaveresal(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    queue<Node *> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        Node *curr = q.front();
+        q.pop();
+
+        cout << curr->data << " ";
+
+        if (curr->left != NULL)
+        {
+            q.push(curr->left);
+        }
+        if (curr->right != NULL)
+        {
+            q.push(curr->right);
+        }
+    }
+}
+
+void anotherlevelordertraversal(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        Node *curr = q.front();
+        q.pop();
+
+        if (curr == NULL)
+        {
+            cout << endl;
+            if (q.empty())
+            {
+                break;
+            }
+            q.push(NULL);
+        }
+        else
+        {
+            cout << curr->data << " ";
+            if (curr->left != NULL)
+            {
+                q.push(curr->left);
+            }
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
+            }
+        }
+    }
+}
+
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -82,5 +149,13 @@ int main()
 
     cout << "The PpostOrderTraveerdal of elements are - " << endl;
     PostOrderTraversal(root);
+    cout << "___________" << endl;
+
+    cout << "Sorting after Level Oreder Trraversal is - " << endl;
+    levelOrderTeaveresal(root);
+    cout << "___________" << endl;
+
+    cout << "Using ANother Level Order Traversal the Elements of the Tree are given as - " << endl;
+    anotherlevelordertraversal(root);
     cout << "___________" << endl;
 }
