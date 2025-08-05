@@ -33,7 +33,7 @@ using namespace std;
 //     }
 // };
 
-// static int idx = -1;
+// static int idx = -1; // - Preserves the value throughoiut the call
 
 // Node *buildTree(vector<int> nodes)
 // {
