@@ -215,3 +215,5 @@ Case 2 - By creating LL manually -
 7) Job Sequencing Problem -
 // -------------------
 
+[17] Binary Tree – 
+1) Creating Binary Tree through Pre Ordder Traversal -

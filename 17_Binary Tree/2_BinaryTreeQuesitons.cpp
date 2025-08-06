@@ -2,12 +2,13 @@
 // #include <iostream>
 // #include<algorithm>
 // #include<climits>
-// #include<string>
 // #include<cctype>
-// #include<vector>
-// #include<set>
 // #include<iomanip>
 // #include<cmath>
+// #include<vector>
+// #include<set>
+// #include<string>
+// #include <map>;
 // #include<list>
 // #include<iterator>
 // #include<stack>
@@ -271,4 +272,86 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 8) Map in Cpp - 
+// 8) Map in Cpp -
+
+// int main()
+// {
+//     map<int, string> m;
+
+//     m[101] = "Microsoft";
+//     m[115] = "Atallasian";
+//     m[120] = "Adobe";
+
+//     cout << m[115] << endl; // Atallasian
+
+//     m[115] = "Intuit";
+//     cout << m[115] << endl; // Intuit
+
+//     cout << m.count(101) << endl; // 1
+//     cout << m.count(125) << endl; // 0
+
+//     for (auto i : m)
+//     {
+//         cout << "Keys are - " << i.first << "," << i.second << endl;
+//     }
+
+//     for (auto i : m)
+//     {
+//         cout << "Onle the keys are - " << i.first << endl;
+//     }
+
+//     for (auto i : m)
+//     {
+//         cout << "The Pair is - " << i.second << endl;
+//     }
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 9) Top view of a Tree -
+/*
+For the root the Horzontal distance is always 0. For any Node if having non unique HD value then it'ss hiding from the top view.
+
+ */
+
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int data)
+    {
+        this->data = data;
+        left = right = NULL;
+    }
+};
+
+static int idx = -1;
+Node *createtree(vector<int> nodes)
+{
+    idx++;
+    if (nodes[idx] == -1)
+    {
+        return NULL;
+    }
+
+    Node *newnode = new Node(nodes[idx]);
+    newnode->left = createtree(nodes);
+    newnode->right = createtree(nodes);
+
+    return newnode;
+}
+
+void topView()
+{
+    
+}
+
+int main()
+{
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    Node *root = createtree(nodes);
+    cout << "root iss - " << root->data << endl;
+}
+
