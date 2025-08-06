@@ -327,8 +327,8 @@ public:
     }
 };
 
-static int idx = -1;
-Node *createtree(vector<int> nodes)
+int idx = -1;
+Node *createtree(vector<int> &nodes)
 {
     idx++;
     if (nodes[idx] == -1)
@@ -343,15 +343,60 @@ Node *createtree(vector<int> nodes)
     return newnode;
 }
 
-void topView()
+void topView(Node *root)
 {
-    
+    if (!root)
+        return;
+
+    queue<pair<Node *, int>> q; // Node with Horizontal Distance
+    map<int, int> m;            // Horizontal Distance -> Node->data
+
+    q.push({root, 0});
+    while (!q.empty())
+    {
+        auto curr = q.front();
+        q.pop();
+
+        Node *currNode = curr.first;
+        int currHd = curr.second;
+
+        if (m.count(currHd) == 0) // First time this HD is seen
+        {
+            m[currHd] = currNode->data;
+        }
+
+        if (currNode->left)
+        {
+            q.push({currNode->left, currHd - 1});
+        }
+
+        if (currNode->right)
+        {
+            q.push({currNode->right, currHd + 1});
+        }
+    }
+
+    for (auto it : m)
+    {
+        cout << it.second << " ";
+    }
+    cout << endl;
 }
 
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
     Node *root = createtree(nodes);
-    cout << "root iss - " << root->data << endl;
-}
 
+    cout << "Top View: ";
+    topView(root);
+
+    /*
+    Root is - 1
+    Top View: 4 2 1 3 6
+
+     */
+}
+// ____________ ____________ ____________ ____________ ____________
+
+// 10) Bottom view of a Tree -

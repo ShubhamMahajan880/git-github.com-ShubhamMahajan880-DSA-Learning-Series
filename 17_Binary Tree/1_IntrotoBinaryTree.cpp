@@ -636,3 +636,5 @@ int main()
      */
 }
 // ____________ ____________ ____________ ____________ ____________
+
+// 6) Check from Root to asked Node if the path exist or not ?
