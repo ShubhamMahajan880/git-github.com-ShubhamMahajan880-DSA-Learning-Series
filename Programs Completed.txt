@@ -216,4 +216,31 @@ Case 2 - By creating LL manually -
 // -------------------
 
 [17] Binary Tree – 
+0) Intro to Binary Search - 
 1) Creating Binary Tree through Pre Ordder Traversal -
+2) Tree Traversal techniques -
+2.1) Pre Order Traversal -
+2.2) IN Order Traversal-
+2.3) Post Order Traversal-
+2.4) Level Order Traversal -
+2.4.1) - Modification in Level Order Traversal - Pushing all elements Level Wise in Output
+3) Height of a Tree -
+4) Count of Nodes in a Tree -
+5) Sum of Nodes in a Tree -
+6) Check from Root to asked Node if the path exist or not ?
+7) Diameter of a tree - inn O(N^2)
+7.1) Diameter of a tree - in O(N)
+8) Subtree of ANother Tree -
+9) Map in Cpp -
+10) Top view of a Tree -
+11) Bottom view of a Tree - 
+12) Kth Level of a Tree -
+12.1 - using Iterative Level Order Method -
+12.2) - Using Rrecursion - recurively searching approach for kth level
+13) Lowest Common Ancestor - using fundamental approach - where TC - O(n) & Sc- O(n)
+13.1) - Optimized appraoch fro SC - O(1)
+14) Min. Distance between Nodes -
+15) Kth Ancestor of Node -
+16) Transform to Sum Tree -
+// -------------------
+

@@ -332,7 +332,7 @@ last 4th one Traversal is done by using Iterative Traversal. In the Depthwise
 
 // -------------------
 
-// // 2.4.1) - Modification in Level Order Traversal - Pushing all elements Level Wise in Output
+//2.4.1) - Modification in Level Order Traversal - Pushing all elements Level Wise in Output
 
 // class Node
 // {
@@ -421,7 +421,7 @@ last 4th one Traversal is done by using Iterative Traversal. In the Depthwise
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 3) Height of a Tree -
+//3) Height of a Tree -
 
 // class Node
 // {
@@ -481,7 +481,7 @@ last 4th one Traversal is done by using Iterative Traversal. In the Depthwise
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 4) Count of Nodes in a Tree -
+//4) Count of Nodes in a Tree -
 
 // class Node
 // {
@@ -548,7 +548,7 @@ last 4th one Traversal is done by using Iterative Traversal. In the Depthwise
 
 // ____________ ____________ ____________ ____________ ____________
 
-// 5) Sum of Nodes in a Tree -
+//5) Sum of Nodes in a Tree -
 
 class Node
 {

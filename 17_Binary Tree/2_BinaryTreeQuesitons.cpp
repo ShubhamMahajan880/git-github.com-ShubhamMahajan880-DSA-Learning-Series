@@ -16,7 +16,8 @@
 // #include <deque>
 using namespace std;
 
-// 6) Diameter of a tree -
+// 7) Diameter of a tree -
+
 // in o(N^2) -
 
 // class Node
@@ -91,9 +92,9 @@ using namespace std;
 
 // -------------------
 
-// 6.1) Diameter of a tree -
-// in o(N^2) -
+// 7.1) Diameter of a tree -
 
+// in o(N) -
 // class Node
 // {
 // public:
@@ -169,7 +170,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 7) Subtree of ANother Tree -
+//8) Subtree of ANother Tree -
 
 // class Node
 // {
@@ -272,7 +273,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 8) Map in Cpp -
+//9) Map in Cpp -
 
 // int main()
 // {
@@ -307,7 +308,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 9) Top view of a Tree -
+//10) Top view of a Tree -
 /*
 For the root the Horzontal distance is always 0. For any Node if having non unique HD value then it'ss hiding from the top view.
 
@@ -399,4 +400,4 @@ int main()
 }
 // ____________ ____________ ____________ ____________ ____________
 
-// 10) Bottom view of a Tree -
+// 11) Bottom view of a Tree -

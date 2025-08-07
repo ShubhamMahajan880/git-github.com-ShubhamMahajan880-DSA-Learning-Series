@@ -16,8 +16,8 @@
 // #include <deque>
 using namespace std;
 
-// 11) Kth Level of a Tree -
-// 11.1 - using Iterative Level Order Method -
+// 12) Kth Level of a Tree -
+// 12.1 - using Iterative Level Order Method -
 
 // int main()
 // {
@@ -25,7 +25,7 @@ using namespace std;
 // }
 
 // -------------------
-// 11.2) - Using Rrecursion - recurively searching approach for kth level
+// 12.2) - Using Rrecursion - recurively searching approach for kth level
 
 // class Node
 // {
@@ -94,7 +94,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 12) Lowest Common Ancestor - using fundamental approach - where TC - O(n) & Sc- O(n)
+// 13) Lowest Common Ancestor - using fundamental approach - where TC - O(n) & Sc- O(n)
 /*
 - Niche se upr tk jaate huye jo sbse phli common node value hoti he given n's ke liye is called as LCA.
 - Jab child ka hi parent node n1 ya n2(given nodes) me aa jaye to - vo parent hi LCA hoga
@@ -191,7 +191,7 @@ using namespace std;
 
 // -------------------
 
-// 12.1) - Optimized appraoch fro SC - O(1)
+// 13.1) - Optimized appraoch fro SC - O(1)
 
 // class Node
 // {
@@ -263,7 +263,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 13) Min. Distance between Nodes -
+// 14) Min. Distance between Nodes -
 
 // class Node
 // {
@@ -373,7 +373,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 14) Kth Ancestor of Node -
+// 15) Kth Ancestor of Node -
 
 // class Node
 // {
@@ -453,7 +453,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 15) Transform to Sum Tree -
+// 16) Transform to Sum Tree -
 
 class Node
 {
@@ -568,3 +568,4 @@ After The Treesum Transform -
     TC - O(n)
      */
 }
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
