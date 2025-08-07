@@ -297,7 +297,7 @@ So similarly when sme operator but works differetn is called Operator Overloadin
 // }
 // ____________ ____________
 
-// 7) Friend Class & Friend Function - A friend who has over ovt info can be reveal outside
+// 8) Friend Class & Friend Function - A friend who has over ovt info can be reveal outside
 //  class A
 //  {
 //      string secret = "Personal Data";

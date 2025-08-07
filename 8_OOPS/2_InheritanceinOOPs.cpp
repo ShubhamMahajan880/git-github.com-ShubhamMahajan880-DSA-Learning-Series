@@ -9,6 +9,7 @@
 // #include<iomanip>
 // #include<cmath>
 using namespace std;
+
 //4)Inheritance -
 // 4.1) Mode of Inheritance - 
 // Case - 1 - when both(parent & child class) are public
