@@ -550,91 +550,177 @@ last 4th one Traversal is done by using Iterative Traversal. In the Depthwise
 
 //5) Sum of Nodes in a Tree -
 
-class Node
-{
-public:
-    int data;
-    Node *left;
-    Node *right;
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
 
-    Node(int data)
-    {
-        this->data = data;
-        left = right = NULL;
-    }
-};
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
 
-static int idx = -1;
+// static int idx = -1;
 
-Node *buildTree(vector<int> nodes)
-{
-    idx++;
-    if (nodes[idx] == -1)
-    {
-        return NULL;
-    }
-    Node *currNode = new Node(nodes[idx]);
-    currNode->left = buildTree(nodes);  // Left Subtree
-    currNode->right = buildTree(nodes); // Right Subtree
+// Node *buildTree(vector<int> nodes)
+// {
+//     idx++;
+//     if (nodes[idx] == -1)
+//     {
+//         return NULL;
+//     }
+//     Node *currNode = new Node(nodes[idx]);
+//     currNode->left = buildTree(nodes);  // Left Subtree
+//     currNode->right = buildTree(nodes); // Right Subtree
 
-    return currNode;
-}
+//     return currNode;
+// }
 
-int sumofNodes(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftSum = sumofNodes(root->left);
-    int rightSum = sumofNodes(root->right);
+// int sumofNodes(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return 0;
+//     }
+//     int leftSum = sumofNodes(root->left);
+//     int rightSum = sumofNodes(root->right);
 
-    return leftSum + rightSum + root->data;
-}
+//     return leftSum + rightSum + root->data;
+// }
 
-//  For clearly visulization of sum return using recursing by using currsum further in function -
+// //  For clearly visulization of sum return using recursing by using currsum further in function -
 
-int sumofNodes2(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftSum = sumofNodes2(root->left);
-    int rightSum = sumofNodes2(root->right);
-    int currSum = leftSum + rightSum + root->data;
-    cout << "Sum is - " << currSum << endl;
-    return currSum;
-}
+// int sumofNodes2(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return 0;
+//     }
+//     int leftSum = sumofNodes2(root->left);
+//     int rightSum = sumofNodes2(root->right);
+//     int currSum = leftSum + rightSum + root->data;
+//     cout << "Sum is - " << currSum << endl;
+//     return currSum;
+// }
 
-int main()
-{
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = buildTree(nodes);
+// int main()
+// {
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+//     Node *root = buildTree(nodes);
 
-    cout << "So, the total sum of all the Nodes is - " << sumofNodes(root) << endl;
+//     cout << "So, the total sum of all the Nodes is - " << sumofNodes(root) << endl;
 
-    /*
-    So, the total sum of all the Nodes is - 21
+//     /*
+//     So, the total sum of all the Nodes is - 21
 
-    TC - O(N);
+//     TC - O(N);
 
-     */
+//      */
 
-    cout << "For clearly visulization of sum return using recursing by using currsum further in function -" << endl;
+//     cout << "For clearly visulization of sum return using recursing by using currsum further in function -" << endl;
 
-    cout << "So, the total sum of all the Nodes is - " << sumofNodes2(root) << endl;
-    /*
-    For clearly visulization of sum return using recursing by using currsum further in function -
-    Sum is - 4
-    Sum is - 5
-    Sum is - 11
-    Sum is - 6
-    Sum is - 9
-    Sum is - 21
-    So, the total sum of all the Nodes is - 21
-     */
-}
+//     cout << "So, the total sum of all the Nodes is - " << sumofNodes2(root) << endl;
+//     /*
+//     For clearly visulization of sum return using recursing by using currsum further in function -
+//     Sum is - 4
+//     Sum is - 5
+//     Sum is - 11
+//     Sum is - 6
+//     Sum is - 9
+//     Sum is - 21
+//     So, the total sum of all the Nodes is - 21
+//      */
+// }
 // ____________ ____________ ____________ ____________ ____________
 
 // 6) Check from Root to asked Node if the path exist or not ?
+
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
+
+//     Node(int val)
+//     {
+//         data = val;
+//         left = right = NULL;
+//     }
+// };
+
+// static int idx = -1;
+// Node *treecreation(vector<int> &nodes) // pass by reference
+// {
+//     idx++;
+//     if (nodes[idx] == -1)
+//     {
+//         return NULL;
+//     }
+//     Node *currnode = new Node(nodes[idx]);
+//     currnode->left = treecreation(nodes);
+//     currnode->right = treecreation(nodes);
+//     return currnode;
+// }
+
+// bool rootToNodePath(Node *root, int n, vector<int> &path)
+// {
+//     if (root == NULL)
+//     {
+//         return false;
+//     }
+//     path.push_back(root->data);
+
+//     if (root->data == n)
+//     {
+//         return true;
+//     }
+
+//     bool isLeft = rootToNodePath(root->left, n, path);
+//     bool isRight = rootToNodePath(root->right, n, path);
+
+//     if (isLeft || isRight)
+//     {
+//         return true;
+//     }
+
+//     path.pop_back();
+//     return false;
+// }
+
+// void printRootToNode(Node *root, int n)
+// {
+//     vector<int> path;
+//     if (rootToNodePath(root, n, path))
+//     {
+//         for (auto val : path)
+//         {
+//             cout << val << " ";
+//         }
+//         cout << endl;
+//     }
+//     else
+//     {
+//         cout << "Node " << n << " not found" << endl;
+//     }
+// }
+
+// int main()
+// {
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+//     Node *root = treecreation(nodes);
+
+//     printRootToNode(root, 1);//1 
+//     printRootToNode(root, 2);//1 2 
+//     printRootToNode(root, 3);//1 3 
+//     printRootToNode(root, 4);//1 2 4 
+//     printRootToNode(root, 4);//1 2 4 
+//     printRootToNode(root, 5);//1 2 5 
+//     printRootToNode(root, 6);//1 3 6 
+//     printRootToNode(root, 10); //Node 10 not found
+// }
+// ____________ ____________ ____________ ____________ ____________

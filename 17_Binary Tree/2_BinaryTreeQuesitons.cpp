@@ -170,7 +170,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//8) Subtree of ANother Tree -
+// 8) Subtree of ANother Tree -
 
 // class Node
 // {
@@ -273,7 +273,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//9) Map in Cpp -
+// 9) Map in Cpp -
 
 // int main()
 // {
@@ -308,96 +308,177 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//10) Top view of a Tree -
+// 10) Top view of a Tree -
 /*
 For the root the Horzontal distance is always 0. For any Node if having non unique HD value then it'ss hiding from the top view.
 
  */
 
-class Node
-{
-public:
-    int data;
-    Node *left;
-    Node *right;
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
 
-    Node(int data)
-    {
-        this->data = data;
-        left = right = NULL;
-    }
-};
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
 
-int idx = -1;
-Node *createtree(vector<int> &nodes)
-{
-    idx++;
-    if (nodes[idx] == -1)
-    {
-        return NULL;
-    }
+// int idx = -1;
+// Node *createtree(vector<int> &nodes)
+// {
+//     idx++;
+//     if (nodes[idx] == -1)
+//     {
+//         return NULL;
+//     }
 
-    Node *newnode = new Node(nodes[idx]);
-    newnode->left = createtree(nodes);
-    newnode->right = createtree(nodes);
+//     Node *newnode = new Node(nodes[idx]);
+//     newnode->left = createtree(nodes);
+//     newnode->right = createtree(nodes);
 
-    return newnode;
-}
+//     return newnode;
+// }
 
-void topView(Node *root)
-{
-    if (!root)
-        return;
+// void topView(Node *root)
+// {
+//     if (!root)
+//         return;
 
-    queue<pair<Node *, int>> q; // Node with Horizontal Distance
-    map<int, int> m;            // Horizontal Distance -> Node->data
+//     queue<pair<Node *, int>> q; // Node with Horizontal Distance
+//     map<int, int> m;            // Horizontal Distance -> Node->data
 
-    q.push({root, 0});
-    while (!q.empty())
-    {
-        auto curr = q.front();
-        q.pop();
+//     q.push({root, 0});
+//     while (!q.empty())
+//     {
+//         auto curr = q.front();
+//         q.pop();
 
-        Node *currNode = curr.first;
-        int currHd = curr.second;
+//         Node *currNode = curr.first;
+//         int currHd = curr.second;
 
-        if (m.count(currHd) == 0) // First time this HD is seen
-        {
-            m[currHd] = currNode->data;
-        }
+//         if (m.count(currHd) == 0) // First time this HD is seen
+//         {
+//             m[currHd] = currNode->data;
+//         }
 
-        if (currNode->left)
-        {
-            q.push({currNode->left, currHd - 1});
-        }
+//         if (currNode->left)
+//         {
+//             q.push({currNode->left, currHd - 1});
+//         }
 
-        if (currNode->right)
-        {
-            q.push({currNode->right, currHd + 1});
-        }
-    }
+//         if (currNode->right)
+//         {
+//             q.push({currNode->right, currHd + 1});
+//         }
+//     }
 
-    for (auto it : m)
-    {
-        cout << it.second << " ";
-    }
-    cout << endl;
-}
+//     for (auto it : m)
+//     {
+//         cout << it.second << " ";
+//     }
+//     cout << endl;
+// }
 
-int main()
-{
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = createtree(nodes);
+// int main()
+// {
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+//     Node *root = createtree(nodes);
 
-    cout << "Top View: ";
-    topView(root);
+//     cout << "Top View: ";
+//     topView(root);
 
-    /*
-    Root is - 1
-    Top View: 4 2 1 3 6
+//     /*
+//     Root is - 1
+//     Top View: 4 2 1 3 6
 
-     */
-}
+//      */
+// }
 // ____________ ____________ ____________ ____________ ____________
 
 // 11) Bottom view of a Tree -
+/*
+For the root the Horzontal distance is always 0. For any Node if having non unique HD value then it'ss hiding from the bottom view. As we are observing from bottom
+ */
+
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
+
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
+
+// static int idx = -1;
+// Node *createtree(vector<int> nodes)
+// {
+//     idx++;
+//     if (nodes[idx] == -1)
+//     {
+//         return NULL;
+//     }
+//     Node *currnode = new Node(nodes[idx]);
+//     currnode->left = createtree(nodes);
+//     currnode->right = createtree(nodes);
+//     return currnode;
+// }
+// void bottomview(Node *root)
+// {
+//     queue<pair<Node *, int>> q; // Node,HD
+//     map<int, int> m;            // HD, Node->data
+
+//     q.push(make_pair(root, 0));
+//     while (!q.empty())
+//     {
+//         pair<Node *, int> curr = q.front();
+//         q.pop();
+
+//         Node *currNode = curr.first;
+//         int currHd = curr.second;
+
+//         m[currHd] = currNode->data;
+
+//         if (currNode->left != NULL)
+//         {
+
+//             q.push(make_pair(currNode->left, currHd - 1));
+//         }
+//         if (currNode->right != NULL)
+//         {
+
+//             q.push(make_pair(currNode->right, currHd + 1));
+//         }
+//     }
+
+//     cout << "So, the bottom view is - " << endl;
+//     for (auto i : m)
+//     {
+//         cout << i.second << " ";
+//     }
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+//     Node *root = createtree(nodes);
+//     Node *subroot = new Node(1);
+//     subroot->left = new Node(2);
+//     subroot->right = new Node(3);
+//     bottomview(root);
+// }
+// /*
+// So, the bottom view is -
+// 4 2 5 3 6
+// */
+// ____________ ____________ ____________ ____________ ____________

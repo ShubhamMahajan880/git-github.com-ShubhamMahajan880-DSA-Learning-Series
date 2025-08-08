@@ -329,6 +329,97 @@ int mindistancebetweennodes(Node *root, int n1, int n2)
     return totaldist;
 }
 
+int kAncestor(Node *root, int n, int k)
+{
+    if (root == NULL)
+    {
+        return -1;
+    }
+
+    if (root->data == n)
+    {
+        return 0;
+    }
+
+    int leftAns = kAncestor(root->left, n, k);
+    int rightAns = kAncestor(root->right, n, k);
+
+    if (leftAns == -1 && rightAns == -1)
+    {
+        return -1;
+    }
+
+    int validvalue = leftAns == -1 ? rightAns : leftAns;
+    if (validvalue + 1 == k)
+    {
+        cout << "Kth Ancestor -" << root->data << " ";
+    }
+    return validvalue + 1;
+}
+
+int transform(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+
+    int leftold = transform(root->left);
+    int rightold = transform(root->right);
+    int currold = root->data;
+
+    root->data = leftold + rightold;
+    if (root->left != NULL)
+    {
+        root->data += root->left->data;
+    }
+    if (root->right != NULL)
+    {
+        root->data += root->right->data;
+    }
+
+    return currold;
+}
+
+int levelorder(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+
+    while (!q.empty())
+    {
+        Node *curr = q.front();
+        q.pop();
+        if (curr == NULL)
+        {
+            cout << endl;
+            if (q.empty())
+            {
+                break;
+            }
+            q.push(curr);
+        }
+        else
+        {
+            cout << curr->data << " ";
+
+            if (curr->left != NULL)
+            {
+                q.push(curr->left);
+            }
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
+            }
+        }
+    }
+}
+
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
@@ -356,4 +447,18 @@ int main()
     cout << "Hence the min dustance between these nodes can be given as - " << mindistancebetweennodes(root, 3, 6) << endl;
     cout << "Hence the min dustance between these nodes can be given as - " << mindistancebetweennodes(root, 2, 3) << endl;
     cout << "_ _ _ _ - " << endl;
+
+    cout << kAncestor(root, 4, 2) << endl;
+    cout << kAncestor(root, 5, 2) << endl;
+    cout << kAncestor(root, 6, 2) << endl;
+    cout << kAncestor(root, 3, 1) << endl;
+    cout << kAncestor(root, 2, 1) << endl;
+    cout << kAncestor(root, 1, 1) << endl;
+    cout << "_ _ _ _ - " << endl;
+
+    cout << "So, the level wise sum can be observed as - " << endl;
+    transform(root);
+
+    cout << "representation after summ  of nodes is  - " << endl;
+    levelorder(root);
 }
