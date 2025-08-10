@@ -17,7 +17,7 @@
 using namespace std;
 
 // 0) Intro to BST
-// 1) Build BST from Array -
+// 1) Build BST from nodes -
 /*
 📒- TC of BST is always give as O(HeightofTree) - Now this height depends on the tree
  - If tree is correctly BST - then TC - O(logn) - as performing Binary Search methodoly in Binary Search Tree
@@ -60,12 +60,12 @@ using namespace std;
 //     return root;
 // }
 
-// Node *buildBST(int arr[], int n)
+// Node *buildBST(int nodes[], int n)
 // {
 //     Node *root = NULL;
 //     for (int i = 0; i < n; i++)
 //     {
-//         root = insert(root, arr[i]);
+//         root = insert(root, nodes[i]);
 //     }
 //     return root;
 // }
@@ -84,22 +84,22 @@ using namespace std;
 // int main()
 // {
 //     // int n = 6;
-//     // int arr[6] = {5, 1, 3, 4, 2, 7};
+//     // int nodes[6] = {5, 1, 3, 4, 2, 7};
 
 //     int n = 9;
-//     int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
 
-//     Node *root = buildBST(arr, n);
+//     Node *root = buildBST(nodes, n);
 //     inorder(root);
 //     cout << endl;
 
 //     /*
 //     // int n = 6;
-//     int arr[6] = {5, 1, 3, 4, 2, 7};
+//     int nodes[6] = {5, 1, 3, 4, 2, 7};
 //     1 2 3 4 5 7
 
 //     // int n = 6;
-//     // int arr[6] = {5, 1, 3, 4, 2, 7};
+//     // int nodes[6] = {5, 1, 3, 4, 2, 7};
 //     1 3 4 5 6 8 10 11 14
 
 //      */
@@ -142,12 +142,12 @@ using namespace std;
 //     return root;
 // }
 
-// Node *buildBST(int arr[], int n)
+// Node *buildBST(int nodes[], int n)
 // {
 //     Node *root = NULL;
 //     for (int i = 0; i < n; i++)
 //     {
-//         root = insert(root, arr[i]);
+//         root = insert(root, nodes[i]);
 //     }
 //     return root;
 // }
@@ -176,9 +176,9 @@ using namespace std;
 // {
 
 //     int n = 9;
-//     int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
 
-//     Node *root = buildBST(arr, 9);
+//     Node *root = buildBST(nodes, 9);
 //     cout << searchkey(root, 5) << endl;//1
 //     cout << searchkey(root, 10) << endl;//1
 //     cout << searchkey(root, 15) << endl;//0
@@ -222,12 +222,12 @@ using namespace std;
 //     return root;
 // }
 
-// Node *buildBST(int arr[], int n)
+// Node *buildBST(int nodes[], int n)
 // {
 //     Node *root = NULL;
 //     for (int i = 0; i < n; i++)
 //     {
-//         root = insert(root, arr[i]);
+//         root = insert(root, nodes[i]);
 //     }
 //     return root;
 // }
@@ -305,8 +305,8 @@ using namespace std;
 // {
 
 //     int n = 9;
-//     int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
-//     Node *root = buildBST(arr, 9);
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     Node *root = buildBST(nodes, 9);
 //     inorder(root);
 //     cout << endl;
 
@@ -367,12 +367,12 @@ using namespace std;
 //     return root;
 // }
 
-// Node *buildBST(int arr[], int n)
+// Node *buildBST(int nodes[], int n)
 // {
 //     Node *root = NULL;
 //     for (int i = 0; i < n; i++)
 //     {
-//         root = insert(root, arr[i]);
+//         root = insert(root, nodes[i]);
 //     }
 //     return root;
 // }
@@ -404,8 +404,8 @@ using namespace std;
 // {
 
 //     int n = 9;
-//     int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
-//     Node *root = buildBST(arr, 9);
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     Node *root = buildBST(nodes, 9);
 
 //     printInRange(root, 5, 12);
 //     cout << endl; // 8 5 6 10 11
@@ -449,12 +449,12 @@ using namespace std;
 //     return root;
 // }
 
-// Node *buildBST(int arr[], int n)
+// Node *buildBST(int nodes[], int n)
 // {
 //     Node *root = NULL;
 //     for (int i = 0; i < n; i++)
 //     {
-//         root = insert(root, arr[i]);
+//         root = insert(root, nodes[i]);
 //     }
 //     return root;
 // }
@@ -498,8 +498,8 @@ using namespace std;
 // {
 
 //     int n = 9;
-//     int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
-//     Node *root = buildBST(arr, 9);
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     Node *root = buildBST(nodes, 9);
 
 //     rootToLeafPath(root);
 //     /*
@@ -514,53 +514,229 @@ using namespace std;
 
 // 6) Validate BST -
 
-class Node
-{
-public:
-    int data;
-    Node *left;
-    Node *right;
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
 
-    Node(int data)
-    {
-        this->data = data;
-        left = right = NULL;
-    }
-};
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
 
-Node *insert(Node *root, int val) // O(log N)
-{
-    if (root == NULL)
-    {
-        root = new Node(val);
-        return root;
-    }
+// Node *insert(Node *root, int val) // O(log N)
+// {
+//     if (root == NULL)
+//     {
+//         root = new Node(val);
+//         return root;
+//     }
 
-    if (val < root->data) // left subtree
-    {
-        root->left = insert(root->left, val);
-    }
-    else
-    {
-        root->right = insert(root->right, val);
-    }
+//     if (val < root->data) // left subtree
+//     {
+//         root->left = insert(root->left, val);
+//     }
+//     else
+//     {
+//         root->right = insert(root->right, val);
+//     }
 
-    return root;
-}
+//     return root;
+// }
 
-Node *buildBST(int arr[], int n)
-{
-    Node *root = NULL;
-    for (int i = 0; i < n; i++)
-    {
-        root = insert(root, arr[i]);
-    }
-    return root;
-}
-int main()
-{
+// Node *buildBST(int nodes[], int n)
+// {
+//     Node *root = NULL;
+//     for (int i = 0; i < n; i++)
+//     {
+//         root = insert(root, nodes[i]);
+//     }
+//     return root;
+// }
 
-    int n = 9;
-    int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
-    Node *root = buildBST(arr, 9);
-}
+// bool validateHelper(Node *root, Node *min, Node *max)
+// {
+//     if (root == NULL)
+//     {
+//         return true;
+//     }
+//     if (min != NULL && root->data < min->data)
+//     {
+//         return false;
+//     }
+//     if (max != NULL && root->data > max->data)
+//     {
+//         return false;
+//     }
+
+//     return validateHelper(root->left, min, root) && validateHelper(root->right, root, max);
+// }
+
+// bool validateBST(Node *root)
+// {
+//     return validateHelper(root, NULL, NULL);
+// }
+// int main()
+// {
+
+//     int n = 9;
+//     int nodes[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+//     Node *root = buildBST(nodes, 9);
+
+//     cout << validateBST(root) << endl; // 1
+
+//     root->data = 15;
+//     cout << validateBST(root) << endl; // 0
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 7) Sorted nodes to Balanced BST -
+
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
+
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
+
+// Node *BSTfromSortedVec(int nodes[], int st, int end)
+// {
+//     if (st > end) // >= nhi kiya qki ese bhi cases honge jb single elemenr bchega Araay me to use return  krna h naa ki NULL return krna he. Isliye
+//     {
+//         return NULL;
+//     }
+
+//     int mid = st + (end - st) / 2;
+//     Node *curr = new Node(nodes[mid]);
+//     curr->left = BSTfromSortedVec(nodes, st, mid - 1);
+//     curr->right = BSTfromSortedVec(nodes, mid + 1, end);
+
+//     return curr;
+// }
+
+// void PreorderTraversal(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return;
+//     }
+
+//     cout << root->data << " ";
+//     PreorderTraversal(root->left);
+//     PreorderTraversal(root->right);
+// }
+// int main()
+// {
+
+//     int nodes[7] = {3, 4, 5, 6, 7, 8, 9};
+
+//     cout << "From Sorted nodes - " << endl;
+//     Node *root = BSTfromSortedVec(nodes, 0, 6);
+//     PreorderTraversal(root);
+//     /*
+//     From Sorted nodes -
+//     6 4 3 5 8 7 9
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 8) Convert BSt to Balanced BST -
+
+// class Node
+// {
+// public:
+//     int data;
+//     Node *left;
+//     Node *right;
+
+//     Node(int data)
+//     {
+//         this->data = data;
+//         left = right = NULL;
+//     }
+// };
+
+// Node *BSTfromSortedVec(vector<int> nodes, int st, int end)
+// {
+//     if (st > end) // >= nhi kiya qki ese bhi cases honge jb single elemenr bchega Araay me to use return  krna h naa ki NULL return krna he. Isliye
+//     {
+//         return NULL;
+//     }
+
+//     int mid = st + (end - st) / 2;
+//     Node *curr = new Node(nodes[mid]);
+//     curr->left = BSTfromSortedVec(nodes, st, mid - 1);
+//     curr->right = BSTfromSortedVec(nodes, mid + 1, end);
+
+//     return curr;
+// }
+
+// void getInorder(Node *root, vector<int> &nodes)
+// {
+//     if (root == NULL)
+//     {
+//         return;
+//     }
+//     getInorder(root->left, nodes);
+//     nodes.push_back(root->data);
+//     getInorder(root->right, nodes);
+// }
+
+// void preOrder(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return;
+//     }
+//     cout << root->data << " ";
+//     preOrder(root->left);
+//     preOrder(root->right);
+// }
+// Node *balanceBST(Node *root)
+// {
+//     // get Inorder Sequence
+//     vector<int> nodes;
+//     getInorder(root, nodes);
+
+//     return BSTfromSortedVec(nodes, 0, nodes.size() - 1);
+// }
+
+// int main()
+// {
+//     Node *root = new Node(6);
+//     root->left = new Node(5);
+//     root->left->left = new Node(4);
+//     root->left->left->left = new Node(3);
+
+//     root->right = new Node(7);
+//     root->right->right = new Node(8);
+//     root->right->right->right = new Node(9);
+
+//     root = balanceBST(root);
+
+//     cout << "Balance Binary We got in preorder is given as - " << endl;
+//     preOrder(root);
+//     cout << endl;
+
+//     /*
+//     Balance Binary We got in preorder is given as -
+//     6 4 3 5 8 7 9
+
+//      */
+// }
+
+// ____________ ____________ ____________ ____________ ____________
+
+// 9) Size of Largest BSt in BT -
