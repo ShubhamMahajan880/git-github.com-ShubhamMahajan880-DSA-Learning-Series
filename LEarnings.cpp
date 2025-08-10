@@ -15,73 +15,118 @@ public:
     }
 };
 
-static int idx = -1;
-Node *treecreation(vector<int> &nodes) // pass by reference
-{
-    idx++;
-    if (nodes[idx] == -1)
-    {
-        return NULL;
-    }
-    Node *currnode = new Node(nodes[idx]);
-    currnode->left = treecreation(nodes);
-    currnode->right = treecreation(nodes);
-    return currnode;
-}
-
-bool rootToNodePath(Node *root, int n, vector<int> &path)
+Node *insertNode(Node *root, int val)
 {
     if (root == NULL)
     {
-        return false;
+        root = new Node(val);
+        return root;
     }
-    path.push_back(root->data);
-
-    if (root->data == n)
+    if (root->data < val)
     {
-        return true;
-    }
-
-    bool isLeft = rootToNodePath(root->left, n, path);
-    bool isRight = rootToNodePath(root->right, n, path);
-
-    if (isLeft || isRight)
-    {
-        return true;
-    }
-
-    path.pop_back();
-    return false;
-}
-
-void printRootToNode(Node *root, int n)
-{
-    vector<int> path;
-    if (rootToNodePath(root, n, path))
-    {
-        for (auto val : path)
-        {
-            cout << val << " ";
-        }
-        cout << endl;
+        root->right = insertNode(root->right, val);
     }
     else
     {
-        cout << "Node " << n << " not found" << endl;
+        root->left = insertNode(root->left, val);
     }
+    return root;
+}
+
+Node *createBST(int arr[], int n)
+{
+    Node *root = NULL;
+    for (int i = 0; i < n; i++)
+    {
+        root = insertNode(root, arr[i]);
+    }
+    return root;
+}
+
+void inorder(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+void intherange(Node *root, int start, int end)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    if (start <= root->data && root->data <= end)
+    {
+        cout << root->data << " ";
+        intherange(root->left, start, end);
+        intherange(root->right, start, end);
+    }
+
+    else if (root->data > start)
+    {
+        intherange(root->left, start, end);
+    }
+    else
+    {
+        intherange(root->right, start, end);
+    }
+}
+
+void printpath(vector<int> path)
+{
+    cout << "Path is :";
+    for (int i = 0; i < path.size(); i++)
+    {
+        cout << path[i] << " ";
+    }
+    cout << endl;
+}
+
+void pathHelper(Node *root, vector<int> &path)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    path.push_back(root->data);
+
+    if (root->left == NULL && root->right == NULL)
+    {
+        printpath(path);
+        path.pop_back();
+        return;
+    }
+    pathHelper(root->left, path);
+    pathHelper(root->right, path);
+    path.pop_back();
+}
+
+void roottoleafpath(Node *root)
+{
+    vector<int> path;
+    pathHelper(root, path);
 }
 
 int main()
 {
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = treecreation(nodes);
+    int n = 9;
+    int arr[9] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
 
-    printRootToNode(root, 1);//1 
-    printRootToNode(root, 2);//1 2 
-    printRootToNode(root, 3);//1 3 
-    printRootToNode(root, 4);//1 2 4 
-    printRootToNode(root, 4);//1 2 4 
-    printRootToNode(root, 5);//1 2 5 
-    printRootToNode(root, 6);//1 3 6 
-    printRootToNode(root, 10); //Node 10 not found
+    Node *root = createBST(arr, n);
+
+    cout << "So, the BSt is - " << endl;
+    inorder(root);
+    cout << endl;
+
+    cout << "After range implementation - " << endl;
+    intherange(root, 5, 11);
+    cout << endl;
+
+    roottoleafpath(root);
 }

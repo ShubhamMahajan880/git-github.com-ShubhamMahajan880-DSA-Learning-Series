@@ -22,6 +22,7 @@ using namespace std;
 📒- TC of BST is always give as O(HeightofTree) - Now this height depends on the tree
  - If tree is correctly BST - then TC - O(logn) - as performing Binary Search methodoly in Binary Search Tree
  - If tree is Skewed - thenn TC - O(N) - as in the worst case. becuase searching for n ndes no. of heights in not in the balanced tree so not deviding by N/2.
+ - The Inorder Traversal of BST always gives the sorted nodes value. because the left side's values are small then Mid and then right. so using Inorder(Left,Root,Right) we get the sorted Nodes.
 
  */
 
@@ -242,42 +243,49 @@ using namespace std;
 //     return root;
 // }
 
-// Node *delNode(Node *root, int val)
+// Node *delnode(Node *root, int todelete)
 // {
 //     if (root == NULL)
 //     {
+//         cout << "Node " << todelete << " not found.\n";
 //         return NULL;
 //     }
 
-//     if (val < root->data) // left subtree
+//     if (todelete < root->data)
 //     {
-//         root->left = delNode(root->left, val);
+//         root->left = delnode(root->left, todelete);
 //     }
-//     else if (val > root->data)
+//     else if (todelete > root->data)
 //     {
-//         root->right = delNode(root->right, val);
+//         root->right = delnode(root->right, todelete);
 //     }
 //     else
 //     {
-//         // root == val
-//         // case 1 - 0 childern
+//         // Case 1: No child
 //         if (root->left == NULL && root->right == NULL)
 //         {
 //             delete root;
 //             return NULL;
 //         }
-
-//         // case 2 - 1 child
+//         // Case 2: One child
 //         if (root->left == NULL || root->right == NULL)
 //         {
-//             return root->left == NULL ? root->right : root->left;
+//             Node *child;
+//             if (root->left != NULL)
+//             {
+//                 child = root->left;
+//             }
+//             else
+//             {
+//                 child = root->right;
+//             }
+//             delete root;
+//             return child;
 //         }
-
-//         // case 3 : 2 children
-//         Node *IS = getInorderSuccessor(root->right);
+//         // Case 3: Two children
+//         Node *IS = inordersuccessor(root->right);
 //         root->data = IS->data;
-//         root->right = delNode(root->right, IS->data); // Case1, Case2
-//         return root;
+//         root->right = delnode(root->right, IS->data);
 //     }
 //     return root;
 // }
