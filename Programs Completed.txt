@@ -159,7 +159,18 @@
 6) SudokuSOlver - 
 // -------------------
 
-[13] Linked List – 
+
+[13] Greedy Algorithms 
+1) Activity Selection Problem  -
+2) Pair in C++ : STL container to store 2 objects - 
+3) Fractional Knapsack Problem -
+4) Minimum Absolute DIfferent Pairs -
+5) Maximum Chain Length of Pairs -
+6) Indian Coins Problem -
+7) Job Sequencing Problem -
+// -------------------
+
+[14] Linked List – 
 1) Linked List Introduction & Creation -
 1.2) Deletion in LL -
 2) Iterative Search in LL -
@@ -174,7 +185,7 @@
 9) DoublyLinkedList Concept - 
 // -------------------
 
-[14] Stack - 
+[15] Stack - 
 1) Stack Implementation using Vector -
 1.1) Stack implemtation for any type of Datatype
 2) Stack impmentation usig LL -
@@ -191,7 +202,7 @@ Case 2 - By creating LL manually -
 11) Max Area in the Histogram  -
 // -------------------
 
-[15] Queue  - 
+[16] Queue  - 
 1) Queue Implementation using LL: -
 2) STL Queue Functionality -
 3) Queue using 2 stacks -
@@ -205,15 +216,6 @@ Case 2 - By creating LL manually -
 8) Circular Queue Implementations using Array -
 // -------------------
 
-[16] Greedy Algorithms 
-1) Activity Selection Problem  -
-2) Pair in C++ : STL container to store 2 objects - 
-3) Fractional Knapsack Problem -
-4) Minimum Absolute DIfferent Pairs -
-5) Maximum Chain Length of Pairs -
-6) Indian Coins Problem -
-7) Job Sequencing Problem -
-// -------------------
 
 [17] Binary Tree – 
 0) Intro to Binary Search - 
@@ -243,4 +245,19 @@ Case 2 - By creating LL manually -
 15) Kth Ancestor of Node -
 16) Transform to Sum Tree -
 // -------------------
+
+[18] Binary Search Tree - 
+0) Intro to BST
+1) Build BST from nodes -
+2) Search in a BST -
+3) Deletion of a Node in BST -
+4) Print in a Range -
+5) Root to leaf Path -
+6) Validate BST -
+7) Sorted nodes to Balanced BST -
+8) Convert BSt to Balanced BST -
+9) Size of Largest BSt in BT -
+// -------------------
+
+
 
