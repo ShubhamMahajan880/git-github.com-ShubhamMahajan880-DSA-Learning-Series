@@ -89,7 +89,8 @@ Other Useful
 LoremN  - command is uses for get the paragraph of N words
 F12 = Go to Definition
 F11 – Full Screen or Short Screen as per window size required
-
+In vs code on pressing Insert Key - then the curson becomes selecing cursor at the same place.
+In my keyboard - When num lock is turned off keyboard work simple keyboard for the keys - ctrl,shft,fun,home,end,pgup & pgdwn. And when the num lock is on as usual it works simply according to it.
 
 
 
