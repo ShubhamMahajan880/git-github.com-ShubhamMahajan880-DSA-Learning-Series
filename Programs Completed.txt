@@ -259,5 +259,21 @@ Case 2 - By creating LL manually -
 9) Size of Largest BSt in BT -
 // -------------------
 
+[19] Priority Queue & Heap 
+1) Priority Queue Introduction - 
+2) Complete Binary Tree - 
+2.1) Heap Data Structure Max/Min-  
+2.1.1) Implementation of Max Heap - 
+2.1.2) Implementation of Max Heap - 
+3) Priority Queue For Pair/Objects -
+3.1) Priority_Queue for Objects - 
+3.2) Using Priority Queue for Creating Pairs -
+4) Heap Sort & its implemetations - 
+5) Quns Based on Priority_Queue and Heap - 
+5.1) Nearby K Cars -
+5.2) Connect N Ropes -
+5.3) Weakest Soldier -
+5.4) Sliding Window Maximum -
+// -------------------
 
 

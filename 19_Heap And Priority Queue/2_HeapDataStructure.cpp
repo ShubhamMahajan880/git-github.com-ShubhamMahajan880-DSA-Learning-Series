@@ -16,6 +16,8 @@
 // #include <deque>
 using namespace std;
 
+// 2) Complete Binary Tree -
+// 2.1) Heap Data Structure -
 /*
 CBT - Complete Binary Tree - Tree in which nodes filled levelvise from left to righ.
 Heap can be implementted where  - its a CBT and
@@ -263,7 +265,8 @@ So thats why we don't use class or Node  to create the heap. TO maintain the TC.
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// Priority Queue For Pair/Objects -
+// 3) Priority Queue For Pair/Objects -
+// 3.1) Priority_Queue for Objects -
 /*
 Using Priority Queue - hm student clas ke object ko access krna chaah rhe h for using heap too
 - In < Operator Overloading dono jgn < operatoe h to Max heap hi buil hoga on the basis of marks
@@ -374,7 +377,7 @@ Using Priority Queue - hm student clas ke object ko access krna chaah rhe h for 
 
 // ____________ ____________
 
-// Using Priority Queue for Creating Pairs -
+// 3.2) Using Priority Queue for Creating Pairs -
 
 // int main()
 // {
@@ -429,7 +432,7 @@ int main()
     Top = Bhumika,1000
     Top = Aman,500
      */
-    
+
     // For the Min heap - <
     /*
     return p1.second > p2.second;
@@ -439,3 +442,4 @@ int main()
 
     */
 }
+// ____________ ____________ ____________ ____________ ____________
