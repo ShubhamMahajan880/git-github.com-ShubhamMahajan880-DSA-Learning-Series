@@ -16,33 +16,24 @@
 // #include <deque>
 using namespace std;
 
-class Student
+struct ComparePair
 {
-public:
-    string name;
-    int marks;
-
-    Student(string name, int marks)
+    bool operator()(pair<string, int> &p1, pair<string, int> &p2)
     {
-        this->name = name;
-        this->marks = marks;
-    }
-
-    bool operator<(const Student &obj) const
-    {
-        return this->name > obj.name;
+        return p1.second > p2.second;
     }
 };
 int main()
 {
-    priority_queue<Student> pq;
-    pq.push(Student("Bharat", 42));
-    pq.push(Student("Chaitanya", 89));
-    pq.push(Student("Anaya", 12));
+    priority_queue<pair<string, int>, vector<pair<string, int>>, ComparePair> pq;
+
+    pq.push(make_pair("Aavu", 56));
+    pq.push(make_pair("Chaitanya", 78));
+    pq.push(make_pair("Bhamini", 12));
 
     while (!pq.empty())
     {
-        cout << "Top - " << pq.top().name << "," << pq.top().marks << endl;
+        cout << "Top is - " << pq.top().first << "," << pq.top().second << endl;
         pq.pop();
     }
-}       
+}
