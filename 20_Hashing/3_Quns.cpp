@@ -19,7 +19,9 @@
 // #include<unordered_set>using namespace std;
 using namespace std;
 
-// 1) Pair Sum/Two SUm/Target Sum -
+//4) Quns using STL Containers  - 
+
+//4.1) Pair Sum/Two SUm/Target Sum -
 
 // int main()
 // {
@@ -45,7 +47,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 2) Majority Element  -
+//4.2) Majority Element  -
 /*
 - This qun could also be solved using Array/Vector butfor large data there was need of huge Space Complecity
 - Same while using Stack/LL - It took this in Linear time O(n), SO using the Map could be done in O(1) time.
@@ -87,7 +89,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 3) Valid Anagram -
+//4.3) Valid Anagram -
 
 // bool validAnagrams(string s, string t)
 // {
@@ -147,7 +149,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 4 Count Distinct -
+//4.4) Count Distinct -
 
 // int countDistinct(vector<int> arr)
 // {
@@ -178,7 +180,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 5 - Union & Interesection -
+//4.5) Union & Interesection -
 
 // void printUnion(vector<int> arr1, vector<int> arr2)
 // {
@@ -241,7 +243,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 6) itinerary From Tickets -
+//4.6) itinerary From Tickets -
 /*
 In this qun - the most important thing is to find the startting point.
 - Vo point jis pr hm khi se aanhi rhe . First initial starting point hi he vo.
@@ -294,7 +296,7 @@ In this qun - the most important thing is to find the startting point.
 // }
 // ____________ ____________
 
-// 7) Largest Subarray with sum 0 -
+//4.7) Largest Subarray with sum 0 -
 
 /*
 Largest subarray chahiye, to index value jitni chhoti ho utna accha.
@@ -334,7 +336,7 @@ Largest subarray chahiye, to index value jitni chhoti ho utna accha.
 // }
 // ____________ ____________
 
-// 8) Count of Subarray sum Equals to K -
+//4.8) Count of Subarray sum Equals to K -
 /*
 - hr array ke liye ek khaali waala subarray hmwsha exist krta he jiska count he 1 & sum he - 0.[Null Subarray]
 - Formula which we're using - sum[i,j] = sum[j] - sum[i] : is one of the most useful formula using in different scenarios and quns
@@ -383,3 +385,4 @@ Largest subarray chahiye, to index value jitni chhoti ho utna accha.
 
 //      */
 // }
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________

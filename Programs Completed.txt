@@ -16,7 +16,6 @@
 6) Number System - 
 6.1) Binary to Decimal Conversion -
 6.2) Decimal to Binary -
-
 // -------------------
 
 
@@ -276,6 +275,24 @@ Case 2 - By creating LL manually -
 5.4) Sliding Window Maximum -
 // -------------------
 
+[20] Hashing – 
+1) Hashmap Data Structures using Hash Table Implementation -  
+2) STL COntainersMap - Unordered Map & Map - 
+2.1) Unordered Map Working -
+2.2) Map Working -
+3) STL COntainersMap - Unordered Set & Set - 
+3.1) Unorderd Set Working -
+3.2) Set Working -
+4) Quns using STL Containers  - 
+4.1) Pair Sum/Two SUm/Target Sum -
+4.2) Majority Element  -
+4.3) Valid Anagram -
+4.4) Count Distinct -
+4.5) Union & Interesection -
+4.6) itinerary From Tickets -
+4.7) Largest Subarray with sum 0 -
+4.8) Count of Subarray sum Equals to K -
+// -------------------
 
 
 

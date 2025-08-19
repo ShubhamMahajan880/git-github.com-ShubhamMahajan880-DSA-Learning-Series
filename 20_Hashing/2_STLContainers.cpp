@@ -19,24 +19,23 @@
 // #include<unordered_set>
 using namespace std;
 
+// 2) STL COntainersMap - Unordered Map & Map
 /*
-2) STL COntainersMap - Unordered Maps & Maps
-
 - Unordred Map uses - the Hash Table Data Structure
 - Maps - Uses Red Black Tree(Self Balancing BST's) Data Structure.
+- In the cases where we need to maintain the TC but no need to maintaib the order then use UNORDERED MAP.
+- and similarly, at where we want to manage the ORDER but don't care about TC then use MAP.
 - The same implies fror Unordered Set & Set. Unordered Set uses Hash Table and Set uses Red Black Tree Data Structure
 - UNORDERED SET ia also an UNRDERED MAP, but it doen't store the vaalues of map, it stores only the key.
 - SET is also a Map, and it also doen't store the vaalues of map, it stores only the key.
-- In the cases where we need to maintain the TC but no need to maintaib the order then use UNORDERED MAP.
-- and similarly, at where we want to manage the ORDER but don't care about TC then use MAP.
 - In UNORDER(anything) TC - O(1) and in worst its O(N)
 - while in ordered(anything) TC - O(log n). Always
-
 */
+
+//2.1) Unordered Map Working -
 
 // int main()
 // {
-//     // Unordered Map Working -
 
 //     unordered_map<string, int> m;
 
@@ -121,7 +120,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Map Working -
+//2.2) Map Working -
 
 // int main()
 // {
@@ -161,9 +160,11 @@ using namespace std;
 //     // Intuit Company  doesn;t Exists
 //     cout << " - - - - " << endl;
 // }
-// ____________ ____________
+// ____________ ____________ ____________ ____________ ____________
 
-// Unorderd Set Working -
+//3) STL COntainersMap - Unordered Set & Set
+//3.1) Unorderd Set Working -
+
 // int main()
 // {
 //     unordered_set<int> s;
@@ -220,7 +221,7 @@ using namespace std;
 // }
 // ____________ ____________
 
-// Set Working -
+//3.2) Set Working -
 
 // int main()
 // {
@@ -248,6 +249,7 @@ using namespace std;
 
 //     for (auto i : s)
 //     {
-//         cout << i<<" "; // 40 60 80 
+//         cout << i<<" "; // 40 60 80
 //     }
 // }
+// ____________ ____________ ____________ ____________ ____________
