@@ -294,5 +294,14 @@ Case 2 - By creating LL manually -
 4.8) Count of Subarray sum Equals to K -
 // -------------------
 
+[21] Trie 
+1) Trie Intro  -
+2) Trie Quns -
+2.1) Word Break Problem -
+2.2) Prefix Problem -
+2.3) StartWithProblem -
+2.4) COunt Unique Substring -
+2.5) Longest Word with all Prefix  -
+// -------------------
 
 
