@@ -304,4 +304,17 @@ Case 2 - By creating LL manually -
 2.5) Longest Word with all Prefix  -
 // -------------------
 
+[22] Segment Trees – 
+1) Intro to Segment Trees : - 
+1.1) Creating a Segment Tree - 
+2) Performing QUeries in Segment Trees  -
+3) Update on any index in Segment Tree -
+4) Max Segment Tree - in particular given range - 
+4.1) Creation & Query in Max Segment Tree - 
+4.2) Update in Range Max Segment Tree - in particular given range - 
+5) Range Min Segment Tree - Creation, Query & Update in particular given range - 
+// -------------------
+
+
+
 
