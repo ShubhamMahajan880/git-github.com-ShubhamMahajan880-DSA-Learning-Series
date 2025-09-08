@@ -138,8 +138,8 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 2) Graph Traversal Techniques - 
-//2.1) BFS Implementation on Graph -
+// 2) Graph Traversal Techniques -
+// 2.1) BFS Implementation on Graph -
 
 // class Graph
 // {
@@ -218,7 +218,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-//2.2) DFS Implementation on Graph -
+// 2.2) DFS Implementation on Graph -
 
 // class Graph
 // {
@@ -250,32 +250,6 @@ using namespace std;
 //             }
 //             cout << endl;
 //         }
-//     }
-
-//     void BFS() // O(V+E)
-//     {
-//         queue<int> q;
-//         vector<bool> vis(V, false);
-//         q.push(0);
-//         vis[0] = true;
-
-//         while (q.size() > 0)
-//         {
-//             int u = q.front(); // current vertex
-//             q.pop();
-//             cout << u << " ";
-
-//             list<int> neighbors = l[u]; // u--v
-//             for (int v : neighbors)
-//             {
-//                 if (!vis[v])
-//                 {
-//                     vis[v] = true;
-//                     q.push(v);
-//                 }
-//             }
-//         }
-//         cout << endl;
 //     }
 
 //     void DFSHelper(int u, vector<bool> &vis) // O(V+E)
@@ -319,8 +293,8 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 3)HasPath Problem -
-// Using DFS -since its using DFS or working on the logic of DFS..so TC - O(V+E)
+// 3) HasPath Problem -
+//  Using DFS -since its using DFS or working on the logic of DFS..so TC - O(V+E)
 
 // class Graph
 // {
@@ -505,4 +479,191 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
+// 4) Disconnected Components OR Diconneted Graph -
+// using DFS Traversal -
 
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+
+// public:
+//     Graph(int V)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//     }
+
+//     void addEdge(int u, int v) // u--v
+//     {
+//         l[u].push_back(v);
+//         l[v].push_back(u);
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     void DFSHelper(int u, vector<bool> &vis) // O(V+E)
+//     {
+//         vis[u] = true;
+//         cout << u << " ";
+
+//         list<int> neighbors = l[u];
+//         for (int v : neighbors)
+//         {
+//             if (!vis[v])
+//             {
+//                 DFSHelper(v, vis);
+//             }
+//         }
+//     }
+
+//     void DFS()
+//     {
+//         vector<bool> vis(V, false);
+//         for (int i = 0; i < V; i++)
+//         {
+//             if (!vis[i])
+//             {
+//                 DFSHelper(i, vis); // Starting Point = i;
+//                 cout << endl;
+//             }
+//         }
+
+//         cout << endl;
+//     }
+// };
+
+// int main()
+// {
+//     Graph graph(10);
+
+//     graph.addEdge(0, 2);
+//     graph.addEdge(2, 5);
+//     graph.addEdge(1, 6);
+//     graph.addEdge(6, 4);
+//     graph.addEdge(4, 3);
+//     graph.addEdge(4, 9);
+//     graph.addEdge(3, 7);
+//     graph.addEdge(3, 8);
+
+//     graph.DFS(); // 0 1 3 4 2 5 6
+
+//     /*
+//     0 2 5
+//     1 6 4 3 7 8 9
+
+//      */
+// }
+
+// -------------------
+
+// using BFS Traversal -
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+
+// public:
+//     Graph(int V)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//     }
+
+//     void addEdge(int u, int v) // u--v
+//     {
+//         l[u].push_back(v);
+//         l[v].push_back(u);
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     void BFSHelper(int st, vector<bool> &vis) // O(V+E)
+//     {
+//         queue<int> q;
+//         q.push(st);
+//         vis[st] = true;
+
+//         while (q.size() > 0)
+//         {
+//             int u = q.front(); // current vertex
+//             q.pop();
+//             cout << u << " ";
+
+//             list<int> neighbors = l[u]; // u--v
+//             for (int v : neighbors)     // to ensu]re that oone node is added only once to queue
+//             {
+//                 if (!vis[v])
+//                 {
+//                     vis[v] = true;
+//                     q.push(v);
+//                 }
+//             }
+//         }
+//         cout << endl;
+//     }
+
+//     void BFS()
+//     {
+//         vector<bool> vis(V, false);
+//         for (int i = 0; i < V; i++)
+//         {
+//             if (!vis[i])
+//             {
+//                 BFSHelper(i, vis);
+//                 cout << endl;
+//             }
+//         }
+//     }
+// };
+
+// int main()
+// {
+//     Graph graph(10);
+
+//     graph.addEdge(0, 2);
+//     graph.addEdge(2, 5);
+//     graph.addEdge(1, 6);
+//     graph.addEdge(6, 4);
+//     graph.addEdge(4, 3);
+//     graph.addEdge(4, 9);
+//     graph.addEdge(3, 7);
+//     graph.addEdge(3, 8);
+
+//     graph.BFS();
+//     /*
+//     ToGraph }                                                                                             0 2 5
+
+//     1 6 4 3 9 7 8
+
+
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 5) Cycles in Graph - 

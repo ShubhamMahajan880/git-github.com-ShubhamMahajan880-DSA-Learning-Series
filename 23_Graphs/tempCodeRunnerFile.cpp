@@ -30,12 +30,11 @@ public:
         }
     }
 
-    void BFS() // O(V+E)
+    void BFSHelper(int st, vector<bool> &vis) // O(V+E)
     {
         queue<int> q;
-        vector<bool> vis(V, false);
-        q.push(0);
-        vis[0] = true;
+        q.push(st);
+        vis[st] = true;
 
         while (q.size() > 0)
         {
@@ -44,7 +43,7 @@ public:
             cout << u << " ";
 
             list<int> neighbors = l[u]; // u--v
-            for (int v : neighbors)
+            for (int v : neighbors)     // to ensu]re that oone node is added only once to queue
             {
                 if (!vis[v])
                 {
@@ -56,42 +55,39 @@ public:
         cout << endl;
     }
 
-    void DFSHelper(int u, vector<bool> &vis) // O(V+E)
+    void BFS()
     {
-        vis[u] = true;
-        cout << u << " ";
-
-        list<int> neighbors = l[u];
-        for (int v : neighbors)
+        vector<bool> vis(V, false);
+        for (int i = 0; i < V; i++)
         {
-            if (!vis[v])
+            if (!vis[i])
             {
-                DFSHelper(v, vis);
+                BFSHelper(i, vis);
+                cout << endl;
             }
         }
-    }
-
-    void DFS()
-    {
-        vector<bool> vis(7, false);
-        DFSHelper(0, vis);
-        cout << endl;
     }
 };
 
 int main()
 {
-    Graph graph(7);
+    Graph graph(10);
 
-    graph.addEdge(0, 1);
     graph.addEdge(0, 2);
-    graph.addEdge(1, 3);
-    graph.addEdge(2, 4);
-    graph.addEdge(3, 4);
-    graph.addEdge(3, 5);
-    graph.addEdge(4, 5);
-    graph.addEdge(5, 6);
+    graph.addEdge(2, 5);
+    graph.addEdge(1, 6);
+    graph.addEdge(6, 4);
+    graph.addEdge(4, 3);
+    graph.addEdge(4, 9);
+    graph.addEdge(3, 7);
+    graph.addEdge(3, 8);
 
-    graph.BFS(); // 0 1 2 3 4 5 6
-    graph.DFS(); // 0 1 3 4 2 5 6
+    graph.BFS();
+    /*
+    ToGraph }                                                                                             0 2 5
+
+    1 6 4 3 9 7 8
+
+
+     */
 }
