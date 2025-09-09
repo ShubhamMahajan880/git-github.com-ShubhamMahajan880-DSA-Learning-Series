@@ -21,8 +21,7 @@ using namespace std;
 
 // 1) Graph Creation -
 /*
-#include<vector>
-#include<list>
+For Undirected Graph
  */
 // class Graph
 // {
@@ -81,7 +80,59 @@ using namespace std;
 
 // ____________ ____________
 
-// 1.1) For Wheighted Graph -
+// 1.1) For Directed Graph -
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+//     bool isUndir;
+
+// public:
+//     Graph(int V, bool isUndir = true)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//         this->isUndir = isUndir;
+//     }
+
+//     void addEdge(int u, int v) // u-->v
+//     {
+//         l[u].push_back(v);
+//         if (isUndir) // false
+//         {
+//             l[v].push_back(u);
+//         }
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+// };
+// int main()
+// {
+//     // Directed Graph
+//     Graph graph(4, false);
+//     graph.addEdge(1, 0);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(2, 3);
+//     graph.addEdge(3, 0);
+
+//     graph.printGraph();
+// }
+// ____________ ____________
+
+// 1.2) Weighted Graph for Directed and Undirected Graph -
 
 // class Graph
 // {
@@ -661,9 +712,407 @@ using namespace std;
 
 //     1 6 4 3 9 7 8
 
-
 //      */
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 5) Cycles in Graph - 
+// 5) Cycles in Graph -
+
+// 5.1) Cycle Detection in an Undirected Graph - using DFS
+/*
+- Koi bhi node jo kisi bhi ek node ka neighbour hota h, already visited hota h pr use edge se visit nhi hua... na hi vo uska parent he.. to vo node sirf islite visit hota he qki Undirected Graph ke under cyccle exist krti hee.
+- Source & neighbour ke bich me (when neighbout!=parent) jo edge hoti h is called - BACK EDGE. Back Edge is responsible for creqating cycle in an Undirected Graph.
+*/
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+
+// public:
+//     Graph(int V)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//     }
+
+//     void addEdge(int u, int v) // u--v
+//     {
+//         l[u].push_back(v);
+//         l[v].push_back(u);
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     bool undirCycleHelper(int src, int par, vector<bool> &vis) // TC - O(V+E)
+//     {
+//         vis[src] = true;
+//         list<int> neighbors = l[src];
+
+//         for (int v : neighbors)
+//         {
+//             if (!vis[v])
+//             {
+//                 if (undirCycleHelper(v, src, vis))
+//                 {
+//                     return true;
+//                 }
+//                 else
+//                 {
+//                     if (v != par)
+//                     {
+//                         return true;
+//                     }
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+//     bool isCycleUndir()
+//     {
+//         vector<bool> vis(V, false);
+//         return undirCycleHelper(0, -1, vis);
+//     }
+// };
+
+// int main()
+// {
+//     int V = 5;
+//     Graph graph(V);
+
+//     // Undirected Graph
+//     graph.addEdge(0, 1);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(0, 3);
+//     graph.addEdge(1, 2);
+//     graph.addEdge(3, 4);
+
+//     cout << graph.isCycleUndir() << endl; // 1
+
+//     /*  checking when cycle removed -
+
+//     graph.addEdge(0, 1);
+//     // graph.addEdge(0, 2);
+//     graph.addEdge(0, 3);
+//     graph.addEdge(1, 2);
+//     graph.addEdge(3, 4);
+
+//     cout << graph.isCycleUndir() << endl;//0 */
+// }
+
+// -------------------
+
+// 5.2) Cycle Detection in  Directed Graph - using DFS
+
+/*
+Can we use this Cycle Detection  method for Directed Graph ? - No, can;t
+In an example - Vertex 1 is at -1. 0 is already visited and 0 is also not the parent of 1 means here is a cycle as per the logic. But there is no cycle in given directed graph.,
+So this Back edge approach,can;t be used for Directed gRaph.
+
+- So how to do it - Using Recursion and  tracking the entire path.
+- Ek esa node h jo hmare recursive path ke under exist krta h and hmare current node k under ek esa edge he jjo purane kisi node pr jaa rha he. Means directed graph me cycle he.
+- So, in a Directed Graph .. EK node(neighbout) h jo ki already visited h  + vo hmare recursion path me exist krti he- means there is a cycle in directed Graph.
+*/
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+//     bool isUndir;
+
+// public:
+//     Graph(int V, bool isUndir = true)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//         this->isUndir = isUndir;
+//     }
+
+//     void addEdge(int u, int v) // u-->v
+//     {
+//         l[u].push_back(v);
+//         if (isUndir) // false
+//         {
+//             l[v].push_back(u);
+//         }
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     bool dirCycleHelper(int src, vector<bool> &vis, vector<bool> &recPath)
+//     {
+//         vis[src] = true;
+//         recPath[src] = true;
+//         list<int> neighbors = l[src];
+
+//         for (int v : neighbors)
+//         {
+//             if (!vis[v])
+//             {
+//                 if (dirCycleHelper(v, vis, recPath))
+//                 {
+//                     return true;
+//                 }
+//             }
+//             else
+//             {
+//                 if (recPath[v])
+//                 {
+//                     return true;
+//                 }
+//             }
+//         }
+//         recPath[src] = false;
+//         return false;
+//     }
+
+//     bool isCycleDir()
+//     {
+//         vector<bool> vis(V, false);
+//         vector<bool> recPath(V, false);
+
+//         for (int i = 0; i < V; i++)
+//         {
+//             if (!vis[i])
+//             {
+//                 if (dirCycleHelper(i, vis, recPath))
+//                 {
+//                     return true;
+//                 }
+//             }
+//         }
+//     }
+// };
+// int main()
+// {
+//     // Directed Graph
+//     Graph graph(4, false);
+
+//     graph.addEdge(1, 0);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(2, 3);
+//     graph.addEdge(3, 0);
+
+//     cout << graph.isCycleDir() << endl; // 1
+
+//     /*
+//     Checking after removing the cycle -
+
+//     graph.addEdge(1, 0);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(2, 3);
+//     cout << graph.isCycleDir() << endl; // 0
+//     */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 6) Bipartite Gtaph -
+/*
+- A bipartite graph is a graph in which ... kisi edge ke dono vertex same set me nhi hona chahiye. Ek vertex agr ek set me h to dusra vertex dusre set me hona chahiye
+- No Edge connects vertices of same set.
+*/
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+
+// public:
+//     Graph(int V)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//     }
+
+//     void addEdge(int u, int v) // u--v
+//     {
+//         l[u].push_back(v);
+//         l[v].push_back(u);
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     bool isBipartite()
+//     {
+//         queue<int> q;
+//         vector<bool> vis(V, false);
+//         vector<int> color(V, -1);
+
+//         q.push(0);
+//         color[0] = 0;
+//         while (q.size() > 0)
+//         {
+//             int curr = q.front();
+//             q.pop();
+//             list<int> neighbours = l[curr];
+
+//             for (int v : neighbours)
+//             {
+//                 if (!vis[v])
+//                 {
+//                     vis[v] = true;
+//                     color[v] = !color[curr];
+//                     q.push(v);
+//                 }
+//                 else
+//                 {
+//                     if (color[v] == color[curr])
+//                     {
+//                         return false;
+//                     }
+//                 }
+//             }
+//         }
+//         return true;
+//     }
+// };
+
+// int main()
+// {
+//     Graph graph(4);
+
+//     graph.addEdge(0, 1);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(1, 3);
+//     graph.addEdge(2, 3);
+
+//     cout << graph.isBipartite() << endl; // 1
+
+//     // What if we created it Non-Bipartite
+//     /* Graph graph(5);
+
+//     graph.addEdge(0, 1);
+//     graph.addEdge(0, 2);
+//     graph.addEdge(1, 3);
+//     graph.addEdge(2, 3);
+//     graph.addEdge(0, 3);
+
+//     cout << graph.isBipartite() << endl; // 0
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 7) All PAth Problem -
+
+// class Graph
+// {
+//     int V;
+//     list<int> *l;
+//     bool isUndir;
+
+// public:
+//     Graph(int V, bool isUndir = true)
+//     {
+//         this->V = V;
+//         l = new list<int>[V];
+//         this->isUndir = isUndir;
+//     }
+
+//     void addEdge(int u, int v) // u-->v
+//     {
+//         l[u].push_back(v);
+//         if (isUndir) // false
+//         {
+//             l[v].push_back(u);
+//         }
+//     }
+
+//     void printGraph()
+//     {
+//         for (int u = 0; u < V; u++)
+//         {
+//             list<int> neighbours = l[u];
+//             cout << u << " : ";
+//             for (auto i : neighbours)
+//             {
+//                 cout << i << " ";
+//             }
+//             cout << endl;
+//         }
+//     }
+//     void pathHelper(int src, int dest, vector<bool> &vis, string &path) // O(V+E)
+//     {
+//         if (src == dest)
+//         {
+//             cout << path << dest << endl;
+//             return;
+//         }
+
+//         vis[src] = true;
+//         path += to_string(src);
+//         list<int> neighbours = l[src];
+
+//         for (int v : neighbours)
+//         {
+//             if (!vis[v])
+//             {
+//                 pathHelper(v, dest, vis, path);
+//             }
+//         }
+
+//         path = path.substr(0, path.size() - 1);
+//         vis[src] = false;
+//     }
+
+//     void printAllPaths(int src, int dest)
+//     {
+//         vector<bool> vis(V, false);
+//         string path = "";
+//         pathHelper(src, dest, vis, path);
+//     }
+// };
+// int main()
+// {
+//     Graph graph(6, false);
+
+//     graph.addEdge(0, 3);
+//     graph.addEdge(2, 3);
+//     graph.addEdge(3, 1);
+//     graph.addEdge(4, 0);
+//     graph.addEdge(4, 1);
+//     graph.addEdge(5, 0);
+//     graph.addEdge(5, 2);
+
+//     graph.printAllPaths(5, 1);
+//     /*
+//     5031
+//     5231
+//      */
+// }
+// ____________ ____________ ____________ ____________ ____________
