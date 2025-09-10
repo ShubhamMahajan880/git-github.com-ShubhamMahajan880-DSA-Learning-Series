@@ -21,7 +21,7 @@ using namespace std;
 
 // 1) Graph Creation -
 /*
-For Undirected Graph
+For Undirected Graph only
  */
 // class Graph
 // {
@@ -80,7 +80,7 @@ For Undirected Graph
 
 // ____________ ____________
 
-// 1.1) For Directed Graph -
+// 1.1) For Directed/Undirected both Graph -
 
 // class Graph
 // {

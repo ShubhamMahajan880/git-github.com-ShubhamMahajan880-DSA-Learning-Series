@@ -1,85 +1,43 @@
-class Graph
+void calIndegree(vector<int> &indeg)
 {
-    int V;
-    list<int> *l;
-    bool isUndir;
-
-public:
-    Graph(int V, bool isUndir = true)
+    for (int u = 0; u < V; u++)
     {
-        this->V = V;
-        l = new list<int>[V];
-        this->isUndir = isUndir;
-    }
-
-    void addEdge(int u, int v) // u-->v
-    {
-        l[u].push_back(v);
-        if (isUndir) // false
+        list<int> neighbour = l[u];
+        for (int v : neighbour) // u->v
         {
-            l[v].push_back(u);
+            indeg[v]++;
+        }
+    }
+}
+void topoSort2() // Kahn's ALgo
+{
+    vector<int> indeg(V, 0);
+    calIndegree(indeg);
+    queue<int> q;
+    // 0 indeg nodes -> starting point
+    for (int i = 0; i < V; i++)
+    {
+        if (indeg[i] == 0)
+        {
+            q.push(i);
         }
     }
 
-    void printGraph()
+    while (q.size() > 0)
     {
-        for (int u = 0; u < V; u++)
-        {
-            list<int> neighbours = l[u];
-            cout << u << " : ";
-            for (auto i : neighbours)
-            {
-                cout << i << " ";
-            }
-            cout << endl;
-        }
-    }
-    void pathHelper(int src, int dest, vector<bool> &vis, string &path) // O(V+E)
-    {
-        if (src == dest)
-        {
-            cout << path << dest << endl;
-            return;
-        }
+        int curr = q.front();
+        q.pop();
+        cout << curr << " ";
 
-        vis[src] = true;
-        path += to_string(src);
-        list<int> neighbours = l[src];
-
+        list<int> neighbours = l[curr];
         for (int v : neighbours)
         {
-            if (!vis[v])
+            indeg[v]--;
+            if (indeg[v] == 0) // No pending Dependencies
             {
-                pathHelper(v, dest, vis, path);
+                q.push(v);
             }
         }
-
-        path = path.substr(0, path.size() - 1);
-        vis[src] = false;
     }
-
-    void printAllPaths(int src, int dest)
-    {
-        vector<bool> vis(V, false);
-        string path = "";
-        pathHelper(src, dest, vis, path);
-    }
-};
-int main()
-{
-    Graph graph(6, false);
-
-    graph.addEdge(0, 3);
-    graph.addEdge(2, 3);
-    graph.addEdge(3, 1);
-    graph.addEdge(4, 0);
-    graph.addEdge(4, 1);
-    graph.addEdge(5, 0);
-    graph.addEdge(5, 2);
-
-    graph.printAllPaths(5, 1);
-    /*
-    5031
-    5231
-     */
+    cout << endl;
 }
