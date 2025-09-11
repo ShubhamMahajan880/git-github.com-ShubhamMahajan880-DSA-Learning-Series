@@ -19,8 +19,11 @@
 // #include<unordered_set>using namespace std;
 using namespace std;
 
-// 10) Dijkstra's ALgorithms - Algorithm uses for slelecting mminimum weight for src to destntion. Tihis algorithm can only implement for possitive weights.
-// Implementation of Dijktra's algo using Edge List method
+// 10) Dijkstra's ALgorithms -
+/*
+Algorithm uses for slelecting mminimum weight for src to destntion. Tihis algorithm can only implement for possitive weights.
+& Implementation of Dijktra's algo using Edge List method
+ */
 
 // class Edge
 // {
@@ -264,9 +267,9 @@ For V nodes there will be V-1 Edges.
 //         int src = 0;
 //         vector<bool> mst(V, false);
 //         pq.push(make_pair(0, src));
-//         int minCOst = 0;
+//         int minCost = 0;
 
-//         while (pq.size() > 0)
+//         while (!pq.empty())
 //         {
 //             int u = pq.top().second;
 //             int cost = pq.top().first;
@@ -275,7 +278,7 @@ For V nodes there will be V-1 Edges.
 //             if (!mst[u])
 //             {
 //                 mst[u] = true;
-//                 minCOst += cost;
+//                 minCost += cost;
 
 //                 for (int v = 0; v < V; v++)
 //                 {
@@ -287,9 +290,25 @@ For V nodes there will be V-1 Edges.
 //                 }
 //             }
 //         }
-//         return minCOst;
+//         return minCost;
 //     }
 // };
+
+// int main()
+// {
+//     Solution sol;
+
+//     vector<vector<int>> points1 = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
+//     cout << "Min Cost (Example 1): " << sol.MinCostConnectPoints(points1) << "\n";
+
+//     vector<vector<int>> points2 = {{3, 12}, {-2, 5}, {-4, 1}};
+//     cout << "Min Cost (Example 2): " << sol.MinCostConnectPoints(points2) << "\n";
+
+//     /*
+//     Min Cost (Example 1): 20
+//     Min Cost (Example 2): 18
+//     */
+// }
 // ____________ ____________ ____________ ____________ ____________
 
 // 13) Leetcode Qun 787 - Cheapest Flight Within K Stops -
@@ -335,8 +354,12 @@ For V nodes there will be V-1 Edges.
 //             if (curr.stops > k)
 //                 continue;
 
-//             for (auto &[v, wt] : adj[curr.u])
+//             // <- changed: avoid C++17 structured bindings to keep compatibility
+//             for (auto &p : adj[curr.u])
 //             {
+//                 int v = p.first;
+//                 int wt = p.second;
+
 //                 if (curr.cost + wt < dist[v] && curr.stops <= k)
 //                 {
 //                     dist[v] = curr.cost + wt;
@@ -349,9 +372,34 @@ For V nodes there will be V-1 Edges.
 //     }
 // };
 
+// int main()
+// {
+//     Solution sol;
+
+//     int V1 = 4;
+//     vector<vector<int>> flights1 = {
+//         {0, 1, 100}, {1, 2, 100}, {2, 3, 100}, {0, 2, 500}};
+//     int src1 = 0, dst1 = 3, k1 = 1;
+
+//     cout << "Cheapest Price (Example 1): "
+//          << sol.findCheapestPrice(V1, flights1, src1, dst1, k1) << "\n";
+
+//     int V2 = 3;
+//     vector<vector<int>> flights2 = {
+//         {0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
+//     int src2 = 0, dst2 = 2, k2 = 1;
+
+//     cout << "Cheapest Price (Example 2): "
+//          << sol.findCheapestPrice(V2, flights2, src2, dst2, k2) << "\n";
+
+//     /*
+//     Cheapest Price (Example 1): 600
+//     Cheapest Price (Example 2): 200
+//      */
+// }
 // ____________ ____________ ____________ ____________ ____________
 
-// 13) Disjoint Set/Union Find Data Structure -
+// 14) Disjoint Set/UnionFind Data Structure -
 
 // class DisjointSet
 // {
@@ -442,7 +490,7 @@ For V nodes there will be V-1 Edges.
 
 // ____________ ____________ ____________ ____________ ____________
 
-// 14) Kruskal's ALgorithms -
+// 15) Kruskal's ALgorithms -
 
 // class Edge // O(ElogE)
 // {
@@ -548,28 +596,38 @@ For V nodes there will be V-1 Edges.
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 15) Leetcode Qun - 733 - Flood Fill ALgorithms -
+// 16) Flood Fill ALgorithms - Leetcode Qun - 733 -
 
 class Solution
 {
 public:
-    void dfs(int row, int col, int n, int m, vector<vector<int>> &image, int newColor, int oldColor)
+    void dfs(int row, int col, int n, int m, vector<vector<int>> &image, vector<vector<bool>> &vis, int newColor, int oldColor)
     {
+        vis[row][col] = true;
         image[row][col] = newColor;
 
-        // Directions: Up, Down, Left, Right
-        int dr[4] = {-1, 1, 0, 0};
-        int dc[4] = {0, 0, -1, 1};
-
-        for (int k = 0; k < 4; k++)
+        // Up
+        if (row - 1 >= 0 && !vis[row - 1][col] && image[row - 1][col] == oldColor)
         {
-            int nr = row + dr[k];
-            int nc = col + dc[k];
+            dfs(row - 1, col, n, m, image, vis, newColor, oldColor);
+        }
 
-            if (nr >= 0 && nr < n && nc >= 0 && nc < m && image[nr][nc] == oldColor)
-            {
-                dfs(nr, nc, n, m, image, newColor, oldColor);
-            }
+        // Down
+        if (row + 1 < n && !vis[row + 1][col] && image[row + 1][col] == oldColor)
+        {
+            dfs(row + 1, col, n, m, image, vis, newColor, oldColor);
+        }
+
+        // Left
+        if (col - 1 >= 0 && !vis[row][col - 1] && image[row][col - 1] == oldColor)
+        {
+            dfs(row, col - 1, n, m, image, vis, newColor, oldColor);
+        }
+
+        // Right
+        if (col + 1 < m && !vis[row][col + 1] && image[row][col + 1] == oldColor)
+        {
+            dfs(row, col + 1, n, m, image, vis, newColor, oldColor);
         }
     }
 
@@ -578,11 +636,13 @@ public:
         int n = image.size();
         int m = image[0].size();
 
+        vector<vector<bool>> vis(n, vector<bool>(m, false));
         int oldColor = image[sr][sc];
-        if (oldColor == newColor) // avoid infinite recursion
+
+        if (oldColor == newColor) // no need to fill
             return image;
 
-        dfs(sr, sc, n, m, image, newColor, oldColor);
+        dfs(sr, sc, n, m, image, vis, newColor, oldColor);
         return image;
     }
 };
@@ -603,15 +663,19 @@ int main()
     cout << "Flood filled image:\n";
     for (auto &row : result)
     {
-        for (auto &pixel : row)
-            cout << pixel << " ";
+        for (auto &cell : row)
+        {
+            cout << cell << " ";
+        }
         cout << "\n";
     }
 
     /*
-    Flood filled image:
+Flood filled image:
 2 2 2
 2 2 0
 2 0 1
      */
 }
+
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________

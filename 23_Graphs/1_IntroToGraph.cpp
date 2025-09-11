@@ -19,7 +19,8 @@
 // #include<unordered_set>using namespace std;
 using namespace std;
 
-// 1) Graph Creation -
+//0) Intro to Graph, Types of Graph & Methods for stroing a Graph - 
+//1) Graph Creation -
 /*
 For Undirected Graph only
  */
@@ -80,7 +81,7 @@ For Undirected Graph only
 
 // ____________ ____________
 
-// 1.1) For Directed/Undirected both Graph -
+//1.1) For Directed/Undirected both Graph -
 
 // class Graph
 // {
@@ -132,7 +133,7 @@ For Undirected Graph only
 // }
 // ____________ ____________
 
-// 1.2) Weighted Graph for Directed and Undirected Graph -
+//1.2) Weighted Graph for Directed and Undirected Graph -
 
 // class Graph
 // {
@@ -189,8 +190,8 @@ For Undirected Graph only
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 2) Graph Traversal Techniques -
-// 2.1) BFS Implementation on Graph -
+//2) Graph Traversal Techniques -
+//2.1) BFS Implementation on Graph -
 
 // class Graph
 // {
@@ -269,7 +270,7 @@ For Undirected Graph only
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 2.2) DFS Implementation on Graph -
+//2.2) DFS Implementation on Graph -
 
 // class Graph
 // {
@@ -344,8 +345,8 @@ For Undirected Graph only
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 3) HasPath Problem -
-//  Using DFS -since its using DFS or working on the logic of DFS..so TC - O(V+E)
+//3) HasPath Problem -
+//3.1) Using DFS -since its using DFS or working on the logic of DFS..so TC - O(V+E)
 
 // class Graph
 // {
@@ -438,7 +439,7 @@ For Undirected Graph only
 // }
 // -------------------
 
-// Using BFS -
+//3.2) Using BFS -
 
 // class Graph
 // {
@@ -530,8 +531,8 @@ For Undirected Graph only
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 4) Disconnected Components OR Diconneted Graph -
-// using DFS Traversal -
+//4) Diconneted Graph OR Disconnected Components -
+//4.1) using DFS Traversal -
 
 // class Graph
 // {
@@ -620,7 +621,7 @@ For Undirected Graph only
 
 // -------------------
 
-// using BFS Traversal -
+//4.2) using BFS Traversal -
 
 // class Graph
 // {
@@ -716,9 +717,8 @@ For Undirected Graph only
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 5) Cycles in Graph -
-
-// 5.1) Cycle Detection in an Undirected Graph - using DFS
+//5) Cycles in Graph -
+//5.1) Cycle Detection in an Undirected Graph - using DFS
 /*
 - Koi bhi node jo kisi bhi ek node ka neighbour hota h, already visited hota h pr use edge se visit nhi hua... na hi vo uska parent he.. to vo node sirf islite visit hota he qki Undirected Graph ke under cyccle exist krti hee.
 - Source & neighbour ke bich me (when neighbout!=parent) jo edge hoti h is called - BACK EDGE. Back Edge is responsible for creqating cycle in an Undirected Graph.
@@ -814,7 +814,7 @@ For Undirected Graph only
 
 // -------------------
 
-// 5.2) Cycle Detection in  Directed Graph - using DFS
+//5.1.1) Cycle Detection in  Directed Graph - using DFS
 
 /*
 Can we use this Cycle Detection  method for Directed Graph ? - No, can;t
@@ -930,7 +930,7 @@ So this Back edge approach,can;t be used for Directed gRaph.
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 6) Bipartite Gtaph -
+//6) Bipartite Gtaph -
 /*
 - A bipartite graph is a graph in which ... kisi edge ke dono vertex same set me nhi hona chahiye. Ek vertex agr ek set me h to dusra vertex dusre set me hona chahiye
 - No Edge connects vertices of same set.
@@ -1028,7 +1028,7 @@ So this Back edge approach,can;t be used for Directed gRaph.
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 7) All PAth Problem -
+//7) All PAth Problem -
 
 // class Graph
 // {

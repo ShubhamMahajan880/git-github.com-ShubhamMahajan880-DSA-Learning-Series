@@ -315,6 +315,35 @@ Case 2 - By creating LL manually -
 5) Range Min Segment Tree - Creation, Query & Update in particular given range - 
 // -------------------
 
-
-
+[23] Graph - 
+0) Intro to Graph, Types of Graph & Methods for stroing a Graph – 
+1) Graph Creation -
+2) Graph Traversal Techniques -
+2.1) BFS Implementation on Graph -
+2.2) DFS Implementation on Graph -
+3) HasPath Problem -
+3.1) Using DFS -
+4) Diconneted Graph OR Disconnected Components -
+4.1) using DFS Traversal -
+4.2) using BFS Traversal -
+5) Cycles in Graph -
+5.1) Cycle Detection in an Undirected Graph - using DFS - 
+5.1.1) Cycle Detection in  Directed Graph - using DFS - 
+6) Bipartite Gtaph -
+7) All PAth Problem -
+8) Topological Sorting -
+8.1) Leetcode 207) Course Schedule Problem -
+8.2) Leetcode 210) Course Schedule II -
+9) Kahn's Algorithm (using BFS) -
+9.1) Kahn's Algorithm For getting Cycles in Graph -
+10) Dijkstra's ALgorithms -
+11) Bellman Ford Algorithm -
+12) Minimum SPanning Tree(MST) -
+12.1) Prim's Algorithm -
+12.2) - Leetcode 1584 - Min Cost to Connect All Points
+13) Leetcode Qun 787 - Cheapest Flight Within K Stops -
+14) Disjoint Set/UnionFind Data Structure -
+15) Kruskal's ALgorithms -
+16) Flood Fill ALgorithms - Leetcode Qun - 733 -
+// -------------------
 

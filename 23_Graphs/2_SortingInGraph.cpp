@@ -19,7 +19,8 @@
 // #include<unordered_set>using namespace std;
 using namespace std;
 
-// 8) Topological Sorting -
+//8) Topological Sorting -
+
 // class Graph
 // {
 //     int V;
@@ -111,191 +112,246 @@ using namespace std;
 // }
 // ____________ ____________
 
-// 8.1) Leetcode 207) Course Schedule Problem -
+//8.1) Leetcode 207) Course Schedule Problem -
 
 // class Graph
 // {
-//     int V;
-//     list<int> *l;
-//     bool isUndir;
+//   int V;
+//   list<int> *l;
+//   bool isUndir;
 
 // public:
-//     Graph(int V, bool isUndir = true)
-//     {
-//         this->V = V;
-//         l = new list<int>[V];
-//         this->isUndir = isUndir;
-//     }
+//   Graph(int V, bool isUndir = true)
+//   {
+//     this->V = V;
+//     l = new list<int>[V];
+//     this->isUndir = isUndir;
+//   }
 
-//     void addEdge(int u, int v) // u-->v
+//   void addEdge(int u, int v) // u-->v
+//   {
+//     l[u].push_back(v);
+//     if (isUndir) // false
 //     {
-//         l[u].push_back(v);
-//         if (isUndir) // false
-//         {
-//             l[v].push_back(u);
-//         }
+//       l[v].push_back(u);
 //     }
+//   }
 
-//     void printGraph()
+//   void printGraph()
+//   {
+//     for (int u = 0; u < V; u++)
 //     {
-//         for (int u = 0; u < V; u++)
-//         {
-//             list<int> neighbours = l[u];
-//             cout << u << " : ";
-//             for (auto i : neighbours)
-//             {
-//                 cout << i << " ";
-//             }
-//             cout << endl;
-//         }
+//       list<int> neighbours = l[u];
+//       cout << u << " : ";
+//       for (auto i : neighbours)
+//       {
+//         cout << i << " ";
+//       }
+//       cout << endl;
 //     }
+//   }
 // };
 
 // class Solution
 // {
 // public:
-//     bool isCycle(int src, vector<bool> &vis, vector<bool> &rec, vector<vector<int>> &graph)
-//     {
-//         vis[src] = true;
-//         rec[src] = true;
+//   bool isCycle(int src, vector<bool> &vis, vector<bool> &rec, vector<vector<int>> &graph)
+//   {
+//     vis[src] = true;
+//     rec[src] = true;
 
-//         for (int i = 0; i < graph.size(); i++)
-//         {
-//             int u = graph[i][1];
-//             int v = graph[i][0];
-//             if (u == src)
-//             {
-//                 if (!vis[v])
-//                 {
-//                     if (isCycle(v, vis, rec, graph))
-//                     {
-//                         return true;
-//                     }
-//                     else
-//                     {
-//                         if (rec[v])
-//                         {
-//                             return true;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//         rec[src] = false;
-//         return false;
-//     }
-//     bool canFinish(int numCourses, vector<vector<int>> &graph)
+//     for (int i = 0; i < graph.size(); i++)
 //     {
-//         int V = numCourses;
-//         vector<bool> vis(V, false);
-//         vector<bool> rec(V, false);
-
-//         for (int i = 0; i < V; i++)
+//       int u = graph[i][1];
+//       int v = graph[i][0];
+//       if (u == src)
+//       {
+//         if (!vis[v])
 //         {
-//             if (!vis[i])
-//             {
-//                 if (isCycle(i, vis, rec, graph))
-//                 {
-//                     return false;
-//                 }
-//             }
+//           if (isCycle(v, vis, rec, graph))
+//           {
+//             return true;
+//           }
 //         }
-//         return true;
+//         else if (rec[v])
+//         {
+//           return true;
+//         }
+//       }
 //     }
+//     rec[src] = false;
+//     return false;
+//   }
+
+//   bool canFinish(int numCourses, vector<vector<int>> &graph)
+//   {
+//     int V = numCourses;
+//     vector<bool> vis(V, false);
+//     vector<bool> rec(V, false);
+
+//     for (int i = 0; i < V; i++)
+//     {
+//       if (!vis[i])
+//       {
+//         if (isCycle(i, vis, rec, graph))
+//         {
+//           return false;
+//         }
+//       }
+//     }
+//     return true;
+//   }
 // };
+
+// int main()
+// {
+//   Solution sol;
+
+//   int numCourses = 4;
+
+//   // Example 1: No cycle
+//   vector<vector<int>> prerequisites1 = {{1, 0}, {2, 1}, {3, 2}};
+//   cout << "Can finish? " << (sol.canFinish(numCourses, prerequisites1) ? "Yes" : "No") << "\n";
+
+//   // Example 2: Has cycle (0->1->0)
+//   vector<vector<int>> prerequisites2 = {{1, 0}, {0, 1}};
+//   cout << "Can finish? " << (sol.canFinish(2, prerequisites2) ? "Yes" : "No") << "\n";
+
+//   /*
+//   Can finish? Yes
+//   Can finish? No
+
+//    */
+// }
 // ____________ ____________
 
-// 8.2) Leetcode 210) Course Schedule II -
+//8.2) Leetcode 210) Course Schedule II -
 
 // class Solution
 // {
 // public:
-//     bool isCycle(int src, vector<bool> &vis, vector<bool> &rec, vector<vector<int>> &graph)
-//     {
-//         vis[src] = true;
-//         rec[src] = true;
+//   bool isCycle(int src, vector<bool> &vis, vector<bool> &rec, vector<vector<int>> &graph)
+//   {
+//     vis[src] = true;
+//     rec[src] = true;
 
-//         for (int i = 0; i < graph.size(); i++)
+//     for (int i = 0; i < graph.size(); i++)
+//     {
+//       int u = graph[i][1];
+//       int v = graph[i][0];
+//       if (u == src)
+//       {
+//         if (!vis[v])
 //         {
-//             int u = graph[i][1];
-//             int v = graph[i][0];
-//             if (u == src)
-//             {
-//                 if (!vis[v])
-//                 {
-//                     if (isCycle(v, vis, rec, graph))
-//                     {
-//                         return true;
-//                     }
-//                     else
-//                     {
-//                         if (rec[v])
-//                         {
-//                             return true;
-//                         }
-//                     }
-//                 }
-//             }
+//           if (isCycle(v, vis, rec, graph))
+//           {
+//             return true;
+//           }
 //         }
-//         rec[src] = false;
-//         return false;
+//         else if (rec[v])
+//         {
+//           return true;
+//         }
+//       }
+//     }
+//     rec[src] = false;
+//     return false;
+//   }
+
+//   void topoSort(int src, vector<bool> &vis, stack<int> &s, vector<vector<int>> &graph)
+//   {
+//     vis[src] = true;
+
+//     for (int i = 0; i < graph.size(); i++)
+//     {
+//       int u = graph[i][1];
+//       int v = graph[i][0];
+//       if (u == src)
+//       {
+//         if (!vis[v])
+//         {
+//           topoSort(v, vis, s, graph);
+//         }
+//       }
+//     }
+//     s.push(src);
+//   }
+
+//   vector<int> findOrder(int numCourses, vector<vector<int>> &graph)
+//   {
+//     int V = numCourses;
+//     vector<bool> vis(V, false);
+//     vector<bool> rec(V, false);
+//     vector<int> ans;
+
+//     // Step 1: Detect Cycle
+//     for (int i = 0; i < V; i++)
+//     {
+//       if (!vis[i])
+//       {
+//         if (isCycle(i, vis, rec, graph))
+//         {
+//           return {}; // empty if cycle exists
+//         }
+//       }
 //     }
 
-//     void topoSort(int src, vector<bool> &vis, stack<int> &s, vector<vector<int>> &graph)
+//     // Step 2: Perform Topological Sorting
+//     vector<bool> vis2(V, false);
+//     stack<int> s;
+//     for (int i = 0; i < V; i++)
 //     {
-//         vis[src] = true;
-
-//         for (int i = 0; i < graph.size(); i++)
-//         {
-//             int u = graph[i][1];
-//             int v = graph[i][0];
-//             if (u == src)
-//             {
-//                 if (!vis[v])
-//                 {
-//                     topoSort(v, vis, s, graph);
-//                 }
-//             }
-//         }
-//         s.push(src);
+//       if (!vis2[i])
+//       {
+//         topoSort(i, vis2, s, graph);
+//       }
 //     }
-//     bool findOrder(int numCourses, vector<vector<int>> &graph)
+
+//     while (!s.empty())
 //     {
-//         int V = numCourses;
-//         vector<bool> vis(V, false);
-//         vector<bool> rec(V, false);
-//         vector<int> ans;
-
-//         for (int i = 0; i < V; i++)
-//         {
-//             if (!vis[i])
-//             {
-//                 if (isCycle(i, vis, rec, graph))
-//                 {
-//                     return false;
-//                 }
-//             }
-//         }
-//         // Perform Topological Sorting -
-//         vector<bool> vis2(V, false);
-//         stack<int> s;
-//         for (int i = 0; i < V; i++)
-//         {
-//             if (!vis2[i])
-//             {
-//                 topoSort(i, vis2, s, graph);
-//             }
-//         }
-//         while (s.size() > 0)
-//         {
-//             ans.push_back(s.top());
-//             s.pop();
-//         }
+//       ans.push_back(s.top());
+//       s.pop();
 //     }
+
+//     return ans;
+//   }
 // };
+
+// int main()
+// {
+//   Solution sol;
+
+//   int numCourses = 4;
+
+//   // Example 1: Valid order
+//   vector<vector<int>> prerequisites1 = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+//   vector<int> order1 = sol.findOrder(numCourses, prerequisites1);
+
+//   cout << "Order (Example 1): ";
+//   for (int x : order1)
+//     cout << x << " ";
+//   cout << "\n";
+
+//   // Example 2: Cycle exists → empty
+//   vector<vector<int>> prerequisites2 = {{1, 0}, {0, 1}};
+//   vector<int> order2 = sol.findOrder(2, prerequisites2);
+
+//   cout << "Order (Example 2): ";
+//   if (order2.empty())
+//     cout << "[]";
+//   else
+//     for (int x : order2)
+//       cout << x << " ";
+//   cout << "\n";
+
+//   /*
+//   Order (Example 1): 0 2 1 3
+//   Order (Example 2): []
+//    */
+// }
 // ____________ ____________ ____________ ____________ ____________
 
-// 9) Kahn's Algorithm (using BFS) -
+//9) Kahn's Algorithm (using BFS) -
 
 // class Graph
 // {
@@ -396,7 +452,7 @@ using namespace std;
 // }
 // ____________ ____________ ____________ ____________ ____________
 
-// 9.1) Kahn's Algorithm For getting Cycles in Graph -
+//9.1) Kahn's Algorithm For getting Cycles in Graph -
 /*
  Using Kanh's algorithm. pehle jiskki indeg(0) he use push kiya queue me. ab jise push kiya use explore kr k uske neighbor ki indeg km ki... and jo push kiya th ause ans me print kraya.
  Ab indeg km krne pr bhi != 0, then nothing to push in the queue means Queue has veen empty and not any valid ans --- Means There is a cycle.
