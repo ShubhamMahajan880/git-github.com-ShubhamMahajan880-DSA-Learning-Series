@@ -252,41 +252,366 @@ For V nodes there will be V-1 Edges.
 
 // 12.2) - Leetcode 1584 - Min Cost to Connect All Points
 
+// class Solution
+// {
+// public:
+//     int MinCostConnectPoints(vector<vector<int>> &points)
+//     {
+//         int V = points.size();
+//         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+//         // (wt,u)
+
+//         int src = 0;
+//         vector<bool> mst(V, false);
+//         pq.push(make_pair(0, src));
+//         int minCOst = 0;
+
+//         while (pq.size() > 0)
+//         {
+//             int u = pq.top().second;
+//             int cost = pq.top().first;
+//             pq.pop();
+
+//             if (!mst[u])
+//             {
+//                 mst[u] = true;
+//                 minCOst += cost;
+
+//                 for (int v = 0; v < V; v++)
+//                 {
+//                     if (u != v) // u--v
+//                     {
+//                         int wt = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1]);
+//                         pq.push(make_pair(wt, v));
+//                     }
+//                 }
+//             }
+//         }
+//         return minCOst;
+//     }
+// };
+// ____________ ____________ ____________ ____________ ____________
+
+// 13) Leetcode Qun 787 - Cheapest Flight Within K Stops -
+
+// class Solution
+// {
+// public:
+//     class Info
+//     {
+//     public:
+//         int u;
+//         int cost;
+//         int stops; // src to u
+
+//         Info(int u, int cost, int stops)
+//         {
+//             this->u = u;
+//             this->cost = cost;
+//             this->stops = stops;
+//         }
+//     };
+
+//     int findCheapestPrice(int V, vector<vector<int>> &flights, int src, int dst, int k)
+//     {
+//         // Build adjacency list: u -> {v, wt}
+//         vector<vector<pair<int, int>>> adj(V);
+//         for (auto &f : flights)
+//         {
+//             adj[f[0]].push_back({f[1], f[2]});
+//         }
+
+//         queue<Info> q;
+//         vector<int> dist(V, INT_MAX);
+
+//         dist[src] = 0;
+//         q.push(Info(src, 0, 0));
+
+//         while (!q.empty())
+//         {
+//             Info curr = q.front();
+//             q.pop();
+
+//             if (curr.stops > k)
+//                 continue;
+
+//             for (auto &[v, wt] : adj[curr.u])
+//             {
+//                 if (curr.cost + wt < dist[v] && curr.stops <= k)
+//                 {
+//                     dist[v] = curr.cost + wt;
+//                     q.push(Info(v, dist[v], curr.stops + 1));
+//                 }
+//             }
+//         }
+
+//         return (dist[dst] == INT_MAX) ? -1 : dist[dst];
+//     }
+// };
+
+// ____________ ____________ ____________ ____________ ____________
+
+// 13) Disjoint Set/Union Find Data Structure -
+
+// class DisjointSet
+// {
+// public:
+//     int n;
+//     vector<int> par;
+//     vector<int> rank;
+
+//     DisjointSet(int n)
+//     {
+//         this->n = n;
+
+//         for (int i = 0; i < n; i++)
+//         {
+//             par.push_back(i);
+//             rank.push_back(0);
+//         }
+//     }
+
+//     int find(int x)
+//     {
+//         if (par[x] == x)
+//         {
+//             return x;
+//         }
+
+//         return par[x] = find(par[x]);//Path COmpression Optimization
+//     }
+
+//     int unionByRank(int a, int b)
+//     {
+//         int parA = find(a);
+//         int parB = find(b);
+
+//         if (rank[parA] == rank[parB])
+//         {
+//             par[parB] = parA;
+//             rank[parA]++;
+//         }
+//         else if (rank[parA] > rank[parB])
+//         {
+//             par[parB] = parA;
+//         }
+//         else
+//         {
+//             par[parA] = parB;
+//         }
+//     }
+
+//     void getInfo()
+//     {
+//         for (int i = 0; i < n; i++)
+//         {
+//             cout << i << ": " << par[i] << ", " << rank[i] << endl;
+//         }
+//     }
+// };
+
+// int main()
+// {
+//     DisjointSet dj(6);
+//     dj.unionByRank(0, 2);
+//     cout << dj.find(2) << endl;
+
+//     dj.unionByRank(1, 3);
+//     dj.unionByRank(2, 5);
+//     dj.unionByRank(0, 3);
+//     cout << dj.find(2) << endl;
+
+//     dj.unionByRank(0, 4);
+//     /*
+//     0
+//     0
+//     */
+
+//     dj.getInfo();
+//     /*
+
+// 0: 0, 2
+// 1: 1, 1
+// 2: 0, 0
+// 3: 1, 0
+// 4: 0, 0
+// 5: 0, 0
+
+//      */
+// }
+
+// ____________ ____________ ____________ ____________ ____________
+
+// 14) Kruskal's ALgorithms -
+
+// class Edge // O(ElogE)
+// {
+// public:
+//     int u;
+//     int v;
+//     int wt;
+
+//     Edge(int u, int v, int wt)
+//     {
+//         this->u = u;
+//         this->v = v;
+//         this->wt = wt;
+//     }
+// };
+// class Graph
+// {
+// public:
+//     vector<Edge> edges;
+//     int V;
+//     vector<int> par;
+//     vector<int> rank;
+
+//     Graph(int V)
+//     {
+//         this->V = V;
+
+//         for (int i = 0; i < V; i++)
+//         {
+//             par.push_back(i);
+//             rank.push_back(0);
+//         }
+//     }
+//     int find(int x)
+//     {
+//         if (par[x] == x)
+//         {
+//             return x;
+//         }
+
+//         return par[x] = find(par[x]);
+//     }
+
+//     void unionByRank(int u, int v)
+//     {
+//         int parU = find(u);
+//         int parV = find(v);
+
+//         if (rank[parU] == rank[parV])
+//         {
+//             par[parV] = parU;
+//             rank[parU]++;
+//         }
+//         else if (rank[parU] > rank[parV])
+//         {
+//             par[parV] = parU;
+//         }
+//         else
+//         {
+//             par[parU] = parV;
+//         }
+//     }
+
+//     void addEdge(int u, int v, int wt)
+//     {
+//         edges.push_back(Edge(u, v, wt));
+//     }
+
+//     void kruskals()
+//     {
+//         sort(edges.begin(), edges.end(), [](Edge &a, Edge &b)
+//              { return a.wt < b.wt; }); // used Lambda Function
+//         int minCost = 0;
+//         int count = 0;
+
+//         for (int i = 0; i < edges.size() && count < V - 1; i++)
+//         {
+//             Edge e = edges[i];
+
+//             int parU = find(e.u);
+//             int parV = find(e.v);
+//             if (parU != parV) // No Cycle Edge
+//             {
+//                 unionByRank(parU, parV);
+//                 minCost += e.wt;
+//                 count++;
+//             }
+//         }
+
+//         cout << "Minimum Cost: " << minCost << endl;
+//     }
+// };
+
+// int main()
+// {
+//     Graph graph(4);
+//     graph.addEdge(0, 1, 10);
+//     graph.addEdge(0, 2, 15);
+//     graph.addEdge(0, 3, 30);
+//     graph.addEdge(1, 3, 40);
+//     graph.addEdge(2, 3, 50);
+//     graph.kruskals(); // Minimum Cost: 55
+// }
+// ____________ ____________ ____________ ____________ ____________
+
+// 15) Leetcode Qun - 733 - Flood Fill ALgorithms -
+
 class Solution
 {
 public:
-    int MinCostConnectPoints(vector<vector<int>> &points)
+    void dfs(int row, int col, int n, int m, vector<vector<int>> &image, int newColor, int oldColor)
     {
-        int V = points.size();
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-        // (wt,u)
+        image[row][col] = newColor;
 
-        int src = 0;
-        vector<bool> mst(V, false);
-        pq.push(make_pair(0, src));
-        int minCOst = 0;
+        // Directions: Up, Down, Left, Right
+        int dr[4] = {-1, 1, 0, 0};
+        int dc[4] = {0, 0, -1, 1};
 
-        while (pq.size() > 0)
+        for (int k = 0; k < 4; k++)
         {
-            int u = pq.top().second;
-            int cost = pq.top().first;
-            pq.pop();
+            int nr = row + dr[k];
+            int nc = col + dc[k];
 
-            if (!mst[u])
+            if (nr >= 0 && nr < n && nc >= 0 && nc < m && image[nr][nc] == oldColor)
             {
-                mst[u] = true;
-                minCOst += cost;
-
-                for (int v = 0; v < V; v++)
-                {
-                    if (u != v) // u--v
-                    {
-                        int wt = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1]);
-                        pq.push(make_pair(wt, v));
-                    }
-                }
+                dfs(nr, nc, n, m, image, newColor, oldColor);
             }
         }
-        return minCOst;
+    }
+
+    vector<vector<int>> floodFill(vector<vector<int>> &image, int sr, int sc, int newColor)
+    {
+        int n = image.size();
+        int m = image[0].size();
+
+        int oldColor = image[sr][sc];
+        if (oldColor == newColor) // avoid infinite recursion
+            return image;
+
+        dfs(sr, sc, n, m, image, newColor, oldColor);
+        return image;
     }
 };
+
+int main()
+{
+    Solution sol;
+
+    vector<vector<int>> image = {
+        {1, 1, 1},
+        {1, 1, 0},
+        {1, 0, 1}};
+
+    int sr = 1, sc = 1, newColor = 2;
+
+    vector<vector<int>> result = sol.floodFill(image, sr, sc, newColor);
+
+    cout << "Flood filled image:\n";
+    for (auto &row : result)
+    {
+        for (auto &pixel : row)
+            cout << pixel << " ";
+        cout << "\n";
+    }
+
+    /*
+    Flood filled image:
+2 2 2
+2 2 0
+2 0 1
+     */
+}
