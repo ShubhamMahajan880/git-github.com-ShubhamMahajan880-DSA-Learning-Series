@@ -496,6 +496,51 @@ Jaha bhi item ko Include/Exclude krna hota he vaha branches hoti h and jaha bran
 //      */
 // }
 
+// ____________ ____________
+
+// 2.7) Minimum Partitioning
+
+// Using Tabulation Approach -
+
+// int getMinDiff(vector<int> nums)
+// {
+//     int totalSum = 0;
+//     for (int el : nums)
+//     {
+//         totalSum += el;
+//     }
+
+//     int n = nums.size();
+//     int W = totalSum / 2;
+//     vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
+
+//     for (int i = 1; i < n + 1; i++)
+//     {
+//         for (int j = 1; j < W + 1; j++)
+//         {
+//             if (nums[i - 1] <= j)
+//             {
+//                 dp[i][j] = max(nums[i - 1] + dp[i - 1][j - nums[i - 1]], dp[i - 1][j]);
+//             }
+//             else
+//             {
+//                 dp[i][j] = dp[i - 1][j];
+//             }
+//         }
+//     }
+
+//     int grp1sum = dp[n][W];
+//     int grp2sum = totalSum - grp1sum;
+//     return abs(grp1sum - grp2sum);
+// }
+
+// int main()
+// {
+//     vector<int> nums = {1, 6, 11, 5};
+//     cout << getMinDiff(nums) << endl;//1
+//     return 0;
+// }
+
 // ____________ ____________ ____________ ____________ ____________
 
 // 2.3) Pattern - III : Unbounded Knapsack -
@@ -665,4 +710,3 @@ Jaha bhi item ko Include/Exclude krna hota he vaha branches hoti h and jaha bran
 // 2.3.3 - Leetcode 1547 - Min cost to cut sticks
 
 // ____________ ____________ ____________ ____________ ____________
-

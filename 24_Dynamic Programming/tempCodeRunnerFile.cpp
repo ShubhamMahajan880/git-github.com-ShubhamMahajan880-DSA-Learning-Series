@@ -1,39 +1,38 @@
-int countWaysMem(int n, vector<int> &dp) // O(n)
+int getMinDiff(vector<int> nums)
 {
-    if (n == 0 || n == 1)
+    int totalSum = 0;
+    for (int el : nums)
     {
-        return 1;
-    }
-    if (dp[n] != -1)
-    {
-        return dp[n];
+        totalSum += el;
     }
 
-    dp[n] = countWaysMem(n - 1, dp) + countWaysMem(n - 2, dp);
-    return dp[n];
+    int n = nums.size();
+    int W = totalSum / 2;
+    vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
+
+    for (int i = 1; i < n + 1; i++)
+    {
+        for (int j = 1; j < W + 1; j++)
+        {
+            if (nums[i - 1] <= j)
+            {
+                dp[i][j] = max(nums[i - 1] + dp[i - 1][j - nums[i - 1]], dp[i - 1][j]);
+            }
+            else
+            {
+                dp[i][j] = dp[i - 1][j];
+            }
+        }
+    }
+
+    int grp1sum = dp[n][W];
+    int grp2sum = totalSum - grp1sum;
+    return abs(grp1sum - grp2sum);
 }
 
-int countWayTab(int n)
-{
-    vector<int> dp(n + 1, 0);
-    dp[0] = 1;
-    dp[1] = 1;
-    dp[2] = 2;
-
-    for (int i = 3; i <= n; i++)
-    {
-        dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
-    }
-
-    return dp[n];
-}
 int main()
 {
-    int n = 4;
-    cout << countWayTab(n) << endl; // 7
-
-    /*
-    int n = 5;
-    cout << countWayTab(n) << endl;//13
-     */
+    vector<int> nums = {1, 6, 11, 5};
+    cout << getMinDiff(nums) << endl;
+    return 0;
 }
