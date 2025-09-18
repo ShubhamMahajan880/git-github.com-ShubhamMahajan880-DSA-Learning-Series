@@ -20,6 +20,7 @@
 using namespace std;
 
 // Dynamic Programming OR Optimized Recursion Programming -
+
 // 1) Overview for DP -
 
 // Fibonacci Sequeuce using Recursion -
@@ -39,7 +40,7 @@ using namespace std;
 // }
 // -------------------
 
-// using Optimized Recursion(DP) -
+// using Optimized Recursion(DP)[using Memoization] -
 
 // int fibDP(int n, vector<int> &f) // o(n)
 // {
@@ -123,7 +124,9 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 // 2) DP Patterns using QUns -
 
 // 2.1) Pattern - I : Fibonacci Pattern
-// 1) CLimbing Stairs Problem -
+// 2.1.1) CLimbing Stairs Problem -
+
+// Using Recurison Only -
 
 // int climbingStairs(int n)
 // {
@@ -144,7 +147,9 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 //     cout << climbingStairs(5) << endl; // 8
 // }
 
-//----Now using the DP using MEMOIZATION -
+//-----------------------
+
+// Now using the DP using MEMOIZATION -
 
 // int countWaysMem(int n, vector<int> &dp) // O(n) after Dp  Memoization optimized recursion
 // {
@@ -173,7 +178,9 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 //      */
 // }
 
-//----Now using the DP using TABULATION -
+//-----------------------
+
+// Now using the DP using TABULATION -
 
 // int countWaysMem(int n, vector<int> &dp) // O(n)
 // {
@@ -213,9 +220,9 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 //     cout << countWayTab(n) << endl;//13
 //      */
 // }
-// -------------------
+// ____________ ____________
 
-// 1.1) CLimbing Stairs Problem Variaation - When 3 jumps are allowed
+// 2.1.2) CLimbing Stairs Problem Variaation - When 3 jumps are allowed
 
 // int countWaysMem(int n, vector<int> &dp) // O(n)
 // {
@@ -266,8 +273,9 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 3) Unbounded Knapsack(DP) - Uses for more devices/Items more than 1.Ex- 4 Laptops, 2 mobiles
  */
 
-//  2.2.1 - 0-1 Knapsack Problem -
+//  2.2.1) - 0-1 Knapsack Problem -
 
+// USing Recuriosn itself
 // int knapsackRec(vector<int> val, vector<int> wt, int w, int n) // O(2^n)
 // {
 //     if (n == 0 || w == 0)
@@ -311,7 +319,7 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 // }
 // -------------------
 
-//  2.2.1 - 0-1 Knapsack Problem DP(using Memoization) -
+// 0-1 Knapsack Problem DP(using Memoization) -
 
 // int knapsackMemoi(vector<int> val, vector<int> wt, int w, int n, vector<vector<int>> &dp) // O(n*w)
 // {
@@ -379,7 +387,7 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 // }
 // -------------------
 
-//  2.2.1 - 0-1 Knapsack Problem DP(using Tabulaiton) -
+// 0-1 Knapsack Problem DP(using Tabulaiton) -
 
 // int knapsackTab(vector<int> val, vector<int> wt, int w, int n) // O(n*w)
 // {
@@ -435,13 +443,13 @@ Memoization guarante nhi deta ki hr ek chhoti problem/possible solution call/cal
 
 //      */
 // }
+// ____________ ____________
 
-// -------------------
-
-//  2.2.1 - Target Sum Subset -
+// 2.2.2) - Target Sum Subset -
 /*
 Jaha bhi item ko Include/Exclude krna hota he vaha branches hoti h and jaha branches hoti he vaha overlapping hoti he. and if its also optimal subseequenced the dp can be  implement
  */
+//  Tabulaiton Approach -
 
 // bool targetSum(vector<int> nums, int target)
 // {
@@ -498,7 +506,7 @@ Jaha bhi item ko Include/Exclude krna hota he vaha branches hoti h and jaha bran
 
 // ____________ ____________
 
-// 2.7) Minimum Partitioning
+// 2.2.3) Minimum Partitioning
 
 // Using Tabulation Approach -
 
@@ -672,6 +680,8 @@ Jaha bhi item ko Include/Exclude krna hota he vaha branches hoti h and jaha bran
 // ____________ ____________
 
 // 2.3.2 - ROd Cuttitng Problem -
+
+// Using Tabulation Approach -
 
 // int rodCutting(vector<int> price, vector<int> length, int rodLength)
 // {

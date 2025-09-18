@@ -347,3 +347,39 @@ Case 2 - By creating LL manually -
 16) Flood Fill ALgorithms - Leetcode Qun - 733 -
 // -------------------
 
+[24] Dynamic Programming OR Optimized Recursion Programming -
+1) Overview for DP -, What is DP & When to use it -, Types of using DP - 
+2) DP Patterns using QUns -
+2.1) Pattern - I : Fibonacci Pattern
+2.1.1) CLimbing Stairs Problem - 
+Using Recurison Only - 
+Now using the DP using MEMOIZATION -
+Now using the DP using TABULATION -
+2.1.2) CLimbing Stairs Problem Variaation - When 3 jumps are allowed
+2.2) Pattern - II : Knapsack Problem Pattern
+2.2.1) - 0-1 Knapsack Problem - Using Recursion,  0-1 Knapsack Problem DP(using Memoization), 0-1 Knapsack Problem DP(using Tabulaiton) -
+2.2.2) - Target Sum Subset - Tabulaiton Approach - 
+2.2.3) Minimum Partitioning - Using Tabulation Approach -
+2.3) Pattern - III : Unbounded Knapsack -
+2.3.1 -  Leetcode 518 - Coin Change - II Coin Change Problem - Using Tabulation -
+2.3.2 - ROd Cuttitng Problem - Using Tabulation Approach - 
+2.3.3 - Leetcode 1547 - Min cost to cut sticks
+2.4) Pattern - IV : Longest Common Subsequence Problem Pattern -, Using Recursion, - Using Memoization, -Using Tabulation -
+2.4.2) -Longest Common SUbstring -, Using Tabulation only -
+2.4.3) -Longest Increasing Subsequence -
+2.4.4) - Leetcode - 72) Edit Distance - using Tabulation Approach
+2.4.5) - Leetcode - 44)  WildCard Matching Problem - using Tabulation Approach - 
+2.5) Pattern - V : Catalan's Number -, 2.5.1) Catan's Number using Recursion -, Catan's Number using Memoization -, Catan's Number using Tabulation -
+2.5.2) - Leetcodee - 96) Count BST's - FInd coutn of all possible structurally unique BSTs that can be forned with n nodes - using Tabulatoin -
+2.5.3) - Mountain Ranges Problem -
+2.6) Pattern - VI : Matric Chain Multiplication(MCM)
+2.6.1) using  Recursion -, using Memoization -, using Tabulation -
+// -------------------
+
+
+
+
+
+
+
+

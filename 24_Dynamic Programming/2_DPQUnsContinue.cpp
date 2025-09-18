@@ -57,7 +57,7 @@ the core logic is - agr dono c=strings ka last ka charaacter same he to dono me 
 // }
 // -------------------
 
-// 2.4.1.2) Using Memoization -
+// Using Memoization -
 
 // int lcsMemoI(string &str1, string &str2, int n, int m, vector<vector<int>> &dp)
 // {
@@ -96,7 +96,7 @@ the core logic is - agr dono c=strings ka last ka charaacter same he to dono me 
 
 // -------------------
 
-// 2.4.1.3) Using Tabulation -
+// Using Tabulation -
 
 // int lcsTabu(string str1, string str2) // O(n*m)
 // {
@@ -266,6 +266,8 @@ approach - Another aray ko sort krenge increasing me, duplicate remove krenge an
 
 // 2.4.4) - Leetcode - 72) Edit Distance -
 
+// using Tabulation Approach
+
 // class Solution
 // {
 // public:
@@ -345,6 +347,8 @@ approach - Another aray ko sort krenge increasing me, duplicate remove krenge an
 /*
 WildCard - means a character which can be replaced by aother character. Ex - during pass type the charcaters are replaced by Aestric *
  */
+
+//  using Tabulation Approach - 
 
 // class Solution
 // {
@@ -435,7 +439,7 @@ Cn = 0 to n-1
    * n-1 to 0
  */
 
-//  2.4.1) Catan's Number using Recursion -
+// 2.5.1) Catan's Number using Recursion -
 
 // int catalanRec(int n)//o(2^n)
 // {
@@ -466,7 +470,7 @@ Cn = 0 to n-1
 // }
 // -------------------
 
-//  2.5.1.2) Catan's Number using Memoization -
+// Catan's Number using Memoization -
 /*
 is Dp applicable here -
 1) Optimal Subsequecne  - yes, for getting c4 need to claclulate small small resulyts first
@@ -507,7 +511,7 @@ is Dp applicable here -
 // }
 // -------------------
 
-//  2.5.1.3) Catan's Number using Tabulation -
+// Catan's Number using Tabulation -
 
 // int catalanTabu(int n) // O(n^2)
 // {
@@ -543,7 +547,7 @@ is Dp applicable here -
 - if there is smallest node as a root then uske left me BST me  kuchh nhi aayga, to kuchh nhi aana ya koi node nhi hona bhi 1 tarika ha
  */
 
-//  using tabulatoin -
+//  using Tabulatoin -
 
 // class Solution
 // {
@@ -663,7 +667,7 @@ Is DP applicable -
 YEs both satisfying
  */
 
-// 2.6.1.2) using Memoization -
+// using Memoization -
 /*
 Yaha Memoizaiton me dp ka size n le rhe h kyuuki - Array already n-1 size tk ka he.
  */
@@ -705,64 +709,64 @@ Yaha Memoizaiton me dp ka size n le rhe h kyuuki - Array already n-1 size tk ka 
 // }
 // -------------------
 
-// 2.6.1.3) using Tabulation -
+// using Tabulation -
 
 // We remeber - Jo recurison ka Base Case hota he vai tabuation me ander initialize ki condition hoti he
 
-int matrixChainMultiplicationTabulation(vector<int> arr) // O(n^3)
-{
-  int n = arr.size();
-  vector<vector<int>> dp(n, vector<int>(n, 0));
+// int matrixChainMultiplicationTabulation(vector<int> arr) // O(n^3)
+// {
+//   int n = arr.size();
+//   vector<vector<int>> dp(n, vector<int>(n, 0));
 
-  // dp[i][i] = 0 (only one matrix, no multiplication)
-  for (int i = 1; i < n; i++)
-  {
-    dp[i][i] = 0;
-  }
+//   // dp[i][i] = 0 (only one matrix, no multiplication)
+//   for (int i = 1; i < n; i++)
+//   {
+//     dp[i][i] = 0;
+//   }
 
-  // bottom up fill
-  for (int len = 2; len < n; len++) // length of chain
-  {
-    for (int i = 1; i <= n - len; i++)
-    {
-      int j = i + len - 1;
-      dp[i][j] = INT_MAX;
+//   // bottom up fill
+//   for (int len = 2; len < n; len++) // length of chain
+//   {
+//     for (int i = 1; i <= n - len; i++)
+//     {
+//       int j = i + len - 1;
+//       dp[i][j] = INT_MAX;
 
-      for (int k = i; k < j; k++)
-      {
-        int cost1 = dp[i][k];
-        int cost2 = dp[k + 1][j];
-        int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
-        dp[i][j] = min(dp[i][j], currCost);
-      }
-    }
-  }
+//       for (int k = i; k < j; k++)
+//       {
+//         int cost1 = dp[i][k];
+//         int cost2 = dp[k + 1][j];
+//         int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+//         dp[i][j] = min(dp[i][j], currCost);
+//       }
+//     }
+//   }
 
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < n; j++)
-    {
-      cout << dp[i][j] << " ";
-    }
-    cout << endl;
-  }
+//   for (int i = 0; i < n; i++)
+//   {
+//     for (int j = 0; j < n; j++)
+//     {
+//       cout << dp[i][j] << " ";
+//     }
+//     cout << endl;
+//   }
 
-  return dp[1][n - 1];
-}
+//   return dp[1][n - 1];
+// }
 
-int main()
-{
-  vector<int> arr = {1, 2, 3, 4, 3}; // n-> n-1 matrices (1 to n-1)
+// int main()
+// {
+//   vector<int> arr = {1, 2, 3, 4, 3}; // n-> n-1 matrices (1 to n-1)
 
-  cout << matrixChainMultiplicationTabulation(arr) << endl;
-  /*
-  0 0 0 0 0
-  0 0 6 18 30
-  0 0 0 24 48
-  0 0 0 0 36
-  0 0 0 0 0
+//   cout << matrixChainMultiplicationTabulation(arr) << endl;
+//   /*
+//   0 0 0 0 0
+//   0 0 6 18 30
+//   0 0 0 24 48
+//   0 0 0 0 36
+//   0 0 0 0 0
 
-  30
-  */
-}
-// ____________ ____________
+//   30
+//   */
+// }
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
