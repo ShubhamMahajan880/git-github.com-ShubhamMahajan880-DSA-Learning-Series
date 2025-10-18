@@ -14,3 +14,48 @@ void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], i
 13 - Jaha ya to lenge ya phr nahi lenge - we use => 0-1 Knapsak Problem. [TV,Freze,Washing Machine] but jaha quantitymatter kr jati he [halfkg, 1 kg, 5 kg - suga,salt,oil] which can be inside Kanpsack(Bora,thela) then we use  => Fractioal Kapsack Problem.
 14 - In Binary Tree - only the traversal from Parent to Child is possible not from child to Parent. Only & only by using recursion we perform backtracking. (No direct traversal from child to parent class is possible)
 15 - agr int return krna h kuchh nhi he return=> -1. Agar node * return krna kuchh nhi h return=> NULL;
+
+
+Twinkling Logic parts in my notes- 
+
+1) Array Right Rotation - Reverse loop(n-1 to 0) & arr[i] = arr[i-1]
+2) Left Rotation - Straight loop(0 to n) & arr[i] = arr[i+1]
+3) Matrix 180 - Row Swap n/2 times, then row reverse.
+4) Matrix 90 CW - Transpose, then reverse column. Ya phr after Transpose, do column swap for n/2 times
+5) Matrix 90 ACW - Transpose, then row swap n/2 times. 
+
+
+On hold - 
+1) COmmon letter sequences in string 
+2) 2 strings are rotation of each other
+-----------------------------
+
+Toremebr he STL functionalities how to use - 
+
+1) For Binary Search - 
+if (binary_search(arr, arr + n, findelement))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
+2) Vector - 
+vector<int> vec;
+vector<int> vec2(5);
+vector<int> vec3(5, 1);
+
+3) Set - 
+set<int> st;
+st.insert(51);
+cout << st.size() << endl;
+st.erase(51);
+
+4) Multiset - 
+multiset<int> mtst;
+mtst.insert(12);
+
+
+
