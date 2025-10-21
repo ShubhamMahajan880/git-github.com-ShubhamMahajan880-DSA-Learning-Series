@@ -58,4 +58,9 @@ multiset<int> mtst;
 mtst.insert(12);
 
 
+Syntax to remember - 
+int isAge = 16;
+    bool isadult = (isAge > 18) ? (cout << "Yes Mature" << endl, true) : (cout << "Immayure" << endl, false);
+    cout << isadult;
+
 
