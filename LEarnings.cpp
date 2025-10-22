@@ -1,20 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void reverseArray(int n, int arr[])
+void merge(vector<int> &arr, int st, int mid, int end)
 {
-    int st = 0;
-    int end = n - 1;
+    vector<int> temp;
+    int i = st;
+    int j = mid + 1;
 
-    while (st < end)
+    while (i <= mid && j <= end)
     {
-        swap(arr[st], arr[end]);
-        st++;
-        end--;
+        if (arr[i] <= arr[j])
+        {
+            temp.push_back(arr[i]);
+            i++;
+        }
+        else
+        {
+            temp.push_back(arr[j]);
+            j++;
+        }
+    }
+
+    while (i <= mid)
+    {
+        temp.push_back(arr[i]);
+        i++;
+    }
+    while (j <= end)
+    {
+        temp.push_back(arr[j]);
+        j++;
+    }
+
+    for (int i = 0; i < temp.size(); i++)
+    {
+        arr[i + st] = temp[i];
     }
 }
 
-int printArray(int n, int arr[])
+void mergeSort(vector<int> &arr, int st, int end)
+{
+    int n = arr.size();
+
+    if (st < end)
+    {
+        int mid = (st + (end - st) / 2);
+        mergeSort(arr, st, mid);
+        mergeSort(arr, mid + 1, end);
+        merge(arr, st, mid, end);
+    }
+}
+
+void printVector(int n, vector<int> &arr)
 {
     for (int i = 0; i < n; i++)
     {
@@ -24,17 +61,21 @@ int printArray(int n, int arr[])
 }
 int main()
 {
-    int n;
-    cout << "What is array size - " << endl;
-    cin >> n;
-    int arr[n];
-    cout << "Input your elements - " << endl;
+    int n = 6;
+    vector<int> arr(n);
+    cout << "What are your vector elements - " << endl;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    cout << "So, the array is - " << endl;
-    printArray(n, arr);
-    reverseArray(n, arr);
-    printArray(n, arr);
+    cout << "So, our vector is - " << endl;
+    printVector(n, arr);
+    mergeSort(arr, 0, arr.size() - 1);
+    cout << "So, after merging the array is - " << endl;
+
+    for (auto i : arr)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
 }
