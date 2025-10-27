@@ -1,56 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int searchRange(vector<int> nums, int target)
+class Solution
 {
-    int low = 0;
-    int high = nums.size() - 1;
-    int first = -1;
-    int last = -1;
-    while (low <= high)
+public:
+    bool isPossible(vector<int> books, int m, int n, int mid)
     {
-        int mid = (low + (high - low / 2));
-        if (nums[mid] == target)
-        {
-            first = mid;
-            high = mid - 1;
-        }
+        int student = 1;
 
-        else if (mid < target)
+        int pageAllocated = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            high = mid - 1;
+            if (pageAllocated + books[i] <= mid)
+            {
+                pageAllocated += books[i];
+            }
+            else
+            {
+                student++;
+                if (student > m || books[i] > mid)
+                {
+                    return false;
+                }
+                pageAllocated = books[i];
+            }
         }
-        else
-        {
-            low = mid + 1;
-        }
+        return true;
     }
-
-    while (low <= high)
+    int bookAllocated(vector<int> &books, int m)
     {
-        int mid = (low + (high - low / 2));
+        int n = books.size();
+        if (m > n)
+        {
+            return -1;
+        }
 
-        if (nums[mid] == target)
+        int sum = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            last = mid;
-            low = mid + 1;
+            sum += books[i];
         }
-        else if (nums[mid] > target)
+        int s = 0;
+        int end = sum;
+        int ans = -1;
+
+        while (s <= end)
         {
-            high = mid - 1;
+            int mid = s + (end - s) / 2;
+            if (isPossible(books, m, n, mid))
+            {
+                ans = mid;
+                end = mid - 1;
+            }
+            else
+            {
+                s = mid + 1;
+            }
         }
-        else
-        {
-            low = mid + 1;
-        }
+        return ans;
     }
-    return (first, last);
-}
-
-int main()
-{
-    vector<int> nums(6);
-    nums = {5, 7, 7, 8, 8, 10};
-    int target = 7;
-    cout << searchRange(nums, target) << endl;
-}
+};

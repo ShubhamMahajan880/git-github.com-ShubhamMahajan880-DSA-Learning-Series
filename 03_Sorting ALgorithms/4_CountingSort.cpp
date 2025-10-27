@@ -1,9 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 void printArray(int arr[], int n)
 {
-    cout << "Array after sorting is - " << endl;
+    cout << "Array after sorting is: ";
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
@@ -11,71 +11,62 @@ void printArray(int arr[], int n)
     cout << endl;
 }
 
-void countingSort(int arr[], int n)
+void countSort(int arr[], int n)
 {
-    // Find the maximum element in the array
-    int max = arr[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i] > max)
-            max = arr[i];
-    }
+    int minVal = INT_MAX;
+    int maxVal = INT_MIN;
 
-    // Create a count array to store the frequency of each element
-    int count[max + 1] = {0};
-
-    // Store the count of each element
+    // Step 1: find min and max
     for (int i = 0; i < n; i++)
     {
-        count[arr[i]]++;
+        minVal = min(minVal, arr[i]);
+        maxVal = max(maxVal, arr[i]);
     }
 
-    // Change count[i] so that count[i] now contains the actual
-    // position of this element in the output array
-    for (int i = 1; i <= max; i++)
-    {
-        count[i] += count[i - 1];
-    }
+    int range = maxVal - minVal + 1;
+    vector<int> freq(range, 0);
 
-    // Create an output array to store the sorted elements
-    int output[n];
-
-    // Build the output array by placing elements in their correct position
-    for (int i = n - 1; i >= 0; i--)
-    {
-        output[count[arr[i]] - 1] = arr[i];
-        count[arr[i]]--;
-    }
-
-    // Copy the sorted elements back into the original array
+    // Step 2: count frequencies
     for (int i = 0; i < n; i++)
+        freq[arr[i] - minVal]++;
+
+    // Step 3: reconstruct sorted array
+    int index = 0;
+    for (int i = 0; i < range; i++)
     {
-        arr[i] = output[i];
+        while (freq[i] > 0)
+        {
+            arr[index++] = i + minVal;
+            freq[i]--;
+        }
     }
 }
 
 int main()
 {
     int n;
-    cout << "Value of array size: " << endl;
+    cout << "Enter size of array: ";
     cin >> n;
 
     int arr[n];
-    cout << "Write down the array elements: " << endl;
+    cout << "Enter array elements: ";
     for (int i = 0; i < n; i++)
-    {
         cin >> arr[i];
-    }
 
-    cout << "So, the inserted array is: " << endl;
+    cout << "Original array: ";
     for (int i = 0; i < n; i++)
-    {
         cout << arr[i] << " ";
-    }
     cout << endl;
 
-    countingSort(arr, n);
+    countSort(arr, n);
+
     printArray(arr, n);
 
-    return 0;
+    /*
+    Enter size of array: 8
+    Enter array elements: 1 3 2 7 4 4 1 3
+    Original array: 1 3 2 7 4 4 1 3
+    Array after sorting is: 1 1 2 3 3 4 4 7
+
+     */
 }
