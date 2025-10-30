@@ -1,64 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution
+void permutations(string str, string ans)
 {
-public:
-    bool isPossible(vector<int> books, int m, int n, int mid)
+    int n = str.size();
+
+    if (n == 0)
     {
-        int student = 1;
-
-        int pageAllocated = 0;
-
-        for (int i = 0; i < n; i++)
-        {
-            if (pageAllocated + books[i] <= mid)
-            {
-                pageAllocated += books[i];
-            }
-            else
-            {
-                student++;
-                if (student > m || books[i] > mid)
-                {
-                    return false;
-                }
-                pageAllocated = books[i];
-            }
-        }
-        return true;
+        cout << ans << endl;
+        return;
     }
-    int bookAllocated(vector<int> &books, int m)
+
+    for (int i = 0; i < str.size(); i++)
     {
-        int n = books.size();
-        if (m > n)
-        {
-            return -1;
-        }
-
-        int sum = 0;
-
-        for (int i = 0; i < n; i++)
-        {
-            sum += books[i];
-        }
-        int s = 0;
-        int end = sum;
-        int ans = -1;
-
-        while (s <= end)
-        {
-            int mid = s + (end - s) / 2;
-            if (isPossible(books, m, n, mid))
-            {
-                ans = mid;
-                end = mid - 1;
-            }
-            else
-            {
-                s = mid + 1;
-            }
-        }
-        return ans;
+        char ch = str[i];                                                 // selectingn 1st char from string
+        string nextStr = str.substr(0, i) + str.substr(i + 1, n - i - 1); // performing for next char after 1st char
+        permutations(nextStr, ans + ch);                                  // ith char choice to add in permutation
     }
-};
+}
+int main()
+{
+    string str;
+    string ans = "";
+    cout << "mention the string wanna permuted.." << endl;
+    getline(cin, str);
+    cout << "So, all the permutations of given string are  - " << endl;
+    permutations(str, ans);
+}
