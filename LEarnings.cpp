@@ -1,29 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
+// Kadane's ALgorithms -
+// So, for decreasing this much complexity using Kadane's ALgotihms - Acc. ot this aalgorithm don;t addd to those elements which is negative , leave the sum zero, and incldue only possitive numbers sum
 
-void permutations(string str, string ans)
-{
-    int n = str.size();
-
-    if (n == 0)
-    {
-        cout << ans << endl;
-        return;
-    }
-
-    for (int i = 0; i < str.size(); i++)
-    {
-        char ch = str[i];                                                 // selectingn 1st char from string
-        string nextStr = str.substr(0, i) + str.substr(i + 1, n - i - 1); // performing for next char after 1st char
-        permutations(nextStr, ans + ch);                                  // ith char choice to add in permutation
-    }
-}
 int main()
 {
-    string str;
-    string ans = "";
-    cout << "mention the string wanna permuted.." << endl;
-    getline(cin, str);
-    cout << "So, all the permutations of given string are  - " << endl;
-    permutations(str, ans);
+
+    int n;
+    cout << "vector size - ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "What are the vector elements - " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    // For max sum array using Kadane's algorthms -
+    int ans = INT_MIN;
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+        ans = max(ans, sum);
+        if (sum < 0)
+        {
+            sum = 0;
+        }
+    }
+
+    cout << "hence the maximum sum can be print as - " << ans << endl;
 }
