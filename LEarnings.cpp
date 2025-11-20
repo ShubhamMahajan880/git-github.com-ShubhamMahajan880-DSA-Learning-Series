@@ -1,34 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Kadane's ALgorithms -
-// So, for decreasing this much complexity using Kadane's ALgotihms - Acc. ot this aalgorithm don;t addd to those elements which is negative , leave the sum zero, and incldue only possitive numbers sum
+
+// 7) Job Sequencing Problem -
+
+bool compare(pair<int, int> p1, pair<int, int> p2)
+{
+    return p1.second > p2.second;
+}
+int maxProfit(vector<pair<int, int>> jobs)
+{
+    sort(jobs.begin(), jobs.end(), compare);
+    // first -> deadline, second->profit
+
+    int profit = jobs[0].second;
+    int safeDeadline = 2;
+
+    for (int i = 1; i < jobs.size(); i++)
+    {
+        if (jobs[i].first >= safeDeadline)
+        {
+            profit += jobs[i].second;
+            safeDeadline++;
+        }
+    }
+    cout << "max profit from jobs  - " << profit << endl;
+    return profit;
+}
 
 int main()
 {
+    int n = 4;
+    vector<pair<int, int>> jobs(n, make_pair(0, 0));
+    jobs[0] = make_pair(4, 20);
+    jobs[1] = make_pair(1, 10);
+    jobs[2] = make_pair(1, 40);
+    jobs[3] = make_pair(1, 30);
 
-    int n;
-    cout << "vector size - ";
-    cin >> n;
+    maxProfit(jobs);
+    return 0;
+    /*
+    max profit from jobs  - 60
 
-    vector<int> arr(n);
-    cout << "What are the vector elements - " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    // For max sum array using Kadane's algorthms -
-    int ans = INT_MIN;
-    int sum = 0;
-    for (int i = 0; i < n; i++)
-    {
-        sum += arr[i];
-        ans = max(ans, sum);
-        if (sum < 0)
-        {
-            sum = 0;
-        }
-    }
-
-    cout << "hence the maximum sum can be print as - " << ans << endl;
+     */
 }
