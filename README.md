@@ -64,7 +64,8 @@ This repository also serves as a reference for anyone preparing for placements, 
 " width="1024"/>
 
 ### 📚 C++ Implementations Preview 
-<img src="<img width="1000" height="1025" alt="Day 35 (2)" src="https://github.com/user-attachments/assets/21ab86ac-8d2c-447b-801d-3808be602117" />
+<img src="<img width="1000" height="1025" alt="  <img width="808" height="1009" alt="Day 35 (3)" src="https://github.com/user-attachments/assets/206fec51-8649-4310-997b-e7d97f9739ad" />
+" />
 " width="1024"/>
 
 </div>
