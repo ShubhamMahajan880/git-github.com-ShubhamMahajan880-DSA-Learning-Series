@@ -45,7 +45,7 @@ It includes notes, solved questions, implementations, and revision files — all
 
 ## 🎯 Purpose of This Repo
 To track my complete DSA learning journey, revise concepts, and keep all my fundamentals in one place.  
-This repository also serves as a reference for anyone preparing for placements, interviews, and competitive programming.
+This repository also serves as a reference for anyone preparing for **placements, interviews, and competitive programming**.
 
 ---
 
@@ -54,17 +54,17 @@ This repository also serves as a reference for anyone preparing for placements, 
 <div align="center">
 
 ### 🧠 DSA Learning Series Overview  
-<img width="1919" height="768" alt="Day 35 (4)" src="https://github.com/user-attachments/assets/e8c17d18-4c1b-4e0f-b05a-3454631524d6" />
-
+<img src="[YOUR_IMAGE_URL_1](https://github.com/user-attachments/assets/e8c17d18-4c1b-4e0f-b05a-3454631524d6)" width="1000"/>
 
 <br/><br/>
 
-### 🚀 My Complete Commits while learning DSA for last 4 Months
-<img width="1000" height="1025" alt="Day 35 (2)" src="https://github.com/user-attachments/assets/21ab86ac-8d2c-447b-801d-3808be602117" />
+### 🚀 My Complete Commits while Learning DSA  
+<img src="[YOUR_IMAGE_URL_2](https://github.com/user-attachments/assets/21ab86ac-8d2c-447b-801d-3808be602117)" width="1000"/>
 
+<br/><br/>
 
-### 📚 C++ Implementations Preview 
-<img width="1000" height="1025" alt="  <img width="808" height="1009" alt="Day 35 (3)" src="https://github.com/user-attachments/assets/206fec51-8649-4310-997b-e7d97f9739ad" />
+### 📚 C++ Implementations Preview  
+<img src="[YOUR_IMAGE_URL_3](https://github.com/user-attachments/assets/206fec51-8649-4310-997b-e7d97f9739ad)" width="1000"/>
 
 </div>
 
