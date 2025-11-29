@@ -54,8 +54,8 @@ This repository also serves as a reference for anyone preparing for placements, 
 <div align="center">
 
 ### 🧠 DSA Learning Series Overview  
-<img src="<img width="1919" height="768" alt="Day 35 (4)" src="https://github.com/user-attachments/assets/e8c17d18-4c1b-4e0f-b05a-3454631524d6" />
-" width="1024"/>
+<img width="1919" height="768" alt="Day 35 (4)" src="https://github.com/user-attachments/assets/e8c17d18-4c1b-4e0f-b05a-3454631524d6" />
+
 
 <br/><br/>
 
