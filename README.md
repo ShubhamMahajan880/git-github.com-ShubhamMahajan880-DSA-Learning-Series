@@ -54,17 +54,32 @@ This repository also serves as a reference for anyone preparing for **placements
 <div align="center">
 
 ### 🧠 DSA Learning Series Overview  
-<img src="[YOUR_IMAGE_URL_1](https://github.com/user-attachments/assets/e8c17d18-4c1b-4e0f-b05a-3454631524d6)" width="1000"/>
+
+<img width="808" height="1009" alt="Day 35 (3)" src="https://github.com/user-attachments/assets/b4094fa5-9461-4ca7-8ead-9a902bdf62f3" />
 
 <br/><br/>
 
 ### 🚀 My Complete Commits while Learning DSA  
-<img src="[YOUR_IMAGE_URL_2](https://github.com/user-attachments/assets/21ab86ac-8d2c-447b-801d-3808be602117)" width="1000"/>
+
+<img width="1000" height="1025" alt="Day 35 (2)" src="https://github.com/user-attachments/assets/792980c4-14d4-444a-80ba-7cdf72428dd6" />
 
 <br/><br/>
 
 ### 📚 C++ Implementations Preview  
-<img src="[YOUR_IMAGE_URL_3](https://github.com/user-attachments/assets/206fec51-8649-4310-997b-e7d97f9739ad)" width="1000"/>
+
+<img width="1919" height="768" alt="Day 35 (4)" src="https://github.com/user-attachments/assets/cd03704c-6948-41ae-b7a7-219821e244c5" />
+
+<br/><br/>
+
+<img width="1918" height="694" alt="Day 35 (5)" src="https://github.com/user-attachments/assets/ee30699e-d18d-4b2d-8b89-dd2b0ffdea13" />
+
+<br/><br/>
+
+<img width="1918" height="395" alt="Day 35 (1)" src="https://github.com/user-attachments/assets/d1f71b6c-c63b-4994-90f5-4a806369835c" />
+
+<br/><br/>
+
+<img width="1920" height="1080" alt="Day 35" src="https://github.com/user-attachments/assets/f30ab1d4-0227-4018-bf0c-e78cd15aad38" />
 
 </div>
 
