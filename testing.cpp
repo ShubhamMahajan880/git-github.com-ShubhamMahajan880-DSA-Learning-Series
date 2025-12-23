@@ -1,74 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 2) Stack impmentation usig LL -
-// Case 2 - By creating LL manually -
+// 4) Push at Bottom of the Stack -
 
-template <class T>
-class Node
+void pushAtBottom(stack<int> &st, int val)
 {
-public:
-    T data;
-    Node *next;
-
-    Node(T val)
+    if (st.empty())
     {
-        data = val;
-        next = NULL;
+        st.push(val);
+        return;
     }
-};
-template <class T>
-class Stack
+
+    int temp = st.top();
+    st.pop();
+
+    pushAtBottom(st, val);
+
+    st.push(temp);
+}
+void printStack(stack<int> st)
 {
-    Node<T> *head;
-
-public:
-    Stack()
+    // Pass by value to avoid modifying the original stack
+    while (!st.empty())
     {
-        head = NULL;
-    }
-    void push_front(T val)
-    {
-        Node<T> *newNode = new Node<T>(val);
-        if (head == NULL)
-        {
-            head = newNode;
-        }
-        else
-        {
-            newNode->next = head;
-            head = newNode;
-        }
-    }
-    void pop_front()
-    {
-        Node<T> *temp = head;
-        head = head->next;
-        temp->next = NULL;
-    }
-    T top()
-    {
-        return head->data;
-    }
-    bool isEmpty()
-    {
-        return head == NULL;
-    }
-};
-
-int main()
-{
-    Stack<int> s;
-    s.push_front(4);
-    s.push_front(3);
-    s.push_front(2);
-    s.push_front(1);
-
-    cout << "Our Stack is - " << endl;
-    while (!s.isEmpty())
-    {
-        cout << s.top() << " ";
-        s.pop_front();
+        cout << st.top() << " ";
+        st.pop();
     }
     cout << endl;
+}
+int main()
+{
+    stack<int> st;
+    st.push(1);
+    st.push(2);
+    st.push(3);
+
+    cout << "So, the current stack is - " << endl;
+    printStack(st); // Just print, don't pop
+
+    int valueToInsert = 4;
+
+    pushAtBottom(st, valueToInsert);
+
+    cout << "After pushing at bottom stack we have is - " << endl;
+    printStack(st);
+
+    return 0;
+    /*
+    So, the current stack is -
+    3 2 1
+    After pushing at bottom stack we have is -
+    3 2 1 4
+
+     */
 }

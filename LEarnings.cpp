@@ -1,25 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 3) Stack in STL -
+// 10) Duplicate  Paranthesis Problem -
+
+bool isDuplicate(string str)
+{
+    stack<char> st;
+    for (int i = 0; i < str.size(); i++)
+    {
+        char ch = str[i];
+        if (ch != ')') // Non-CLosing
+
+        {
+            st.push(ch);
+        }
+        else // closing
+        {
+            if (st.top() == '(')
+            {
+                return true; // Duplicate - nothing b/w opening & closing
+            }
+            while (st.top() != '(')
+            {
+                st.pop();
+            }
+            st.pop();
+        }
+    }
+    return false;
+}
+
 int main()
 {
-    stack<int> s;
-    s.push(4);
-    s.push(2);
-    s.push(1);
-    s.push(0);
+    string s1, s2;
+    cout << "mention the expressions want to check for S1 - " << endl;
+    getline(cin, s1);
 
-    cout << "So, using STL our stack is given as - " << endl;
-    while (!s.empty())
-    {
-        cout << s.top() << " ";
-        s.pop();
-    }
-    cout << endl;
+    cout << "mention the expressions want to check for S2 - " << endl;
+    getline(cin, s2);
+
+    cout << isDuplicate(s1) << endl;
+    cout << isDuplicate(s2) << endl;
     /*
-    So, using STL our stack is given as -
-    0 1 2 4
-
+    mention the expressions want to check for S1 -
+    ((a+b))
+    mention the expressions want to check for S2 -
+    ((a+b)+(c+d))
+    1
+    0
+TC & SC - O(N)
      */
 }

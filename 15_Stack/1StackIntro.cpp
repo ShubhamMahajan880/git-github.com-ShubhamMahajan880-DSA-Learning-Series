@@ -628,7 +628,7 @@ So, Stack is -
 // }
 
 // -------------------
-// Method - 1.1 - Using funciton and seems professional code syntax - 
+// Method - 1.1 - Using funciton and seems professional code syntax -
 
 // void storckSpanProblem(vector<int> stock, vector<int> span)
 // {
@@ -676,7 +676,7 @@ So, Stack is -
 
 // 8) Next Greater Element  -
 
-// Method - 1 with easy syntax - 
+// Method - 1 with easy syntax -
 // int main()
 // {
 //     vector<int> arr = {6, 8, 0, 1, 3};
