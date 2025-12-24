@@ -1,24 +1,80 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 2) STL Queue Functionality -
+// 8) Circular Queue Implementations using Array -
+class CircularQueue
+{
+    int *arr;
+    int currSize, n;
+    int f, r;
+
+public:
+    CircularQueue(int size)
+    {
+        n = size;
+        arr = new int[n];
+        currSize = 0;
+        f = 0;
+        r = -1;
+    }
+    void push(int data)
+    {
+        if (currSize == n)
+        {
+            cout << "CQ is FULL" << endl;
+            return;
+        }
+        r = (r + 1) % n;
+        arr[r] = data;
+        currSize++;
+    }
+    void pop()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return;
+        }
+        f = (f + 1) % n;
+        currSize--;
+    }
+    int front()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return 0;
+        }
+        return arr[f];
+    }
+    bool empty()
+    {
+        return currSize == 0;
+    }
+    void printArray()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
 int main()
 {
-    queue<int> q;
-
-    q.push(1);
-    q.push(2);
-    q.push(3);
-    q.push(4);
-    cout << "SO, the queue using STL is - " << endl;
-    while (!q.empty())
-    {
-        cout << q.front() << " ";
-        q.pop();
-    }
+    CircularQueue cq(3);
+    cq.push(1);
+    cq.push(2);
+    cq.push(3);
+    cq.pop();
+    cq.push(4);
+    cq.printArray(); // 4 2 3
     cout << endl;
-    /*
-    SO, the queue using STL is -
-    1 2 3 4
-     */
+    while (!cq.empty())
+    {
+        cout << cq.front() << " ";
+        cq.pop();
+    }
+    cout << endl; // 2 3 4
 }

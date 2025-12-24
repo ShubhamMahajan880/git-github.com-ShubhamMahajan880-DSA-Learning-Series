@@ -1,47 +1,83 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 4) First Non-Repeating Letter -
-
-void firstNonRepeating(string s) // TC - O(n), SC - O(n)
+// 8) Circular Queue Implementations using Array -
+class CircularQueue
 {
-    queue<char> Q;
-    int freq[26] = {0};
+    int *arr;
+    int currSize, n;
+    int f, r;
 
-    for (int i = 0; i < s.size(); i++)
+public:
+    CircularQueue(int size)
     {
-        char ch = s[i];
-        Q.push(ch);
-        freq[ch - 'a']++;
-        while (!Q.empty() && freq[Q.front() - 'a'] > 1)
-        {
-            Q.pop();
-        }
-        if (Q.empty())
-        {
-            cout << "-1" << endl;
-        }
-        else
-        {
-            cout << Q.front() << endl;
-        }
+        n = size;
+        arr = new int[n];
+        currSize = 0;
+        f = 0;
+        r = -1;
     }
-}
+    void push(int data)
+    {
+        if (currSize == n)
+        {
+            cout << "CQ is FULL" << endl;
+            return;
+        }
+        r = (r + 1) % n;
+        arr[r] = data;
+        currSize++;
+    }
+    void pop()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return;
+        }
+        f = (f + 1) % n;
+        currSize--;
+    }
+    int front()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return 0;
+        }
+        return arr[f];
+    }
+    bool empty()
+    {
+        return currSize == 0;
+    }
+    void printArray()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
 int main()
 {
-    string s;
-    cout << "Enrter the string you want to check foor First Non Repeating Character - " << endl;
-    getline(cin, s);
+    CircularQueue cq(3);
 
-    firstNonRepeating(s);
-    /*
-    Enrter the string you want to check foor First Non Repeating Character -
-    naman
-    n
-    n
-    n
-    n
-    m
+    cq.push(1);
+    cq.push(2);
+    cq.push(3);
+    cq.pop();
+    cq.push(4);
 
-     */
+    cq.printArray(); // 4 2 3
+    cout << endl;
+
+    while (!cq.empty())
+    {
+        cout << cq.front() << " ";
+        cq.pop();
+    }
+    cout << endl; // 2 3 4
 }
