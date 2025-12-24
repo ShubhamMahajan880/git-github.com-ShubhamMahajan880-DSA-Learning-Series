@@ -1,56 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 4) Push at Bottom of the Stack -
-
-void pushAtBottom(stack<int> &st, int val)
-{
-    if (st.empty())
-    {
-        st.push(val);
-        return;
-    }
-
-    int temp = st.top();
-    st.pop();
-
-    pushAtBottom(st, val);
-
-    st.push(temp);
-}
-void printStack(stack<int> st)
-{
-    // Pass by value to avoid modifying the original stack
-    while (!st.empty())
-    {
-        cout << st.top() << " ";
-        st.pop();
-    }
-    cout << endl;
-}
+// 2) STL Queue Functionality -
 int main()
 {
-    stack<int> st;
-    st.push(1);
-    st.push(2);
-    st.push(3);
+    queue<int> q;
 
-    cout << "So, the current stack is - " << endl;
-    printStack(st); // Just print, don't pop
-
-    int valueToInsert = 4;
-
-    pushAtBottom(st, valueToInsert);
-
-    cout << "After pushing at bottom stack we have is - " << endl;
-    printStack(st);
-
-    return 0;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    cout << "SO, the queue using STL is - " << endl;
+    while (!q.empty())
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
     /*
-    So, the current stack is -
-    3 2 1
-    After pushing at bottom stack we have is -
-    3 2 1 4
-
+    SO, the queue using STL is -
+    1 2 3 4
      */
 }

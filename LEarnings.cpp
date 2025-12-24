@@ -1,53 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 10) Duplicate  Paranthesis Problem -
+// 4) First Non-Repeating Letter -
 
-bool isDuplicate(string str)
+void firstNonRepeating(string s) // TC - O(n), SC - O(n)
 {
-    stack<char> st;
-    for (int i = 0; i < str.size(); i++)
-    {
-        char ch = str[i];
-        if (ch != ')') // Non-CLosing
+    queue<char> Q;
+    int freq[26] = {0};
 
+    for (int i = 0; i < s.size(); i++)
+    {
+        char ch = s[i];
+        Q.push(ch);
+        freq[ch - 'a']++;
+        while (!Q.empty() && freq[Q.front() - 'a'] > 1)
         {
-            st.push(ch);
+            Q.pop();
         }
-        else // closing
+        if (Q.empty())
         {
-            if (st.top() == '(')
-            {
-                return true; // Duplicate - nothing b/w opening & closing
-            }
-            while (st.top() != '(')
-            {
-                st.pop();
-            }
-            st.pop();
+            cout << "-1" << endl;
+        }
+        else
+        {
+            cout << Q.front() << endl;
         }
     }
-    return false;
 }
-
 int main()
 {
-    string s1, s2;
-    cout << "mention the expressions want to check for S1 - " << endl;
-    getline(cin, s1);
+    string s;
+    cout << "Enrter the string you want to check foor First Non Repeating Character - " << endl;
+    getline(cin, s);
 
-    cout << "mention the expressions want to check for S2 - " << endl;
-    getline(cin, s2);
-
-    cout << isDuplicate(s1) << endl;
-    cout << isDuplicate(s2) << endl;
+    firstNonRepeating(s);
     /*
-    mention the expressions want to check for S1 -
-    ((a+b))
-    mention the expressions want to check for S2 -
-    ((a+b)+(c+d))
-    1
-    0
-TC & SC - O(N)
+    Enrter the string you want to check foor First Non Repeating Character -
+    naman
+    n
+    n
+    n
+    n
+    m
+
      */
 }
