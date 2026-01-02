@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 15) Kth Ancestor of Node -
+// 16) Transform to Sum Tree -
 
 class Node
 {
@@ -31,29 +31,67 @@ Node *createtree(vector<int> &nodes)
     return newnode;
 }
 
-int kthAncestor(Node *root, int node, int k)
+void levelOrder(Node *root)
 {
     if (root == NULL)
     {
-        return -1;
+        return;
     }
-    if (root->data == node)
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+
+    while (!q.empty())
+    {
+        Node *curr = q.front();
+        q.pop();
+        if (curr == NULL)
+        {
+            cout << endl; // for next line after current
+            if (q.empty())
+            {
+                break;
+            }
+            q.push(NULL); // to next line for next level
+        }
+        else
+        {
+            cout << curr->data << " ";
+
+            if (curr->left != NULL)
+            {
+                q.push(curr->left);
+            }
+            if (curr->right != NULL)
+            {
+                q.push(curr->right);
+            }
+        }
+    }
+}
+
+int transform(Node *root)
+{
+    if (root == NULL)
     {
         return 0;
     }
-    int leftDist = kthAncestor(root->left, node, k);
-    int rightDist = kthAncestor(root->right, node, k);
+    int leftOld = transform(root->left);
+    int rightOld = transform(root->right);
+    int currOld = root->data;
 
-    if (leftDist == -1 && rightDist == -1)
+    root->data = leftOld + rightOld;
+
+    if (root->left != NULL)
     {
-        return -1;
+        root->data += root->left->data;
     }
-    int validVal = leftDist == -1 ? rightDist : leftDist;
-    if (validVal + 1 == k)
+    if (root->right != NULL)
     {
-        cout << "Kth Ancestor :" << root->data << endl;
+        root->data += root->right->data;
     }
-    return validVal + 1;
+
+    return currOld;
 }
 
 int main()
@@ -61,17 +99,16 @@ int main()
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
     Node *root = createtree(nodes);
 
-    int node = 6, k = 1;
-    kthAncestor(root, node, k);
+    transform(root);
+    cout << "After The Treesum Transform - " << endl;
+    levelOrder(root);
 
     /*
-    int node = 5, k = 2;
-    Kth Ancestor :1
+After The Treesum Transform -
+20
+9 6
+0 0 0
 
-    int node = 6, k = 1;
-    Kth Ancestor :3
-
-    TC - O(n) - Travelling Each Node
-
+    TC - O(n)
      */
 }
