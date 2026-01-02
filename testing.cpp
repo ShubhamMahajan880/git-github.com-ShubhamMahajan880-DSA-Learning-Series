@@ -1,81 +1,65 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 6) Check from Root to asked Node if the path exist or not ?
+// 12) Kth Level of a Tree -
+// 12.2) - Using Rrecursion - recurively searching approach for kth level
+
 class Node
 {
 public:
     int data;
     Node *left;
     Node *right;
-    Node(int val)
+
+    Node(int data)
     {
-        data = val;
+        this->data = data;
         left = right = NULL;
     }
 };
-static int idx = -1;
-Node *treecreation(vector<int> &nodes) // pass by reference
+
+int idx = -1;
+Node *createtree(vector<int> &nodes)
 {
     idx++;
     if (nodes[idx] == -1)
     {
         return NULL;
     }
-    Node *currnode = new Node(nodes[idx]);
-    currnode->left = treecreation(nodes);
-    currnode->right = treecreation(nodes);
-    return currnode;
+    Node *newnode = new Node(nodes[idx]);
+    newnode->left = createtree(nodes);
+    newnode->right = createtree(nodes);
+    return newnode;
 }
-bool rootToNodePath(Node *root, int n, vector<int> &path)
+void KthHelper(Node *root, int K, int currlevel)
 {
     if (root == NULL)
     {
-        return false;
+        return;
     }
-    path.push_back(root->data);
-    if (root->data == n)
+    if (currlevel == K)
     {
-        return true;
+        cout << root->data << " ";
+        return;
     }
-    bool isLeft = rootToNodePath(root->left, n, path);
-    bool isRight = rootToNodePath(root->right, n, path);
-
-    if (isLeft || isRight)
-    {
-        return true;
-    }
-    path.pop_back();
-    return false;
+    KthHelper(root->left, K, currlevel + 1);
+    KthHelper(root->right, K, currlevel + 1);
 }
-void printRootToNode(Node *root, int n)
+void KthLevel(Node *root, int k) // O(n) - Traveled n nodes in the worst time
 {
-    vector<int> path;
-    if (rootToNodePath(root, n, path))
-    {
-        for (auto val : path)
-        {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
-    else
-    {
-        cout << "Node " << n << " not found" << endl;
-    }
+    KthHelper(root, k, 1); // in kth level function we are passing two parameters from the called function arguement, but using recursion need to pass 3 funciton so by using helper funciton
+    cout << endl;
 }
+
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = treecreation(nodes);
+    Node *root = createtree(nodes);
+    cout << "So, the elements at the Level is - " << endl;
+    KthLevel(root, 3);
+    /*
+    So, the elements at the Level is -
+    4 5 6
 
-    printRootToNode(root, 1);  // 1
-    printRootToNode(root, 2);  // 1 2
-    printRootToNode(root, 3);  // 1 3
-    printRootToNode(root, 4);  // 1 2 4
-    printRootToNode(root, 4);  // 1 2 4
-    printRootToNode(root, 5);  // 1 2 5
-    printRootToNode(root, 6);  // 1 3 6
-    printRootToNode(root, 10); // Node 10 not found
+     */
 }
-// ____________ ____________ ____________ ____________ ____________
