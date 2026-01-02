@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 12) Kth Level of a Tree -
-// 12.2) - Using Rrecursion - recurively searching approach for kth level
+// 15) Kth Ancestor of Node -
 
 class Node
 {
@@ -31,35 +30,48 @@ Node *createtree(vector<int> &nodes)
     newnode->right = createtree(nodes);
     return newnode;
 }
-void KthHelper(Node *root, int K, int currlevel)
+
+int kthAncestor(Node *root, int node, int k)
 {
     if (root == NULL)
     {
-        return;
+        return -1;
     }
-    if (currlevel == K)
+    if (root->data == node)
     {
-        cout << root->data << " ";
-        return;
+        return 0;
     }
-    KthHelper(root->left, K, currlevel + 1);
-    KthHelper(root->right, K, currlevel + 1);
-}
-void KthLevel(Node *root, int k) // O(n) - Traveled n nodes in the worst time
-{
-    KthHelper(root, k, 1); // in kth level function we are passing two parameters from the called function arguement, but using recursion need to pass 3 funciton so by using helper funciton
-    cout << endl;
+    int leftDist = kthAncestor(root->left, node, k);
+    int rightDist = kthAncestor(root->right, node, k);
+
+    if (leftDist == -1 && rightDist == -1)
+    {
+        return -1;
+    }
+    int validVal = leftDist == -1 ? rightDist : leftDist;
+    if (validVal + 1 == k)
+    {
+        cout << "Kth Ancestor :" << root->data << endl;
+    }
+    return validVal + 1;
 }
 
 int main()
 {
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
     Node *root = createtree(nodes);
-    cout << "So, the elements at the Level is - " << endl;
-    KthLevel(root, 3);
+
+    int node = 6, k = 1;
+    kthAncestor(root, node, k);
+
     /*
-    So, the elements at the Level is -
-    4 5 6
+    int node = 5, k = 2;
+    Kth Ancestor :1
+
+    int node = 6, k = 1;
+    Kth Ancestor :3
+
+    TC - O(n) - Travelling Each Node
 
      */
 }
