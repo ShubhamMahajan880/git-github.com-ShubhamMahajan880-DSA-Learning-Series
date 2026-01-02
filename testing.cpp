@@ -1,80 +1,81 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 8) Circular Queue Implementations using Array -
-class CircularQueue
+// 6) Check from Root to asked Node if the path exist or not ?
+class Node
 {
-    int *arr;
-    int currSize, n;
-    int f, r;
-
 public:
-    CircularQueue(int size)
+    int data;
+    Node *left;
+    Node *right;
+    Node(int val)
     {
-        n = size;
-        arr = new int[n];
-        currSize = 0;
-        f = 0;
-        r = -1;
+        data = val;
+        left = right = NULL;
     }
-    void push(int data)
+};
+static int idx = -1;
+Node *treecreation(vector<int> &nodes) // pass by reference
+{
+    idx++;
+    if (nodes[idx] == -1)
     {
-        if (currSize == n)
+        return NULL;
+    }
+    Node *currnode = new Node(nodes[idx]);
+    currnode->left = treecreation(nodes);
+    currnode->right = treecreation(nodes);
+    return currnode;
+}
+bool rootToNodePath(Node *root, int n, vector<int> &path)
+{
+    if (root == NULL)
+    {
+        return false;
+    }
+    path.push_back(root->data);
+    if (root->data == n)
+    {
+        return true;
+    }
+    bool isLeft = rootToNodePath(root->left, n, path);
+    bool isRight = rootToNodePath(root->right, n, path);
+
+    if (isLeft || isRight)
+    {
+        return true;
+    }
+    path.pop_back();
+    return false;
+}
+void printRootToNode(Node *root, int n)
+{
+    vector<int> path;
+    if (rootToNodePath(root, n, path))
+    {
+        for (auto val : path)
         {
-            cout << "CQ is FULL" << endl;
-            return;
-        }
-        r = (r + 1) % n;
-        arr[r] = data;
-        currSize++;
-    }
-    void pop()
-    {
-        if (empty())
-        {
-            cout << "CQ is Already Empty " << endl;
-            return;
-        }
-        f = (f + 1) % n;
-        currSize--;
-    }
-    int front()
-    {
-        if (empty())
-        {
-            cout << "CQ is Already Empty " << endl;
-            return 0;
-        }
-        return arr[f];
-    }
-    bool empty()
-    {
-        return currSize == 0;
-    }
-    void printArray()
-    {
-        for (int i = 0; i < n; i++)
-        {
-            cout << arr[i] << " ";
+            cout << val << " ";
         }
         cout << endl;
     }
-};
-
+    else
+    {
+        cout << "Node " << n << " not found" << endl;
+    }
+}
 int main()
 {
-    CircularQueue cq(3);
-    cq.push(1);
-    cq.push(2);
-    cq.push(3);
-    cq.pop();
-    cq.push(4);
-    cq.printArray(); // 4 2 3
-    cout << endl;
-    while (!cq.empty())
-    {
-        cout << cq.front() << " ";
-        cq.pop();
-    }
-    cout << endl; // 2 3 4
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    Node *root = treecreation(nodes);
+
+    printRootToNode(root, 1);  // 1
+    printRootToNode(root, 2);  // 1 2
+    printRootToNode(root, 3);  // 1 3
+    printRootToNode(root, 4);  // 1 2 4
+    printRootToNode(root, 4);  // 1 2 4
+    printRootToNode(root, 5);  // 1 2 5
+    printRootToNode(root, 6);  // 1 3 6
+    printRootToNode(root, 10); // Node 10 not found
 }
+// ____________ ____________ ____________ ____________ ____________
