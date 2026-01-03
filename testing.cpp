@@ -1,113 +1,63 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 10) Merge  2 BST's -
+// 5) Quns Based on Priority_Queue and Heap -
+// 5.1) Nearby K Cars -
+/*
+- Jab bbhi kuchb Top K values nikalna ho ya selct krna ho to hmesha Priority_Quieue Quns Based on Priority_Queue and Heap - ) kko use kia jaata he.
+- qki other sorting alsorithm use krne pr complexity = O(n logn) while in Priority_Queue compelxity is O(k Logn).
+- Where k depends on the qun. In the worst case it woulld be equal to n.
+ */
 
-class Node
+class Car
 {
 public:
-    int data;
-    Node *left, *right;
-    Node(int data)
+    int idx;
+    int distSq;
+
+    Car(int idx, int distSq)
     {
-        this->data = data;
-        left = right = NULL;
+        this->idx = idx;
+        this->distSq = distSq;
+    }
+    bool operator<(const Car &obj) const // Using Opertor Overloading for the priority_queue
+    {
+        return this->distSq > obj.distSq;
     }
 };
 
-// Inorder traversal to store elements
-void getInorder(Node *root, vector<int> &nodes)
+void nearByCars(vector<pair<int, int>> pos, int K)
 {
-    if (root == NULL)
-        return;
-    getInorder(root->left, nodes);
-    nodes.push_back(root->data);
-    getInorder(root->right, nodes);
-}
-
-// Convert sorted vector to balanced BST
-Node *BSTfromSortedVec(vector<int> &nodes, int st, int end)
-{
-    if (st > end)
-        return NULL;
-    int mid = st + (end - st) / 2;
-    Node *curr = new Node(nodes[mid]);
-    curr->left = BSTfromSortedVec(nodes, st, mid - 1);
-    curr->right = BSTfromSortedVec(nodes, mid + 1, end);
-    return curr;
-}
-
-// Merge two BSTs
-Node *mergeBST(Node *root1, Node *root2)
-{
-    vector<int> nodes1, nodes2, merged;
-    getInorder(root1, nodes1);
-    getInorder(root2, nodes2);
-
-    // Merge sorted arrays
-    int i = 0, j = 0;
-    while (i < nodes1.size() && j < nodes2.size())
+    vector<Car> cars;
+    for (int i = 0; i < pos.size(); i++) // O(n)
     {
-        if (nodes1[i] < nodes2[j])
-            merged.push_back(nodes1[i++]);
-        else
-            merged.push_back(nodes2[j++]);
+        int distsq = (pos[i].first * pos[i].first) + (pos[i].second * pos[i].second);
+        cars.push_back(Car(i, distsq));
     }
-    while (i < nodes1.size())
-        merged.push_back(nodes1[i++]);
-    while (j < nodes2.size())
-        merged.push_back(nodes2[j++]);
-
-    // Build balanced BST from merged array
-    return BSTfromSortedVec(merged, 0, merged.size() - 1);
-}
-
-// Print inorder
-void inorderPrint(Node *root)
-{
-    if (!root)
-        return;
-    inorderPrint(root->left);
-    cout << root->data << " ";
-    inorderPrint(root->right);
-}
-
-void preorderPrint(Node *root)
-{
-    if (!root)
-        return;
-    cout << root->data << " ";
-    preorderPrint(root->left);
-    preorderPrint(root->right);
+    priority_queue<Car> pq(cars.begin(), cars.end()); // O(n)
+    for (int i = 0; i < K; i++)                       // O(k*log n + n)
+    {
+        cout << "Car -  " << pq.top().idx << endl;
+        pq.pop(); // O(log n)
+    }
 }
 
 int main()
 {
-    // Your given BSTs
-    Node *root1 = new Node(2);
-    root1->left = new Node(1);
-    root1->right = new Node(4);
+    vector<pair<int, int>> pos;
+    pos.push_back(make_pair(3, 3));
+    pos.push_back(make_pair(5, -1));
+    pos.push_back(make_pair(-2, 4));
 
-    Node *root2 = new Node(9);
-    root2->left = new Node(3);
-    root2->right = new Node(12);
+    int K = 2;
 
-    // Merge and print
-    Node *mergedRoot = mergeBST(root1, root2);
-
-    cout << "Inorder of merged BST: ";
-    inorderPrint(mergedRoot);
-    cout << "\n";
-
-    cout << "Preorder of merged BST: ";
-    preorderPrint(mergedRoot);
-    cout << "\n";
-
-    return 0;
+    nearByCars(pos, K);
     /*
+    int K = 2;
+    Car -  0
+    Car -  2
 
-Inorder of merged BST: 1 2 3 4 9 12
-Preorder of merged BST: 3 1 2 9 4 12
-
-    */
+    int K = 1;
+    Car -  0
+     */
 }
