@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 7) Sorted nodes to Balanced BST -
+// 10) Merge  2 BST's -
 
 class Node
 {
 public:
     int data;
-    Node *left;
-    Node *right;
+    Node *left, *right;
     Node(int data)
     {
         this->data = data;
@@ -16,41 +15,99 @@ public:
     }
 };
 
-Node *BSTfromSortedVec(int nodes[], int st, int end)
+// Inorder traversal to store elements
+void getInorder(Node *root, vector<int> &nodes)
 {
-    if (st > end) // >= nhi kiya qki ese bhi cases honge jb single elemenr bchega Araay me to use return  krna h naa ki NULL return krna he. Isliye
-    {
+    if (root == NULL)
+        return;
+    getInorder(root->left, nodes);
+    nodes.push_back(root->data);
+    getInorder(root->right, nodes);
+}
+
+// Convert sorted vector to balanced BST
+Node *BSTfromSortedVec(vector<int> &nodes, int st, int end)
+{
+    if (st > end)
         return NULL;
-    }
     int mid = st + (end - st) / 2;
     Node *curr = new Node(nodes[mid]);
     curr->left = BSTfromSortedVec(nodes, st, mid - 1);
     curr->right = BSTfromSortedVec(nodes, mid + 1, end);
-
     return curr;
 }
 
-void PreorderTraversal(Node *root)
+// Merge two BSTs
+Node *mergeBST(Node *root1, Node *root2)
 {
-    if (root == NULL)
+    vector<int> nodes1, nodes2, merged;
+    getInorder(root1, nodes1);
+    getInorder(root2, nodes2);
+
+    // Merge sorted arrays
+    int i = 0, j = 0;
+    while (i < nodes1.size() && j < nodes2.size())
     {
-        return;
+        if (nodes1[i] < nodes2[j])
+            merged.push_back(nodes1[i++]);
+        else
+            merged.push_back(nodes2[j++]);
     }
-    cout << root->data << " ";
-    PreorderTraversal(root->left);
-    PreorderTraversal(root->right);
+    while (i < nodes1.size())
+        merged.push_back(nodes1[i++]);
+    while (j < nodes2.size())
+        merged.push_back(nodes2[j++]);
+
+    // Build balanced BST from merged array
+    return BSTfromSortedVec(merged, 0, merged.size() - 1);
 }
+
+// Print inorder
+void inorderPrint(Node *root)
+{
+    if (!root)
+        return;
+    inorderPrint(root->left);
+    cout << root->data << " ";
+    inorderPrint(root->right);
+}
+
+void preorderPrint(Node *root)
+{
+    if (!root)
+        return;
+    cout << root->data << " ";
+    preorderPrint(root->left);
+    preorderPrint(root->right);
+}
+
 int main()
 {
+    // Your given BSTs
+    Node *root1 = new Node(2);
+    root1->left = new Node(1);
+    root1->right = new Node(4);
 
-    int nodes[7] = {3, 4, 5, 6, 7, 8, 9};
+    Node *root2 = new Node(9);
+    root2->left = new Node(3);
+    root2->right = new Node(12);
 
-    cout << "From Sorted nodes - " << endl;
-    Node *root = BSTfromSortedVec(nodes, 0, 6);
-    PreorderTraversal(root);
+    // Merge and print
+    Node *mergedRoot = mergeBST(root1, root2);
+
+    cout << "Inorder of merged BST: ";
+    inorderPrint(mergedRoot);
+    cout << "\n";
+
+    cout << "Preorder of merged BST: ";
+    preorderPrint(mergedRoot);
+    cout << "\n";
+
+    return 0;
     /*
-    From Sorted nodes -
-    6 4 3 5 8 7 9
 
-     */
+Inorder of merged BST: 1 2 3 4 9 12
+Preorder of merged BST: 3 1 2 9 4 12
+
+    */
 }
