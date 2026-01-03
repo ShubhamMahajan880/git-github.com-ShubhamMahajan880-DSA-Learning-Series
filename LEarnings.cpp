@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 16) Transform to Sum Tree -
+// 7) Sorted nodes to Balanced BST -
 
 class Node
 {
@@ -9,7 +9,6 @@ public:
     int data;
     Node *left;
     Node *right;
-
     Node(int data)
     {
         this->data = data;
@@ -17,98 +16,41 @@ public:
     }
 };
 
-int idx = -1;
-Node *createtree(vector<int> &nodes)
+Node *BSTfromSortedVec(int nodes[], int st, int end)
 {
-    idx++;
-    if (nodes[idx] == -1)
+    if (st > end) // >= nhi kiya qki ese bhi cases honge jb single elemenr bchega Araay me to use return  krna h naa ki NULL return krna he. Isliye
     {
         return NULL;
     }
-    Node *newnode = new Node(nodes[idx]);
-    newnode->left = createtree(nodes);
-    newnode->right = createtree(nodes);
-    return newnode;
+    int mid = st + (end - st) / 2;
+    Node *curr = new Node(nodes[mid]);
+    curr->left = BSTfromSortedVec(nodes, st, mid - 1);
+    curr->right = BSTfromSortedVec(nodes, mid + 1, end);
+
+    return curr;
 }
 
-void levelOrder(Node *root)
+void PreorderTraversal(Node *root)
 {
     if (root == NULL)
     {
         return;
     }
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
-
-    while (!q.empty())
-    {
-        Node *curr = q.front();
-        q.pop();
-        if (curr == NULL)
-        {
-            cout << endl; // for next line after current
-            if (q.empty())
-            {
-                break;
-            }
-            q.push(NULL); // to next line for next level
-        }
-        else
-        {
-            cout << curr->data << " ";
-
-            if (curr->left != NULL)
-            {
-                q.push(curr->left);
-            }
-            if (curr->right != NULL)
-            {
-                q.push(curr->right);
-            }
-        }
-    }
+    cout << root->data << " ";
+    PreorderTraversal(root->left);
+    PreorderTraversal(root->right);
 }
-
-int transform(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftOld = transform(root->left);
-    int rightOld = transform(root->right);
-    int currOld = root->data;
-
-    root->data = leftOld + rightOld;
-
-    if (root->left != NULL)
-    {
-        root->data += root->left->data;
-    }
-    if (root->right != NULL)
-    {
-        root->data += root->right->data;
-    }
-
-    return currOld;
-}
-
 int main()
 {
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = createtree(nodes);
 
-    transform(root);
-    cout << "After The Treesum Transform - " << endl;
-    levelOrder(root);
+    int nodes[7] = {3, 4, 5, 6, 7, 8, 9};
 
+    cout << "From Sorted nodes - " << endl;
+    Node *root = BSTfromSortedVec(nodes, 0, 6);
+    PreorderTraversal(root);
     /*
-After The Treesum Transform -
-20
-9 6
-0 0 0
+    From Sorted nodes -
+    6 4 3 5 8 7 9
 
-    TC - O(n)
      */
 }

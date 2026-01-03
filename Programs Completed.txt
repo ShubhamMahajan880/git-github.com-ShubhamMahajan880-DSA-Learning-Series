@@ -258,6 +258,7 @@ Case 2 - By creating LL manually -
 7) Sorted nodes to Balanced BST -
 8) Convert BSt to Balanced BST -
 9) Size of Largest BSt in BT -
+10) Merge  2 BST's -
 // -------------------
 
 [19] Priority Queue & Heap 
