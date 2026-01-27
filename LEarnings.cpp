@@ -1,41 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 5) Quns Based on Priority_Queue and Heap -
-// 5.2) Sliding Window Maximum -
-
-void slidingWindowMax(vector<int> arr, int K)
+int reverseNumber(int n)
 {
-    // Max-heap storing {value, index}
-    priority_queue<pair<int, int>> pq;
-
-    // 1st Window
-    for (int i = 0; i < K; i++)
+    int numberReverse = 0;
+    while (n > 0)
     {
-        pq.push({arr[i], i});
+        int lastDigit = n % 10;
+        numberReverse = numberReverse * 10 + lastDigit;
+        n /= 10;
     }
-    cout << "Output: " << pq.top().first << " ";
 
-    for (int i = K; i < arr.size(); i++)
-    {
-        // Remove elements outside the current window
-        while (!pq.empty() && pq.top().second <= (i - K))
-        {
-            pq.pop();
-        }
-        pq.push({arr[i], i});
-        cout << pq.top().first << " ";
-    }
-    cout << endl;
+    return numberReverse;
+}
+
+bool palindromeNumber(int n)
+{
+    return reverseNumber(n) == n;
 }
 
 int main()
 {
-    vector<int> arr = {1, 3, -1, -3, 5, 3, 6, 7};
-    int K = 3;
+    int m;
+    cout << "Enter m - " << endl;
+    cin >> m;
 
-    slidingWindowMax(arr, K);
-    /*
-    Output: 3 3 5 5 6 7
-     */
+    cout << "So, the reverse number is - " << endl;
+    cout << reverseNumber(m) << endl;
+    if (palindromeNumber(m))
+    {
+        cout << "It's Palindrome nUMBER" << endl;
+    }
+    else
+    {
+        cout << "Not a Palindrome" << endl;
+    }
 }
