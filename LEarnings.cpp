@@ -1,38 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int reverseNumber(int n)
+void printArray(int arr[], int n)
 {
-    int numberReverse = 0;
-    while (n > 0)
+    for (int i = 0; i < n; i++)
     {
-        int lastDigit = n % 10;
-        numberReverse = numberReverse * 10 + lastDigit;
-        n /= 10;
+        cout << arr[i] << "";
     }
-
-    return numberReverse;
+    cout << endl;
 }
 
-bool palindromeNumber(int n)
+int subarraySum(int arr[], int n, int target)
 {
-    return reverseNumber(n) == n;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i; j < n; j++)
+        {
+            if (arr[i] + arr[j] == target)
+            {
+                return (i, j);
+            }
+        }
+    }
+    return (-1, -1);
 }
 
 int main()
 {
-    int m;
-    cout << "Enter m - " << endl;
-    cin >> m;
+    int n = 7;
+    int arr[7];
 
-    cout << "So, the reverse number is - " << endl;
-    cout << reverseNumber(m) << endl;
-    if (palindromeNumber(m))
+    cout << "Enter array elements - " << endl;
+    for (int i = 0; i < n; i++)
     {
-        cout << "It's Palindrome nUMBER" << endl;
+        cin >> arr[i];
     }
-    else
-    {
-        cout << "Not a Palindrome" << endl;
-    }
+    cout << "So, entered array is - " << endl;
+
+    int target;
+    cout << "What's final target" << endl;
+    cin >> target;
+
+    subarraySum(arr, n, target);
 }

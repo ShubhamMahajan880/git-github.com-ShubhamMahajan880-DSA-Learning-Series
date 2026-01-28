@@ -1,66 +1,136 @@
-1. -1 in cpp indicates that no element exist. because every time indexing starts with 0, so can never be -1 for any element
-2. when mentined no need to use EXTRA SPACE - then always use 2 POINTER APPROACH
-3. The arrays which are created additionaly to store the current array values are known as Auxiliary Arrays
-4. In 2D matrix it's mandatory to mention any no of colm value to pass in user defined function. OR use the ** pointer
-void spiralMatrix(int **mat, int n,int m) OR void spiralMatrix(int mat[][100], int n,int m)
-5 - Diff b/w char arr & string is that - charac. array is simple array of characters while the string is an onject o string class. Strings are dynamic in size while char array are fixed size.	
-6 - in OOp's agr class ke under koi acess modifier define nhi kiya gya h to by default PRIVATE hota he
-7 - How to identify for recursion that we have to use it or not - as exponential time complexity is responisle for recursion, so use recursion.
-8 - Sudoku has always a fixed size its always 9*9
-9 - While we pass any STL functionality in the function - then it always pass by value... if we want to make the change in the memory too -- we need to pass it by reference manually by using & in the fun.
-10 - // template <class T> - template class is a class in which we can define any kind of datat type for respective data structure or STL Function.
-11 - in STL it by default always uses pass by address only no change in the actual STL component inside main memory, so jab bhi stl component original ko hi chanhe krnna ho to pass by reference (&) use hoga. usign STL it generally pases by value but here i am passing by reference fir making the changes in the actual/original queue
-12 - Generally Jaha Quns me Maximum/minimum use ho rhe hote h and apart from Array, String(maxisum subarray, substring,subsequence,maxsu,minsum) then most probably chances for the application of => Greedy Algo's.
-13 - Jaha ya to lenge ya phr nahi lenge - we use => 0-1 Knapsak Problem. [TV,Freze,Washing Machine] but jaha quantitymatter kr jati he [halfkg, 1 kg, 5 kg - suga,salt,oil] which can be inside Kanpsack(Bora,thela) then we use  => Fractioal Kapsack Problem.
-14 - In Binary Tree - only the traversal from Parent to Child is possible not from child to Parent. Only & only by using recursion we perform backtracking. (No direct traversal from child to parent class is possible)
-15 - agr int return krna h kuchh nhi he return=> -1. Agar node * return krna kuchh nhi h return=> NULL;
+===========================
+CORE NOTES (DSA + C++)
+===========================
 
+1) -1 in C++ indicates that an element does not exist.
+   Since array indexing always starts from 0, an index can never be -1.
 
-Twinkling Logic parts in my notes- 
+2) When a question mentions "NO EXTRA SPACE",
+   always try to use the TWO POINTER APPROACH.
 
-1) Array Right Rotation - Reverse loop(n-1 to 0) & arr[i] = arr[i-1]
-2) Left Rotation - Straight loop(0 to n) & arr[i] = arr[i+1]
-3) Matrix 180 - Row Swap n/2 times, then row reverse.
-4) Matrix 90 CW - Transpose, then reverse column. Ya phr after Transpose, do column swap for n/2 times
-5) Matrix 90 ACW - Transpose, then row swap n/2 times. 
+3) Arrays created additionally to store values of another array
+   are called AUXILIARY ARRAYS.
 
+4) In a 2D matrix, it is mandatory to specify the number of columns
+   while passing it to a user-defined function OR use double pointer.
 
-On hold - 
-1) COmmon letter sequences in string 
-2) 2 strings are rotation of each other
------------------------------
+   Examples:
+   void spiralMatrix(int **mat, int n, int m)
+   void spiralMatrix(int mat[][100], int n, int m)
 
-Toremebr he STL functionalities how to use - 
+5) Difference between char array and string:
+   - Char array is a simple array of characters.
+   - String is an object of the string class.
+   - Strings are dynamic in size.
+   - Char arrays are fixed in size.
 
-1) For Binary Search - 
-if (binary_search(arr, arr + n, findelement))
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+6) In OOP, if no access modifier is specified inside a class,
+   the default access modifier is PRIVATE.
 
-2) Vector - 
-vector<int> vec;
-vector<int> vec2(5);
-vector<int> vec3(5, 1);
+7) To decide whether recursion is required:
+   Recursion is usually associated with exponential time complexity,
+   so use it only when the problem structure demands it.
 
-3) Set - 
-set<int> st;
-st.insert(51);
-cout << st.size() << endl;
-st.erase(51);
+8) Sudoku always has a FIXED size of 9x9.
 
-4) Multiset - 
-multiset<int> mtst;
-mtst.insert(12);
+9) STL containers are passed by VALUE by default.
+   To modify the original container, pass it by reference using &.
 
+10) template <class T>
+    Template class allows using any data type for data structures
+    or STL-like functionality.
 
-Syntax to remember - 
-int isAge = 16;
-    bool isadult = (isAge > 18) ? (cout << "Yes Mature" << endl, true) : (cout << "Immayure" << endl, false);
-    cout << isadult;
+11) STL containers usually do not change original data
+    unless passed by reference (&).
 
+12) Problems involving maximum/minimum (other than simple arrays/strings),
+    such as maximum subarray, substring, subsequence, max-sum, min-sum,
+    often indicate the use of GREEDY ALGORITHMS.
 
+13) Take or not take decision problems:
+    - 0/1 Knapsack -> TV, Fridge, Washing Machine.
+    - Fractional Knapsack -> Sugar, Salt, Oil (quantity matters).
+
+14) In Binary Trees:
+    - Traversal is possible only from Parent to Child.
+    - Backtracking is possible ONLY using recursion.
+
+15) Return conventions:
+    - If return type is int and nothing exists -> return -1.
+    - If return type is Node* and nothing exists -> return NULL.
+
+===========================
+TWINKLING LOGIC PARTS
+===========================
+
+1) Array Right Rotation:
+   Reverse loop (n-1 to 1)
+   arr[i] = arr[i-1]
+
+2) Array Left Rotation:
+   Straight loop (0 to n-2)
+   arr[i] = arr[i+1]
+
+3) Matrix 180 Degree Rotation:
+   Swap rows n/2 times, then reverse each row.
+
+4) Matrix 90 Degree Clockwise:
+   Transpose matrix, then reverse each row
+   OR after transpose, swap columns n/2 times.
+
+5) Matrix 90 Degree Anti-Clockwise:
+   Transpose matrix, then swap rows n/2 times.
+
+===========================
+ON HOLD TOPICS
+===========================
+
+1) Common letter sequences in string.
+2) Two strings are rotation of each other.
+
+===========================
+STL SYNTAX TO REMEMBER
+===========================
+
+1) Binary Search:
+   if (binary_search(arr, arr + n, findElement))
+       return 1;
+   else
+       return 0;
+
+2) Vector:
+   vector<int> v;
+   vector<int> v2(5);
+   vector<int> v3(5, 1);
+
+3) Set:
+   set<int> st;
+   st.insert(51);
+   st.size();
+   st.erase(51);
+
+4) Multiset:
+   multiset<int> mst;
+   mst.insert(12);
+
+===========================
+TERNARY OPERATOR SYNTAX
+===========================
+
+int age = 16;
+bool isAdult = (age > 18)
+               ? (cout << "Yes Mature" << endl, true)
+               : (cout << "Immature" << endl, false);
+cout << isAdult;
+
+===========================
+END OF NOTES
+===========================
+*/
+
+int main()
+{
+    // This file is intentionally kept logic-free.
+    // Used purely as a structured DSA + C++ notes reference.
+    return 0;
+}
