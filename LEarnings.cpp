@@ -1,45 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printArray(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << "";
-    }
-    cout << endl;
-}
-
-int subarraySum(int arr[], int n, int target)
-{
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i; j < n; j++)
-        {
-            if (arr[i] + arr[j] == target)
-            {
-                return (i, j);
-            }
-        }
-    }
-    return (-1, -1);
-}
-
 int main()
 {
-    int n = 7;
-    int arr[7];
+    map<int, string> mp;
+    mp[45] = "Microsoft";
+    mp[60] = "Google";
+    mp[85] = "Atlassian";
 
-    cout << "Enter array elements - " << endl;
-    for (int i = 0; i < n; i++)
+    cout << mp.size() << endl;
+
+    for (auto i : mp)
     {
-        cin >> arr[i];
+        cout << i.first << " " << i.second << " ";
     }
-    cout << "So, entered array is - " << endl;
+    cout << endl;
 
-    int target;
-    cout << "What's final target" << endl;
-    cin >> target;
+    cout << mp[60] << endl;
+    cout << mp[85] << endl;
 
-    subarraySum(arr, n, target);
+    mp.erase(45);
+    for (auto i : mp)
+    {
+        cout << i.first << " " << i.second << " ";
+    }
+    cout << endl;
+
+    // first value only
+    for (auto i : mp)
+    {
+        cout << i.first << " ";
+    }
+    cout << endl;
+
+    // second element
+    for (auto i : mp)
+    {
+        cout << i.second << " ";
+    }
+    cout << endl;
+
+    // inserting
+    mp.insert(make_pair(35, "WellsFargo"));
+    cout << mp[35] << endl;
+    mp.insert(make_pair(24, "American Express"));
+    for (auto i : mp)
+    {
+        cout << i.first << " " << i.second;
+    }
+    cout << endl;
+
+    // for (int i = 0; i < mp.size(); i++)
+    // {
+    //     cout << mp[i] << " ";
+    // }
+    // cout << endl;
 }
