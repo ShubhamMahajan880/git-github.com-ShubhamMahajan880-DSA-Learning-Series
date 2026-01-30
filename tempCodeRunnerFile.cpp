@@ -1,5 +1,7 @@
-for (int i = 0; i < mp.size(); i++)
+
+    // reverse(arr, arr + 7);
+    // for (int i = 0; i < 7; i++)
     // {
-    //     cout << mp[i] << " ";
+    //     cout << arr[i] << " ";
     // }
     // cout << endl;
