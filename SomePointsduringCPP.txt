@@ -113,6 +113,18 @@ STL SYNTAX TO REMEMBER
    multiset<int> mst;
    mst.insert(12);
 
+In vectors Sorting is also same as - 
+
+// Ascending sort
+sort(arr.begin(), arr.end());
+
+// Descending sort
+sort(arr.begin(), arr.end(), greater<int>());
+
+// Reverse vector
+reverse(arr.begin(), arr.end());
+
+
 ===========================
 TERNARY OPERATOR SYNTAX
 ===========================
