@@ -1,63 +1,83 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 5) Quns Based on Priority_Queue and Heap -
-// 5.1) Nearby K Cars -
-/*
-- Jab bbhi kuchb Top K values nikalna ho ya selct krna ho to hmesha Priority_Quieue Quns Based on Priority_Queue and Heap - ) kko use kia jaata he.
-- qki other sorting alsorithm use krne pr complexity = O(n logn) while in Priority_Queue compelxity is O(k Logn).
-- Where k depends on the qun. In the worst case it woulld be equal to n.
- */
+// 5) Sum of Nodes in a Tree -
 
-class Car
+class Node
 {
 public:
-    int idx;
-    int distSq;
-
-    Car(int idx, int distSq)
+    int data;
+    Node *left;
+    Node *right;
+    Node(int data)
     {
-        this->idx = idx;
-        this->distSq = distSq;
-    }
-    bool operator<(const Car &obj) const // Using Opertor Overloading for the priority_queue
-    {
-        return this->distSq > obj.distSq;
+        this->data = data;
+        left = right = NULL;
     }
 };
-
-void nearByCars(vector<pair<int, int>> pos, int K)
+static int idx = -1;
+Node *buildTree(vector<int> nodes)
 {
-    vector<Car> cars;
-    for (int i = 0; i < pos.size(); i++) // O(n)
+    idx++;
+    if (nodes[idx] == -1)
     {
-        int distsq = (pos[i].first * pos[i].first) + (pos[i].second * pos[i].second);
-        cars.push_back(Car(i, distsq));
+        return NULL;
     }
-    priority_queue<Car> pq(cars.begin(), cars.end()); // O(n)
-    for (int i = 0; i < K; i++)                       // O(k*log n + n)
+    Node *currNode = new Node(nodes[idx]);
+    currNode->left = buildTree(nodes);  // Left Subtree
+    currNode->right = buildTree(nodes); // Right Subtree
+    return currNode;
+}
+
+int sumofNodes(Node *root)
+{
+    if (root == NULL)
     {
-        cout << "Car -  " << pq.top().idx << endl;
-        pq.pop(); // O(log n)
+        return 0;
     }
+    int leftSum = sumofNodes(root->left);
+    int rightSum = sumofNodes(root->right);
+    return leftSum + rightSum + root->data;
+}
+//  For clearly visulization of sum return using recursing by using currsum further in function -
+
+int sumofNodes2(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    int leftSum = sumofNodes2(root->left);
+    int rightSum = sumofNodes2(root->right);
+    int currSum = leftSum + rightSum + root->data;
+    cout << "Sum is - " << currSum << endl;
+    return currSum;
 }
 
 int main()
 {
-    vector<pair<int, int>> pos;
-    pos.push_back(make_pair(3, 3));
-    pos.push_back(make_pair(5, -1));
-    pos.push_back(make_pair(-2, 4));
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    Node *root = buildTree(nodes);
+    cout << "So, the total sum of all the Nodes is - " << sumofNodes(root) << endl;
 
-    int K = 2;
-
-    nearByCars(pos, K);
     /*
-    int K = 2;
-    Car -  0
-    Car -  2
+    So, the total sum of all the Nodes is - 21
 
-    int K = 1;
-    Car -  0
+    TC - O(N);
+
+     */
+
+    cout << "For clearly visulization of sum return using recursing by using currsum further in function -" << endl;
+
+    cout << "So, the total sum of all the Nodes is - " << sumofNodes2(root) << endl;
+    /*
+    For clearly visulization of sum return using recursing by using currsum further in function -
+    Sum is - 4
+    Sum is - 5
+    Sum is - 11
+    Sum is - 6
+    Sum is - 9
+    Sum is - 21
+    So, the total sum of all the Nodes is - 21
      */
 }
