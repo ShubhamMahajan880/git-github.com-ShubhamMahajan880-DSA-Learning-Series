@@ -1,187 +1,87 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class CircularQueue
 {
-public:
-    int data;
-    Node *left;
-    Node *right;
+    int *arr;
+    int currSize, n;
+    int f, r;
 
-    Node(int val)
+public:
+    CircularQueue(int size)
     {
-        data = val;
-        left = right = NULL;
+        n = size;
+        arr = new int[n];
+        currSize = 0;
+        f = 0;
+        r = -1;
+    }
+
+    void push(int data)
+    {
+        if (currSize == n)
+        {
+            cout << "CQ is FULL" << endl;
+            return;
+        }
+        r = (r + 1) % n;
+        arr[r] = data;
+        currSize++;
+    }
+
+    void pop()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return;
+        }
+        f = (f + 1) % n;
+        currSize--;
+    }
+
+    int front()
+    {
+        if (empty())
+        {
+            cout << "CQ is Already Empty " << endl;
+            return 0;
+        }
+        return arr[f];
+    }
+
+    bool empty()
+    {
+        return currSize == 0;
+    }
+
+    void printArray()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
 };
 
-static int idx = -1;
-
-Node *createTree(vector<int> nodes)
-{
-    idx++;
-    if (nodes[idx] == -1)
-    {
-        return NULL;
-    }
-    Node *currNode = new Node(nodes[idx]);
-    currNode->left = createTree(nodes);
-    currNode->right = createTree(nodes);
-    return currNode;
-}
-
-void preOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
-}
-
-void inOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    inOrder(root->left);
-    cout << root->data << " ";
-    inOrder(root->right);
-}
-
-void postOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    postOrder(root->left);
-    postOrder(root->right);
-    cout << root->data << " ";
-}
-
-void levelOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    queue<Node *> q;
-    q.push(root);
-
-    while (!q.empty())
-    {
-        Node *curr = q.front();
-        q.pop();
-
-        cout << curr->data << " ";
-
-        if (curr->left != NULL)
-        {
-            q.push(curr->left);
-        }
-        if (curr->right != NULL)
-        {
-            q.push(curr->right);
-        }
-    }
-}
-
-void modifiedLevelOrderTraversal(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
-
-    while (!q.empty())
-    {
-        Node *curr = q.front();
-        q.pop();
-
-        if (curr == NULL)
-        {
-            cout << " " << endl;
-            if (q.empty())
-            {
-                break;
-            }
-            q.push(NULL);
-        }
-        else
-        {
-            cout << curr->data << " ";
-
-            if (curr->left != NULL)
-            {
-                q.push(curr->left);
-            }
-            if (curr->right != NULL)
-            {
-                q.push(curr->right);
-            }
-        }
-    }
-}
-
-int heightofTree(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftHeight = heightofTree(root->left);
-    int rightHeight = heightofTree(root->right);
-    int currHeight = max(leftHeight, rightHeight) + 1;
-    return currHeight;
-}
-
-int countofNodes(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftCount = countofNodes(root->left);
-    int rightCount = countofNodes(root->right);
-    int finalCount = leftCount + rightCount + 1;
-    return finalCount;
-}
-
-int sumofNodes(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int leftSum = sumofNodes(root->left);
-    int rightSum = sumofNodes(root->right);
-    int totalSum = leftSum + rightSum + root->data;
-    return totalSum;
-}
-
 int main()
 {
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = createTree(nodes);
-    cout << "root is - " << root->data << endl;
-    cout << "Preorde is - " << endl;
-    preOrder(root);
-    cout << "Inorder Traversal is - " << endl;
-    inOrder(root);
-    cout << "PostOrder is " << endl;
-    postOrder(root);
-    cout << "Levelorder Traversal is - " << endl;
-    levelOrder(root);
-    cout << "modifiedLevelOrderTraversal is - " << endl;
-    modifiedLevelOrderTraversal(root);
-    cout << "So, height of the tree is -" << heightofTree(root) << endl;
-    cout << "similarly, count of the tree is -" << countofNodes(root) << endl;
-    cout << "hence, Sum of the tree is -" << sumofNodes(root) << endl;
+    CircularQueue cq(3);
+
+    cq.push(1);
+    cq.push(2);
+    cq.push(3);
+    cq.pop();
+    cq.push(4);
+
+    cq.printArray(); // 4 2 3
+    cout << endl;
+
+    while (!cq.empty())
+    {
+        cout << cq.front() << " ";
+        cq.pop();
+    }
+    cout << endl; // 2 3 4
 }
