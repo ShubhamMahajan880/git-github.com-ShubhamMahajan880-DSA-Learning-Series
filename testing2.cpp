@@ -1,114 +1,130 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 2) Complete Binary Tree -
-// 2.1) Heap Data Structure -
-// 2.1.2) Implementation of Min Heap -
+// 2) DP Patterns using QUns -
+// 2.6) Pattern - VI : Matric Chain Multiplication(MCM)
+// 2.6.1) using  Recursion -
 
-class Heap
+int matrixChainMultiplicationRecursion(vector<int> arr, int i, int j)
 {
-    vector<int> vec; // max Heap - CBT
-public:
-    void push(int val) // O(log n)
+    if (i == j)
     {
-        vec.push_back(val); // step - 1 Push the val
-
-        // fix heap
-        int childIdx = vec.size() - 1; // childIndex
-        int parIdx = (childIdx - 1) / 2;
-
-        while (parIdx >= 0 && vec[childIdx] < vec[parIdx]) // O(logn)
-        {
-            swap(vec[childIdx], vec[parIdx]);
-            childIdx = parIdx;
-            parIdx = (childIdx - 1) / 2;
-        }
+        return 0;
     }
 
-    void heapify(int i) // i = parindex
-    {
-        if (i >= vec.size())
-        {
-            return;
-        }
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
-        int maxIdx = i;
-        if (l < vec.size() && vec[l] < vec[maxIdx])
-        {
-            maxIdx = l;
-        }
-        if (r < vec.size() && vec[r] < vec[maxIdx])
-        {
-            maxIdx = r;
-        }
-        swap(vec[i], vec[maxIdx]);
-        if (maxIdx != i)
-        {
-            heapify(maxIdx);
-        }
-    }
+    int ans = INT_MAX;
 
-    void pop()
+    for (int k = i; k < j; k++)
+    // (i,k)
     {
-        // Step - 1
-        swap(vec[0], vec[vec.size() - 1]);
-        // Step - 2
-        vec.pop_back();
-        // step - 3
-        heapify(0);
-    }
+        int cost1 = matrixChainMultiplicationRecursion(arr, i, k);
 
-    int top()
-    {
-        return vec[0]; // top of tree(Highest Priority Element) is here the 0-index of vector
-    }
+        // (k+1,j)
+        int cost2 = matrixChainMultiplicationRecursion(arr, k + 1, j);
 
-    bool empty()
-    {
-        return vec.size() == 0;
+        // curr partition cost
+        int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+        ans = min(ans, currCost);
     }
-};
+    return ans;
+}
 int main()
 {
-    Heap heap2; // Heap Created
-    heap2.push(50);
-    heap2.push(10);
-    heap2.push(100);
-
-    while (!heap2.empty())
-    {
-        cout << "top iss - " << heap2.top() << endl;
-        heap2.pop();
-    }
-
-    cout << endl;
-
-    /*
-top iss - 10
-top iss - 50
-top iss - 100
-     */
-
-    heap2.push(9);
-    heap2.push(4);
-    heap2.push(8);
-    heap2.push(1);
-    heap2.push(2);
-    heap2.push(5);
-    while (!heap2.empty())
-    {
-        cout << "top iss - " << heap2.top() << endl;
-        heap2.pop();
-    }
-
-    cout << endl;
-    /*
-    top iss - 1
-    top iss - 2
-    top iss - 4
-    top iss - 5
-    top iss - 8
-    top iss - 9
-     */
+    vector<int> arr = {1, 2, 3, 4, 3};
+    int n = arr.size();
+    cout << matrixChainMultiplicationRecursion(arr, 1, n - 1) << endl; // 30
 }
+// -------------------
+// using Memoization -
+
+int matrixChainMultiplicationMemoI(vector<int> arr, int i, int j, vector<vector<int>> &dp)
+{
+    if (i == j)
+    {
+        return 0;
+    }
+    if (dp[i][j] != -1)
+    {
+        return dp[i][j];
+    }
+    int ans = INT_MAX;
+    for (int k = i; k < j; k++)
+    // (i,k)
+    {
+        int cost1 = matrixChainMultiplicationMemoI(arr, i, k, dp);
+
+        // (k+1,j)
+        int cost2 = matrixChainMultiplicationMemoI(arr, k + 1, j, dp);
+
+        // curr partition cost
+        int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+        ans = min(ans, currCost);
+    }
+    return dp[i][j] = ans;
+}
+
+int main()
+{
+    vector<int> arr = {1, 2, 3, 4, 3};
+    int n = arr.size();
+    vector<vector<int>> dp(n, vector<int>(n, -1));
+    cout << matrixChainMultiplicationMemoI(arr, 1, n - 1, dp) << endl; // 30
+}
+// -------------------
+// using Tabulation -
+
+int matrixChainMultiplicationTabulation(vector<int> arr) // O(n^3)
+{
+    int n = arr.size();
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+
+    // dp[i][i] = 0 (only one matrix, no multiplication)
+    for (int i = 1; i < n; i++)
+    {
+        dp[i][i] = 0;
+    }
+    // bottom up fill
+    for (int len = 2; len < n; len++) // length of chain
+    {
+        for (int i = 1; i <= n - len; i++)
+        {
+            int j = i + len - 1;
+            dp[i][j] = INT_MAX;
+
+            for (int k = i; k < j; k++)
+            {
+                int cost1 = dp[i][k];
+                int cost2 = dp[k + 1][j];
+                int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+                dp[i][j] = min(dp[i][j], currCost);
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return dp[1][n - 1];
+}
+
+int main()
+{
+    vector<int> arr = {1, 2, 3, 4, 3}; // n-> n-1 matrices (1 to n-1)
+
+    cout << matrixChainMultiplicationTabulation(arr) << endl;
+    /*
+    0 0 0 0 0
+    0 0 6 18 30
+    0 0 0 24 48
+    0 0 0 0 36
+    0 0 0 0 0
+
+    30
+    */
+}
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________

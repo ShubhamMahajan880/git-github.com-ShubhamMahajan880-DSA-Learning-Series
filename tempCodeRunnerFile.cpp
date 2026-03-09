@@ -1,64 +1,32 @@
-#include <bits/stdc++.h>
-using namespace std;
+// int unboundedKnapsack(vector<int> val, vector<int> wt, int W, int n)
+// {
+//     vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
 
-class Node
-{
-public:
-    int data;
-    Node *left;
-    Node *right;
+//     for (int i = 1; i < n + 1; i++)
+//     {
+//         for (int j = 1; j < W + 1; j++)
+//         {
+//             int itemVal = val[i - 1];
+//             int itemWt = wt[i - 1];
 
-    Node(int val)
-    {
-        this->data = val;
-        left = right = NULL;
-    }
-};
+//             if (itemWt <= j)
+//             {
+//                 dp[i][j] = max(itemVal + dp[i][j - itemWt], dp[i - 1][j]);
+//             }
+//             else
+//             {
+//                 dp[i][j] = dp[i - 1][j];
+//             }
+//         }
+//     }
+//     return dp[n][W];
+// }
+// int main()
+// {
+//     vector<int> val = {15, 14, 10, 45, 30};
+//     vector<int> wt = {2, 5, 1, 3, 4};
+//     int w = 7;
+//     int n = 5;
 
-Node *insert(Node *root, int val)
-{
-    if (root == NULL)
-    {
-        root = new Node(val);
-        return root;
-    }
-    if (root->data < val)
-    {
-        root->right = insert(root->right, val);
-    }
-    else
-    {
-        root->left = insert(root->left, val);
-    }
-    return root;
-}
-Node *buildBST(vector<int> nodes, int n)
-{
-    Node *root = NULL;
-    for (int i = 0; i < n; i++)
-    {
-        root = insert(root, nodes[i]);
-    }
-    return root;
-}
-
-void inOrder(Node *root)
-{
-    if (root == NULL)
-    {
-        return;
-    }
-    inOrder(root->left);
-    cout << root->data << " ";
-    inOrder(root->right);
-}
-int main()
-{
-
-    vector<int> nodes = {5, 1, 3, 4, 2, 7, 9};
-    int n = nodes.size();
-
-    Node *root = buildBST(nodes, n);
-    inOrder(root);
-    cout << endl;
-}
+//     cout << unboundedKnapsack(val, wt, w, n) << endl;//100
+// }

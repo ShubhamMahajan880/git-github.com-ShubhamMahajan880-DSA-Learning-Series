@@ -1,83 +1,130 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 5) Sum of Nodes in a Tree -
+// 2) DP Patterns using QUns -
+// 2.6) Pattern - VI : Matric Chain Multiplication(MCM)
+// 2.6.1) using  Recursion -
 
-class Node
+int matrixChainMultiplicationRecursion(vector<int> arr, int i, int j)
 {
-public:
-    int data;
-    Node *left;
-    Node *right;
-    Node(int data)
-    {
-        this->data = data;
-        left = right = NULL;
-    }
-};
-static int idx = -1;
-Node *buildTree(vector<int> nodes)
-{
-    idx++;
-    if (nodes[idx] == -1)
-    {
-        return NULL;
-    }
-    Node *currNode = new Node(nodes[idx]);
-    currNode->left = buildTree(nodes);  // Left Subtree
-    currNode->right = buildTree(nodes); // Right Subtree
-    return currNode;
-}
-
-int sumofNodes(Node *root)
-{
-    if (root == NULL)
+    if (i == j)
     {
         return 0;
     }
-    int leftSum = sumofNodes(root->left);
-    int rightSum = sumofNodes(root->right);
-    return leftSum + rightSum + root->data;
-}
-//  For clearly visulization of sum return using recursing by using currsum further in function -
 
-int sumofNodes2(Node *root)
+    int ans = INT_MAX;
+
+    for (int k = i; k < j; k++)
+    // (i,k)
+    {
+        int cost1 = matrixChainMultiplicationRecursion(arr, i, k);
+
+        // (k+1,j)
+        int cost2 = matrixChainMultiplicationRecursion(arr, k + 1, j);
+
+        // curr partition cost
+        int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+        ans = min(ans, currCost);
+    }
+    return ans;
+}
+int main()
 {
-    if (root == NULL)
+    vector<int> arr = {1, 2, 3, 4, 3};
+    int n = arr.size();
+    cout << matrixChainMultiplicationRecursion(arr, 1, n - 1) << endl; // 30
+}
+// -------------------
+// using Memoization -
+
+int matrixChainMultiplicationMemoI(vector<int> arr, int i, int j, vector<vector<int>> &dp)
+{
+    if (i == j)
     {
         return 0;
     }
-    int leftSum = sumofNodes2(root->left);
-    int rightSum = sumofNodes2(root->right);
-    int currSum = leftSum + rightSum + root->data;
-    cout << "Sum is - " << currSum << endl;
-    return currSum;
+    if (dp[i][j] != -1)
+    {
+        return dp[i][j];
+    }
+    int ans = INT_MAX;
+    for (int k = i; k < j; k++)
+    // (i,k)
+    {
+        int cost1 = matrixChainMultiplicationMemoI(arr, i, k, dp);
+
+        // (k+1,j)
+        int cost2 = matrixChainMultiplicationMemoI(arr, k + 1, j, dp);
+
+        // curr partition cost
+        int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+        ans = min(ans, currCost);
+    }
+    return dp[i][j] = ans;
 }
 
 int main()
 {
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node *root = buildTree(nodes);
-    cout << "So, the total sum of all the Nodes is - " << sumofNodes(root) << endl;
-
-    /*
-    So, the total sum of all the Nodes is - 21
-
-    TC - O(N);
-
-     */
-
-    cout << "For clearly visulization of sum return using recursing by using currsum further in function -" << endl;
-
-    cout << "So, the total sum of all the Nodes is - " << sumofNodes2(root) << endl;
-    /*
-    For clearly visulization of sum return using recursing by using currsum further in function -
-    Sum is - 4
-    Sum is - 5
-    Sum is - 11
-    Sum is - 6
-    Sum is - 9
-    Sum is - 21
-    So, the total sum of all the Nodes is - 21
-     */
+    vector<int> arr = {1, 2, 3, 4, 3};
+    int n = arr.size();
+    vector<vector<int>> dp(n, vector<int>(n, -1));
+    cout << matrixChainMultiplicationMemoI(arr, 1, n - 1, dp) << endl; // 30
 }
+// -------------------
+// using Tabulation -
+
+int matrixChainMultiplicationTabulation(vector<int> arr) // O(n^3)
+{
+    int n = arr.size();
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+
+    // dp[i][i] = 0 (only one matrix, no multiplication)
+    for (int i = 1; i < n; i++)
+    {
+        dp[i][i] = 0;
+    }
+    // bottom up fill
+    for (int len = 2; len < n; len++) // length of chain
+    {
+        for (int i = 1; i <= n - len; i++)
+        {
+            int j = i + len - 1;
+            dp[i][j] = INT_MAX;
+
+            for (int k = i; k < j; k++)
+            {
+                int cost1 = dp[i][k];
+                int cost2 = dp[k + 1][j];
+                int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+                dp[i][j] = min(dp[i][j], currCost);
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cout << dp[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return dp[1][n - 1];
+}
+
+int main()
+{
+    vector<int> arr = {1, 2, 3, 4, 3}; // n-> n-1 matrices (1 to n-1)
+
+    cout << matrixChainMultiplicationTabulation(arr) << endl;
+    /*
+    0 0 0 0 0
+    0 0 6 18 30
+    0 0 0 24 48
+    0 0 0 0 36
+    0 0 0 0 0
+
+    30
+    */
+}
+// ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
