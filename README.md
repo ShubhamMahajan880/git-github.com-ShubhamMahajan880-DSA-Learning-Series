@@ -79,7 +79,37 @@ This repository also serves as a reference for anyone preparing for **placements
 
 <br/><br/>
 
+
 <img width="1920" height="1080" alt="Day 35" src="https://github.com/user-attachments/assets/f30ab1d4-0227-4018-bf0c-e78cd15aad38" />
+
+### 🚀 My 90 days of code 
+
+<img width="1920" height="1080" alt="photo-collage png" src="https://github.com/user-attachments/assets/9cfb1373-b097-481d-a7e4-7e1bcfe91c77" />
+
+<br/><br/>
+
+<img width="1920" height="1080" alt="photo-collage png (1)" src="https://github.com/user-attachments/assets/5d1f4f8c-c522-49d6-880a-bc20c6f56621" />
+
+<br/><br/>
+
+<img width="1080" height="1080" alt="photo-collage png (2)" src="https://github.com/user-attachments/assets/59cab1d3-c897-407e-b9af-0f2263212e67" />
+
+<br/><br/>
+
+<img width="1080" height="1440" alt="photo-collage png (3)" src="https://github.com/user-attachments/assets/0dc61c89-31f3-4dbf-81a6-38bd1f5ab3ed" />
+
+<br/><br/>
+
+<img width="1920" height="1080" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/64b54a28-d0ae-4e6e-93d6-64258c7aff81" />
+
+<br/><br/>
+
+<img width="1440" height="1080" alt="12" src="https://github.com/user-attachments/assets/aced3a86-b4a0-4362-bfc1-3079fb9492b1" />
+
+<br/><br/>
+
+<img width="1446" height="815" alt="Screenshot 2026-02-12 012638" src="https://github.com/user-attachments/assets/674b1cf1-dd72-4a60-866a-d85c8c5a1579" />
+
 
 </div>
 
