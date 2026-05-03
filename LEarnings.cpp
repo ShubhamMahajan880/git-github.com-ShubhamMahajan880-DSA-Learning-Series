@@ -58,6 +58,7 @@ int matrixChainMultiplicationMemoI(vector<int> arr, int i, int j, vector<vector<
 
         // curr partition cost
         int currCost = cost1 + cost2 + (arr[i - 1] * arr[k] * arr[j]);
+
         ans = min(ans, currCost);
     }
     return dp[i][j] = ans;
@@ -65,9 +66,10 @@ int matrixChainMultiplicationMemoI(vector<int> arr, int i, int j, vector<vector<
 
 int main()
 {
+    vector<vector<int>> dp(n, vector<int>(n, -1));
+    vector<int> arr = {1, 2, 3, 4, 3};
     vector<int> arr = {1, 2, 3, 4, 3};
     int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n, -1));
     cout << matrixChainMultiplicationMemoI(arr, 1, n - 1, dp) << endl; // 30
 }
 // -------------------
@@ -126,5 +128,11 @@ int main()
 
     30
     */
+
+    cout<<"Doing cpp - 1times"<<endl;
+    cout<<"Doing cpp - 2times"<<endl;
+    cout<<"Doing cpp - 3times"<<endl;
+    cout<<"Doing cpp - 4times"<<endl;
+    cout<<"Doing cpp - 5times"<<endl;
 }
 // ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________

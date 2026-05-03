@@ -1,0 +1,92 @@
+Final Learnings - 
+
+1) Function declaration me agr void he to function me hi cout kr k print kr do ya only return use kro and calling me direct function call krenge with arguements no cout.
+2) Similarly agr int ya bool he to in end of function return as per data structure and fun calling me cout use krenge .. so that can be print whatever we want
+
+3) On gfg - complete program likha he - pura program llikhna h like vs code ibclude main function, taking var, defining and all .
+   On Leetcode - always the logic part.. 
+4) me will take always - start,end pointers for two Pointer Approaches & low,high pointers for Binary Search approaches
+
+5) In vectors too sort and reverse like we do in strings - 
+// Ascending sort
+sort(arr.begin(), arr.end());
+
+// Descending sort
+sort(arr.begin(), arr.end(), greater<int>());
+
+// Reverse vector
+reverse(arr.begin(), arr.end());
+
+6) In vector  matrix, always assigning row and column as - 
+vector<vector<int>> transpose(vector<vector<int>>& mat) {
+            int n = mat.size();
+            int m = mat[0].size();
+
+
+7) when creating stack for any template T then in main function while creating object of stack class need to mention n=the value type , because its T template. dont crete the object only .
+8)  when wnat to return with any datatype... any unknown rando wnat return message use - throw_runtime_error("MESSAGE");	
+Have alook - 
+
+1) Union & Intereseciton 
+2)Merge & Quick Sort
+ - String Anangram  shraddha
+
+3) Buy & Sell Stock
+4) Trapping Rainwater Problem
+5) Valid anangram  using doffertn method
+Recursion - 
+6) Remove Duplicates from String
+7) Binary Strings Problem
+
+Wwatch - Quick Sort
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    cout<<"I will crack 20 LPA Package soon"<<endl;
+    return 0;
+}
+
+56 23 12 45 78 98 10
+
+56 12 56 45 89 56 56
+
+10 20 30 40 50 60 70
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+
+
+
+    ll.push_front(6);
+    ll.push_front(5);
+    ll.push_front(4);
+    ll.push_front(3);
+    ll.push_front(2);
+    ll.push_front(1);
+    
+    ll.print_list();
+    
+    ll.push_back(15);
+    ll.push_back(20);
+    
+    ll.print_list();
+    
+    ll.insert_list(25,4);
+    
+    ll.print_list();
+
+
+vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+5,1,3,4,2,7,9
+
+//_________________________________________
+
+//______
+
+Finally Optimized – 
