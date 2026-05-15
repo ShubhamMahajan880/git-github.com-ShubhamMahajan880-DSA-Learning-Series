@@ -62,6 +62,9 @@ int matrixChainMultiplicationMemoI(vector<int> arr, int i, int j, vector<vector<
         ans = min(ans, currCost);
     }
     return dp[i][j] = ans;
+    passijg a rgumenets inside construcotr is really a good thing
+     and provides us helo in
+      directly object creation
 }
 
 int main()
@@ -129,10 +132,10 @@ int main()
     30
     */
 
-    cout<<"Doing cpp - 1times"<<endl;
-    cout<<"Doing cpp - 2times"<<endl;
-    cout<<"Doing cpp - 3times"<<endl;
-    cout<<"Doing cpp - 4times"<<endl;
-    cout<<"Doing cpp - 5times"<<endl;
+    cout << "Doing cpp - 1times" << endl;
+    cout << "Doing cpp - 2times" << endl;
+    cout << "Doing cpp - 3times" << endl;
+    cout << "Doing cpp - 4times" << endl;
+    cout << "Doing cpp - 5times" << endl;
 }
 // ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________ ____________
